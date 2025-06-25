@@ -6,7 +6,7 @@ export const MainContainerLayout = () => {
       <SideBar />
 
       {/* principal content */}
-      <main className="ml-20 w-full min-h-screen bg-gray-100 p-6">
+      <main className="w-full min-h-screen bg-gray-100 p-6">
         <Outlet /> {/* renders the routes (pages) */}
       </main>
     </div>
