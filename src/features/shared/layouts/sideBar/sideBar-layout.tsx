@@ -1,11 +1,11 @@
-import logoAF from "../../../core/assets/icons/sidebar/AF-logo-sidebar.svg";
-import IconDashboard from "../../../core/assets/icons/sidebar/icon-dashboard.svg";
-import IconDispositives from "../../../core/assets/icons/sidebar/icon-dispositives.svg";
-import IconNotifications from "../../../core/assets/icons/sidebar/icon-notifications.svg";
-import IconOut from "../../../core/assets/icons/sidebar/icon-out.svg";
-import IconSettings from "../../../core/assets/icons/sidebar/icon-settings.svg";
-import IconStats from "../../../core/assets/icons/sidebar/icon-stats.svg";
-import AsideIconReu from "../../../shared/components/navItems/aside-icon-reu";
+import logoAF from "../../../../core/assets/icons/sidebar/AF-logo-sidebar.svg";
+import IconDashboard from "../../../../core/assets/icons/sidebar/icon-dashboard.svg";
+import IconDispositives from "../../../../core/assets/icons/sidebar/icon-dispositives.svg";
+import IconNotifications from "../../../../core/assets/icons/sidebar/icon-notifications.svg";
+import IconOut from "../../../../core/assets/icons/sidebar/icon-out.svg";
+import IconSettings from "../../../../core/assets/icons/sidebar/icon-settings.svg";
+import IconStats from "../../../../core/assets/icons/sidebar/icon-stats.svg";
+import AsideIconReu from "../../components/navItems/aside-icon-reu";
 export const SideBar = () => {
   return (
     <>
