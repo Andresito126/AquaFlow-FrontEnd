@@ -6,7 +6,7 @@ export const MainContainerLayout = () => {
       <SideBar />
 
       {/* principal content */}
-      <main className="flex-1 bg-green-800 p-3 ">
+      <main className="flex-1 bg-[#01182B] p-3 ">
         <Outlet /> {/* renders the routes (pages) */}
       </main>
     </div>

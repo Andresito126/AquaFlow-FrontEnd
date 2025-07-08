@@ -11,10 +11,10 @@ export const SideBar = () => {
     <>
       <aside
         id="separator-sidebar"
-        className="w-[18.75rem] h-screen bg-[#0B1E2C] overflow-y-auto"
+        className="w-[18.75rem] h-screen bg-[#011423] overflow-y-auto"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 flex flex-col justify-between  bg-[#0B1E2C]">
+        <div className="h-full px-3 py-4 flex flex-col justify-between  bg-[#011423]">
           {/* top icons */}
           <div>
             <img src={logoAF} alt="Logo" className="mx-auto mb-[1.875rem]" />
