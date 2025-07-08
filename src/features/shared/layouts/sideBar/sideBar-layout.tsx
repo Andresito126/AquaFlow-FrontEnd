@@ -11,37 +11,41 @@ export const SideBar = () => {
     <>
       <aside
         id="separator-sidebar"
-        className="fixed top-0 left-0 z-40 max-w-20 w-20 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className="w-[18.75rem] h-screen bg-[#0B1E2C] overflow-y-auto"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 oflex flex-col justify-between  bg-[#0B1E2C]">
+        <div className="h-full px-3 py-4 flex flex-col justify-between  bg-[#0B1E2C]">
           {/* top icons */}
           <div>
             <img src={logoAF} alt="Logo" className="mx-auto mb-[1.875rem]" />
 
-            <ul className="flex flex-col gap-y-3 mt-6">
-              <hr className="bg-white h-px border-0" />
+            <ul className="flex flex-col gap-y-1 mt-6">
+
               <AsideIconReu
+                nameNav= "Dashboard"
                 to="/dashboard"
                 icon={IconDashboard}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
+                nameNav= "Estadísticas"
                 to="/stats"
                 icon={IconStats}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
-                to="/notifications"
-                icon={IconNotifications}
+                nameNav= "Estado del filtro"
+                to="/dispositioves"
+                icon={IconDispositives}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
-                to="/dispotives"
-                icon={IconDispositives}
+                nameNav= "Notificaciones"
+                to="/notifications"
+                icon={IconNotifications}
                 alt="Dashboard Icon"
               ></AsideIconReu>
             </ul>
@@ -49,15 +53,17 @@ export const SideBar = () => {
 
           {/* bottom icons */}
 
-          <ul className="flex flex-col gap-y-3 mt-6">
-            <hr className="bg-white h-px border-0" />
+          <ul className="flex flex-col gap-y-1 mt-6">
+ 
             <AsideIconReu
+              nameNav= "Configuración"
               to="/settings"
               icon={IconSettings}
               alt="Dashboard Icon"
             ></AsideIconReu>
 
             <AsideIconReu
+              nameNav= "Cerrar sesión"
               to="/signOut"
               icon={IconOut}
               alt="Dashboard Icon"
