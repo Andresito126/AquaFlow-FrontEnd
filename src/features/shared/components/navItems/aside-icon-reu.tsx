@@ -29,7 +29,7 @@ const NavItem: React.FC<Props> = ({ to, icon, alt, label, nameNav }) => {
           className="transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white"
         />
         <p
-        className="text-[20px] pl-[1.875rem] font-"
+        className="text-[20px] pl-[1.875rem] font-regular"
         >{nameNav}</p>
         {label && <span className="ml-2">{label}</span>}
       </NavLink>
