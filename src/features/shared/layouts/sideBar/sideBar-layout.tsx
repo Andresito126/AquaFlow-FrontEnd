@@ -11,7 +11,7 @@ export const SideBar = () => {
     <>
       <aside
         id="separator-sidebar"
-        className="w-[18.75rem]  bg-[#011423] overflow-y-auto mb-[20px] mt-[20px] ml-[10px] rounded-[20px]"
+        className="w-[18.75rem] shadow-lg p-4 bg-[#011423] overflow-y-auto mb-[20px] mt-[20px] ml-[10px] rounded-[20px]"
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 flex flex-col justify-between  bg-[#011423]">

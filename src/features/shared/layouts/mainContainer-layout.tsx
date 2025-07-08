@@ -1,3 +1,4 @@
+import { AsideContainerLayout } from "./asideContainer-layout";
 import { SideBar } from "./sideBar/sideBar-layout";
 import { Outlet } from "react-router-dom";
 export const MainContainerLayout = () => {
@@ -9,6 +10,8 @@ export const MainContainerLayout = () => {
       <main className="flex-1 bg-[#01182B] mt-[20px] ml-[20px] mr-[20px] ">
         <Outlet /> {/* renders the routes (pages) */}
       </main>
+
+      <AsideContainerLayout/>
     </div>
   );
 };
