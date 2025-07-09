@@ -10,9 +10,9 @@ import BarTDS from "../../../../core/assets/icons/sensors/bar-counter-tds.svg";
 export const CardDashboardRealTime = () => {
   return (
     <>
-    <div className="p-6 bg-[#011521] rounded-[20px]">
+    <div className="shadow-lg p-6 bg-[#011521] rounded-[20px]">
       <div className="mb-4">
-        <h2 className="text-white text-xl font-semibold">
+        <h2 className="text-[32px] font-semibold">
           Monitoreo sobre la calidad del agua
         </h2>
       </div>
