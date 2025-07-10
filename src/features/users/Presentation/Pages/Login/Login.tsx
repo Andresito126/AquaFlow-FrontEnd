@@ -1,5 +1,5 @@
-import imagen from "../../../../../core/assets/login.png";
-import ima from "../../../../../core/assets/aqua.png";
+
+// import ima from "../../../../../core/assets/aqua.png";
 
 import './Login.css';
 
@@ -8,7 +8,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-left">
         <div className="login-box">
-          <img src={ima} alt="AquaFlow Logo" className="login-logo" />
+          {/* <img src={ima} alt="AquaFlow Logo" className="login-logo" /> */}
           <h2>Sign in</h2>
 
           <label htmlFor="email">Email</label>
@@ -31,7 +31,7 @@ const Login = () => {
 
       <div className="login-right">
         <div className="login-right-content">
-          <img src={imagen} alt="AquaFlow" className="img" />
+          {/* <img src=img alt="AquaFlow" className="img" /> */}
           <h2>WELCOME BACK</h2>
           <p>SÉ PARTE DEL CAMBIO HACIA UN FUTURO MÁS RESPONSABLE CON EL AGUA</p>
         </div>

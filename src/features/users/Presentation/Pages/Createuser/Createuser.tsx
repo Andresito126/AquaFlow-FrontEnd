@@ -1,13 +1,13 @@
 import './Crateuser.css';
-import img from "../../../../core/assets/image21.png";
-import image from "../../../../core/assets/hori.png";
+// import img from "../../../../core/assets/image21.png";
+// import image from "../../../../core/assets/hori.png";
 
 const CreateUser = () => {
   return (
     <div className="auth-container">
       <div className="auth-left">
         <div className="auth-left-content">
-          <img src={img} alt="AquaFlow" className='img'/>
+          {/* <img src={img} alt="AquaFlow" className='img'/> */}
           <h2>OPTIMIZA EL USO DEL AGUA</h2>
           <p>Monitorea, analiza y reutiliza con inteligencia</p>
         </div>
@@ -15,7 +15,7 @@ const CreateUser = () => {
 
       <div className="auth-right">
         <div className="auth-logo-wrapper">
-          <img src={image} className="auth-logo" alt="AquaFlow Logo" />
+          {/* <img src={image} className="auth-logo" alt="AquaFlow Logo" /> */}
         </div>
 
         <div className="auth-box">
