@@ -9,3 +9,4 @@ createRoot(document.getElementById('root')!).render(
     <RouterProvider router={navigationWrapper} />
   </React.StrictMode>
 )
+
