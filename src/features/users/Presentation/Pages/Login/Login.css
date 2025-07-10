@@ -1,0 +1,135 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.login-left {
+  width: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  overflow-y: auto;
+}
+
+.login-right {
+  width: 50%;
+  background-color: #01182B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.login-right-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-right-content p {
+  font-size: 16px;
+  color: #ccc;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.login-logo {
+  width: 70px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.login-box h2 {
+  text-align: left;
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-box label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #C8C8C8;
+  outline: none;
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-box button {
+  width: 100%;
+  background-color: #01182B;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #022646;
+}
+
+.signup-text {
+  margin-top: 100px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.signup-text a {
+  color: #01182B;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+}
+
+.divider span {
+  padding: 0 10px;
+  color: #999;
+  font-size: 14px;
+}
