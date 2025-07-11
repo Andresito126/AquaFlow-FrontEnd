@@ -1,5 +1,3 @@
-// features/sensors/presentation/components/SensorLineChart.tsx
-
 import {
   LineChart,
   Line,
@@ -9,6 +7,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
   Label,
+  Customized,
 } from "recharts";
 
 interface SensorDataPoint {
@@ -20,8 +19,26 @@ interface Props {
   title: string;
   data: SensorDataPoint[];
   strokeColor?: string;
-  unit?: string; //  "°C", "mg/L", "NTU", etc.
+  unit?: string;
 }
+
+const CenteredTitle = ({ title }: { title: string }) => {
+  return (
+    <text
+      x="50%"
+      y={7}
+      textAnchor="middle"
+      dominantBaseline="middle"
+      style={{
+        fontSize: "16px",
+        fontWeight: "bold",
+        fill: "#333",
+      }}
+    >
+      {title}
+    </text>
+  );
+};
 
 export const SensorLineChart = ({
   title,
@@ -30,16 +47,13 @@ export const SensorLineChart = ({
   unit = "",
 }: Props) => {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-md w-full">
-      <h2 className="text-lg font-semibold text-gray-800 mb-2">{title}</h2>
+    <div className="bg-white p-4 rounded-xl shadow-md w-full border border-[#105B85]">
       <ResponsiveContainer width="100%" height={250}>
         <LineChart data={data}>
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-          
           <XAxis dataKey="time">
             <Label value="Hora del día" offset={-5} position="insideBottom" />
           </XAxis>
-
           <YAxis>
             <Label
               value={unit}
@@ -49,7 +63,6 @@ export const SensorLineChart = ({
               style={{ textAnchor: "middle" }}
             />
           </YAxis>
-
           <Tooltip />
           <Line
             type="monotone"
@@ -57,6 +70,8 @@ export const SensorLineChart = ({
             stroke={strokeColor}
             strokeWidth={2}
           />
+          <Customized component={() => <CenteredTitle title={title} />} />
+
         </LineChart>
       </ResponsiveContainer>
     </div>

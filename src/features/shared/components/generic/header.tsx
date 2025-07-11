@@ -19,7 +19,7 @@ const Header: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <div className=" shadow-lg p-4 h-fit bg-[#011521] flex justify-between items-center px-[20px] py-[20px] text-white rounded-[20px]">
+      <div className=" shadow-lg p-4 h-fit bg-[#011521] flex justify-between items-center px-[20px] py-[20px] text-white rounded-[20px] border-[#105B85] border-[1px] ">
         <div className="">
           <p className="text-[35px] font-semibold">{title}</p>
           <p className="text-[15px] font-medium">{subtitle}</p>

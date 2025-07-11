@@ -1,17 +1,21 @@
 import Header from "../../../shared/components/generic/header";
 import IconReuse from "../../../../core/assets/icons/header/icon-stadistics-header.svg";
 import { BoxSensorLineChart } from "../layouts/dashboard/box-sensor-linechart";
-
+import { useDateTime } from "../../../shared/hooks/useDataTime";
 
 export const StadisticsPage = () => {
+  const { date, time } = useDateTime();
+
   return (
     <>
-      <div className="flex flex-col items-stretch gap-4">
+      <div className="flex flex-col items-stretch gap-4 ">
         <Header
           title="Estadísticas de tu filtrador"
           subtitle="Visualiza y descarga el historial de tus mediciones"
           subtitle2="IOT + Software para el cuidado del agua"
           icon={IconReuse}
+          date={date}
+          time={time}
         />
 
         <BoxSensorLineChart />
