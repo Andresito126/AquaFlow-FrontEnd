@@ -1,6 +1,6 @@
 import Header from "../../../shared/components/generic/header";
 import IconEarth from "../../../../core/assets/icons/header/icon-earth.svg";
-import { CardDashboardRealTime } from "../../../sensors/presentation/layouts/card-dashboard";
+import { CardDashboardRealTime } from "../../../sensors/presentation/layouts/dashboard/card-dashboard";
 import ActivityLayerSection from "../layouts/activity-layer-section";
 import AutoCarousel from "../layouts/carousel";
 

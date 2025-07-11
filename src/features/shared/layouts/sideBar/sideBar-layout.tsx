@@ -30,14 +30,14 @@ export const SideBar = () => {
 
               <AsideIconReu
                 nameNav= "Estadísticas"
-                to="/stats"
+                to="/stadistics"
                 icon={IconStats}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
                 nameNav= "Estado del filtro"
-                to="/dispositioves"
+                to="/dispositives"
                 icon={IconDispositives}
                 alt="Dashboard Icon"
               ></AsideIconReu>

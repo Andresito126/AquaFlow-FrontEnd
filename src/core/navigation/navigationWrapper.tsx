@@ -3,6 +3,7 @@ import { Dashboard } from "../../features/dashboard/presentation/pages/Dashboard
 import { MainContainerLayout } from "../../features/shared/layouts/mainContainer-layout";
 import Login from "../../features/users/Presentation/Pages/Login/Login";
 import CreateUser from "../../features/users/Presentation/Pages/Createuser/Createuser";
+import { StadisticsPage } from "../../features/sensors/presentation/pages/Stadistics-page";
 
 export const navigationWrapper = createBrowserRouter([
 
@@ -30,6 +31,14 @@ export const navigationWrapper = createBrowserRouter([
       { path: "dashboard", element: <Dashboard /> },
     ],
   },
+
+  {
+    path: "/",
+    element : <MainContainerLayout/>,
+    children: [
+      {path: "stadistics", element: <StadisticsPage></StadisticsPage>}
+    ]
+  }
 
 
 ]);
