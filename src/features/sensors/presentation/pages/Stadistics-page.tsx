@@ -1,7 +1,8 @@
 import Header from "../../../shared/components/generic/header";
 import IconReuse from "../../../../core/assets/icons/header/icon-stadistics-header.svg";
-import { BoxSensorLineChart } from "../layouts/dashboard/box-sensor-linechart";
+import { BoxSensorLineChart } from "../layouts/statistics/box-sensor-linechart";
 import { useDateTime } from "../../../shared/hooks/useDataTime";
+import { BoxSensorBarChart } from "../layouts/statistics/box-sensor-barchart";
 
 export const StadisticsPage = () => {
   const { date, time } = useDateTime();
@@ -20,6 +21,8 @@ export const StadisticsPage = () => {
 
         <BoxSensorLineChart />
 
+        <BoxSensorBarChart />
+        
       </div>
     </>
   );
