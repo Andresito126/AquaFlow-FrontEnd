@@ -7,46 +7,49 @@ import IconTurbidity from "../../../../core/assets/icons/sensors/icon-turbuidez-
 import BarTurbuidez from "../../../../core/assets/icons/sensors/bar-counter-turbuidez.svg";
 import IconTDS from "../../../../core/assets/icons/sensors/icon-tds-dash.svg";
 import BarTDS from "../../../../core/assets/icons/sensors/bar-counter-tds.svg";
+import { useSensorReadingsSocket } from "../hooks/useSensorReadingsSocket";
+
 export const CardDashboardRealTime = () => {
+  const userId = "123"; // ⚠️ Asegúrate que este ID sea el mismo que emite el backend
+  const data = useSensorReadingsSocket(userId);
+
   return (
-    <>
-      <div className="shadow-lg p-6 bg-[#011521] rounded-[20px]">
-        <div className="mb-4">
-          <h2 className="text-[25px] font-semibold">
-            Monitoreo sobre la calidad del agua
-          </h2>
-        </div>
-        <div className="flex flex-wrap items-center justify-between ml-[10%] mr-[10%]">
-          <StatsRealTime
-            icon={IconTemperature}
-            data="35 °C"
-            graph={BarTemperature}
-            title="Temperature"
-            alt="Ícono de temperatura"
-          />
-          <StatsRealTime
-            icon={IconPH}
-            data="7,3"
-            graph={BarPH}
-            title="Ph"
-            alt="Ícono de pH"
-          />
-          <StatsRealTime
-            icon={IconTurbidity}
-            data="55 ppm"
-            graph={BarTurbuidez}
-            title="Turbidez"
-            alt="Ícono de turbidez"
-          />
-          <StatsRealTime
-            icon={IconTDS}
-            data="5 pm"
-            graph={BarTDS}
-            title="TDS"
-            alt="Ícono de TDS"
-          />
-        </div>
+    <div className="shadow-lg p-6 bg-[#011521] rounded-[20px]">
+      <div className="mb-4">
+        <h2 className="text-[25px] font-semibold">
+          Monitoreo sobre la calidad del agua
+        </h2>
       </div>
-    </>
+      <div className="flex flex-wrap items-center justify-between ml-[10%] mr-[10%]">
+        <StatsRealTime
+          icon={IconTemperature}
+          data={`${data?.temperature?.values ?? "--"} °C`}
+          graph={BarTemperature}
+          title="Temperature"
+          alt="Ícono de temperatura"
+        />
+        <StatsRealTime
+          icon={IconPH}
+          data={`${data?.ph?.values ?? "--"}`}
+          graph={BarPH}
+          title="Ph"
+          alt="Ícono de pH"
+        />
+        <StatsRealTime
+          icon={IconTurbidity}
+          data={`${data?.turbidity?.values ?? "--"} ppm`}
+          graph={BarTurbuidez}
+          title="Turbidez"
+          alt="Ícono de turbidez"
+        />
+        <StatsRealTime
+          icon={IconTDS}
+          data={`${data?.tds?.values ?? "--"} ppm`}
+          graph={BarTDS}
+          title="TDS"
+          alt="Ícono de TDS"
+        />
+      </div>
+    </div>
   );
 };
