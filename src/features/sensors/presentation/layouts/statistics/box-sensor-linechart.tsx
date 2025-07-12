@@ -1,13 +1,16 @@
-
+import { temperatureMock } from "../../../data/mock/temperatureMock";
 import { SensorLineChart } from "../../components/sensorLineChart";
 import { useSensorData } from "../../hooks/useSensorChartData";
 
 
 export const BoxSensorLineChart = () => {
-  const tempData = useSensorData("temperature");
-  const phData = useSensorData("ph");
-  const tdsData = useSensorData("tds");
-  const turbidezData = useSensorData("turbidez");
+const selectedDate = "2025-07-11";
+const today = new Date().toISOString().split("T")[0]; // Ej: 2025-07-11
+
+const tempData = useSensorData("Temperatura", today);
+const phData = useSensorData("pH", selectedDate);
+const tdsData = useSensorData("TDS", selectedDate);
+const turbidezData = useSensorData("Turbidez", selectedDate);
 
   return (
     <div className="p-6 bg-[#011521] rounded-[20px] w-full border-[#105B85] border-[1px]">
@@ -25,19 +28,19 @@ export const BoxSensorLineChart = () => {
         />
         <SensorLineChart
           title="pH"
-          data={phData}
+          data={temperatureMock}
           strokeColor="#2196F3"
           unit="pH"
         />
         <SensorLineChart
           title="TDS (ppm)"
-          data={tdsData}
+          data={temperatureMock}
           strokeColor="#4CAF50"
           unit="ppm"
         />
         <SensorLineChart
           title="Turbidez (NTU)"
-          data={turbidezData}
+          data={temperatureMock}
           strokeColor="#9C27B0"
           unit="NTU"
         />
