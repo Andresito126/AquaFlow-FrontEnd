@@ -3,6 +3,8 @@ import CardUser from "../../users/Presentation/components/dashboard/card-user";
 import IconMale from "../../../core/assets/icons/login-register/icon-male.svg";
 import { useTheme } from "../hooks/useTheme";
 import { useDateTime } from "../hooks/useDataTime";
+import WeatherWidget from "../../weather/presentation/layouts/weather-layout";
+import ThemeToggleButton from "../components/generic/ThemeToggleButton";
 export const AsideContainerLayout = () => {
   const { date, time } = useDateTime();
   const { pathname } = useLocation();
@@ -28,15 +30,17 @@ export const AsideContainerLayout = () => {
           <h1>Device </h1>
         </div>
       </div>
-        <div className="shadow-lg p-2 rounded-full mt-[7%]  dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-1 transition duration-300 ">
-          <button
-            onClick={toggleTheme}
-            className="text-xl focus:outline-none transition"
-            title="Cambiar tema"
-          >
-            {theme === "dark" ? "☀️" : "🌙"}
-          </button>
-        </div>
+      <div className="shadow-lg p-2 rounded-[20px] mt-[7%] min-h-[305px] dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-1">
+        <h1>MASCTOTA IMG</h1>
+      </div>
+
+      <div className="shadow-lg p-2 rounded-[20px] mt-[7%] min-h-[380px] dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-1">
+         <WeatherWidget city="Tuxtla Gutierrez Chiapas" />
+      </div>
+    <div>
+   <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
+</div>
+
       
     </aside>
   );
