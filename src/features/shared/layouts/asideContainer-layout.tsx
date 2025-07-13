@@ -35,7 +35,7 @@ export const AsideContainerLayout = () => {
       </div>
 
       <div className="shadow-lg p-2 rounded-[20px] mt-[7%] min-h-[380px] dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-1">
-         <WeatherWidget city="Tuxtla Gutierrez Chiapas" />
+         <WeatherWidget city="Mexico,mx" />
       </div>
     <div>
    <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />

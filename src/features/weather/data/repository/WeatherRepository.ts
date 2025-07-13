@@ -29,6 +29,8 @@ export class WeatherRepository implements IWeatherRepository {
       description: data.weather[0].description,
       icon: data.weather[0].icon,
       city: data.name,
+      windSpeed: data.wind.speed,
+      humidity: data.main.humidity,
     };
   }
 }
