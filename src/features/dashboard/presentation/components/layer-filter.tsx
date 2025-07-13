@@ -5,7 +5,7 @@ export default function LayerCard() {
 
 
 
-      <div className="flex flex-col items-center justify-center bg-[#011521] p-6 rounded-xl w-1/3">
+      <div className=" shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] flex flex-col items-center justify-center p-6 rounded-[20px] w-1/3">
         <h2 className="text-lg font-bold mb-4">Capas del filtrador</h2>
         <div className="relative w-12 h-12">
        <img src={LayerFilter} alt="" />

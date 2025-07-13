@@ -13,12 +13,12 @@ type Props = {
   interval?: number;
 };
 
-const AutoCarousel: React.FC<Props> = ({ slides, title, interval = 5000 }) => {
+const AutoCarousel: React.FC<Props> = ({ slides, title, interval = 10000 }) => {
   const { index, goNext, goPrev } = useAutoSlide(slides.length, interval);
   const current = slides[index];
 
   return (
-    <div className="bg-[#011521] rounded-2xl p-6 w-full  mx-auto text-white shadow-lg space-y-6">
+    <div className="dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] rounded-[20px] p-6 w-full  mx-auto  shadow-lg space-y-6">
       <h2 className="text-center text-xl font-semibold">{title}</h2>
 
       <div className="flex items-center justify-center gap-6">
@@ -34,7 +34,7 @@ const AutoCarousel: React.FC<Props> = ({ slides, title, interval = 5000 }) => {
             alt="Slide image"
             className="w-28 h-28 object-contain"
           />
-          <p className="max-w-md text-sm leading-relaxed text-white">
+          <p className="max-w-md text-sm leading-relaxed ">
             {current.text}
           </p>
         </div>
