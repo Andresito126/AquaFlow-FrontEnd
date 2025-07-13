@@ -14,7 +14,7 @@ export const StadisticsPage = () => {
           title="Estadísticas de tu filtrador"
           subtitle="Visualiza y descarga el historial de tus mediciones"
           subtitle2="IOT + Software para el cuidado del agua"
-          icon={IconReuse}
+          icon1={IconReuse}
           date={date}
           time={time}
         />

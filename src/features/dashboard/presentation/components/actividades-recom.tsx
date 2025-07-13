@@ -45,7 +45,7 @@ const ActividadRecom: React.FC<Props> = ({ icon, progress, size = 56 }) => {
       </svg>
 
  
-      <div className="text-white text-xl z-10"><img src={icon} alt="" /></div>
+      <div className="dark:text-white text-xl z-10"><img src={icon} alt="" /></div>
     </div>
   );
 };
