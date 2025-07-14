@@ -6,7 +6,7 @@ interface Props {
 }
 
 const WeatherCard: React.FC<Props> = ({ weather }) => (
-  <div className="flex flex-col items-center justify-center text-center p-6 rounded-2xl shadow-md space-y-3">
+  <div className="flex flex-col items-center justify-center text-center space-y-3">
     <img
       src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`}
       alt={weather.description}
