@@ -7,7 +7,7 @@ import { FilterLayerRow } from "../components/FilterLayerRow";
 
 const dummyLayers = [
   {
-    left: { name: "Sand", value: 59, status: "Medium" as const, date: "11-04-25" },
+    left: { name: "Sand", value: 59, status: "Good" as const, date: "11-04-25" },
     right: { name: "Activated Carbon", value: 75, status: "Good" as const, date: "22-04-25" },
   },
   {
@@ -15,13 +15,18 @@ const dummyLayers = [
     right: { name: "Land", value: 65, status: "Medium" as const, date: "25-04-25" },
   },
   {
-    left: { name: "Water", value: 15, status: "Bad" as const, date: "01-04-25" },
+    left: { name: "Water", value: 15, status: "Good" as const, date: "01-04-25" },
     right: { name: "Activated Carbon", value: 75, status: "Good" as const, date: "22-04-25" },
   },
   {
+    left: { name: "Activated Carbon", value: 75, status: "Bad" as const, date: "22-04-25" },
+    right: { name: "Activated Carbon", value: 75, status: "Bad" as const, date: "22-04-25" },
+  },
+    {
     left: { name: "Activated Carbon", value: 75, status: "Good" as const, date: "22-04-25" },
     right: { name: "Activated Carbon", value: 75, status: "Good" as const, date: "22-04-25" },
   },
+  
 ];
 
 export const FilterPage = () => {

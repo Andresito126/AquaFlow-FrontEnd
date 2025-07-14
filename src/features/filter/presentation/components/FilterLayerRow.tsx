@@ -15,38 +15,31 @@ type Props = {
 };
 
 export const FilterLayerRow = ({ left, right, direction }: Props) => {
-  const isRight = direction === "right";
+  const data = direction === "left" ? left : right;
 
   return (
-    <div className="flex items-center justify-between gap-4 w-full">
-      {isRight ? (
-        <>
-          <div className="w-1/4">
-            <FilterInfoCard {...left} />
-          </div>
-
-          <div className="w-1/2">
-            <FilterLayerImage direction="right" />
-          </div>
-
-          <div className="w-1/4">
-            <FilterInfoCard {...right} />
-          </div>
-        </>
+    <div className="grid grid-cols-3 items-center gap-4 w-full">
+      {/* col izq */}
+      {direction === "left" ? (
+        <div className="col-span-1">
+          <FilterInfoCard {...data} />
+        </div>
       ) : (
-        <>
-          <div className="w-1/4">
-            <FilterInfoCard {...right} />
-          </div>
+        <div className="col-span-1" />
+      )}
 
-          <div className="w-1/2">
-            <FilterLayerImage direction="left" />
-          </div>
+      {/* img filter*/}
+      <div className="col-span-1">
+        <FilterLayerImage direction={direction} />
+      </div>
 
-          <div className="w-1/4">
-            <FilterInfoCard {...left} />
-          </div>
-        </>
+      {/* col der*/}
+      {direction === "right" ? (
+        <div className="col-span-1">
+          <FilterInfoCard {...data} />
+        </div>
+      ) : (
+        <div className="col-span-1" />
       )}
     </div>
   );
