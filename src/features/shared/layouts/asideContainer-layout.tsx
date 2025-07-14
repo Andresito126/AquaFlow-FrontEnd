@@ -16,16 +16,11 @@ export const AsideContainerLayout = () => {
 
   return (
     <aside className=" flex flex-col justify-between w-[300px] h-full  mt-[10px] mb-[10px] min-h-screen  lg:block mr-[20px] ">
-          {/* <aside className="flex flex-col justify-between w-[300px] min-h-screen  lg:flex mr-[20px] mt-[10px] mb-[10px]"> */}
-      
+      {/* <aside className="flex flex-col justify-between w-[300px] min-h-screen  lg:flex mr-[20px] mt-[10px] mb-[10px]"> */}
+
       <div className="flex flex-col  rounded-lg  ">
-          <CardUser
-            avatar={IconMale}
-            name="John Doe"
-            hour={time}
-            date={date}
-          />
-      
+        <CardUser avatar={IconMale} name="John Doe" hour={time} date={date} />
+
         <div className="px-[8px] py-[8px]  shadow-lg mt-5 dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85]  h-[50px] flex border-1 rounded-[20px]">
           <h1>Device </h1>
         </div>
@@ -35,13 +30,11 @@ export const AsideContainerLayout = () => {
       </div>
 
       <div className="shadow-lg p-2 rounded-[20px] mt-[7%] min-h-[380px] dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-1">
-         <WeatherWidget city="Mexico,mx" />
+        <WeatherWidget city="Mexico,mx" />
       </div>
-    <div>
-   <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
-</div>
-
-      
+      <div>
+        <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
+      </div>
     </aside>
   );
 };

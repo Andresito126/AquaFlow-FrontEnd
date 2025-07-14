@@ -13,9 +13,9 @@ const tdsData = useSensorData("TDS", selectedDate);
 const turbidezData = useSensorData("Turbidez", selectedDate);
 
   return (
-    <div className="p-6 bg-[#011521] rounded-[20px] w-full border-[#105B85] border-[1px]">
+    <div className="p-6 dark:bg-[#011521] rounded-[20px] w-full border-[#CBD5E1] dark:border-[#105B85] border-[1px]">
 
-      <h2 className="text-white text-[28px] font-semibold mb-4">
+      <h2 className=" text-[28px] font-semibold mb-4">
         Gráficas de cada sensor
       </h2>
 
