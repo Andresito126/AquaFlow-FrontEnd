@@ -4,6 +4,7 @@ import { MainContainerLayout } from "../../features/shared/layouts/mainContainer
 import Login from "../../features/users/Presentation/Pages/Login/Login";
 import CreateUser from "../../features/users/Presentation/Pages/Createuser/Createuser";
 import { StadisticsPage } from "../../features/sensors/presentation/pages/Stadistics-page";
+import { FilterPage } from "../../features/filter/presentation/pages/Filter-page";
 
 export const navigationWrapper = createBrowserRouter([
 
@@ -14,7 +15,7 @@ export const navigationWrapper = createBrowserRouter([
 //   },
 
  {
-    path: '/',
+    path: '/login',
     element: <Login />,
   },
   {
@@ -37,6 +38,14 @@ export const navigationWrapper = createBrowserRouter([
     element : <MainContainerLayout/>,
     children: [
       {path: "stadistics", element: <StadisticsPage></StadisticsPage>}
+    ]
+  },
+
+   {
+    path: "/",
+    element : <MainContainerLayout/>,
+    children: [
+      {path: "filter", element: <FilterPage/>}
     ]
   }
 
