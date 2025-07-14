@@ -37,7 +37,7 @@ export const SideBar = () => {
 
               <AsideIconReu
                 nameNav= "Estado del filtro"
-                to="/dispositives"
+                to="/filter"
                 icon={IconDispositives}
                 alt="Dashboard Icon"
               ></AsideIconReu>
