@@ -5,6 +5,7 @@ import Login from "../../features/users/Presentation/Pages/Login/Login";
 import CreateUser from "../../features/users/Presentation/Pages/Createuser/Createuser";
 import { StadisticsPage } from "../../features/sensors/presentation/pages/Stadistics-page";
 import { FilterPage } from "../../features/filter/presentation/pages/Filter-page";
+import { AdminPage } from "../../features/admin/presentation/pages/Admin-page";
 
 export const navigationWrapper = createBrowserRouter([
 
@@ -22,6 +23,12 @@ export const navigationWrapper = createBrowserRouter([
     path: '/createuser',
     element: <CreateUser></CreateUser>,
   },
+
+   {
+    path: '/admin',
+    element: <AdminPage/>,
+  },
+
 
   /* WITH THE SIDEBAR */
   
