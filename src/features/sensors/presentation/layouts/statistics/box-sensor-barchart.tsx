@@ -3,8 +3,9 @@ import { WaterQualityBarChart } from "../../components/waterQualityBarChart";
 
 export const BoxSensorBarChart = () => {
   return (
-    <div className="p-6 bg-[#011521] rounded-[20px] w-full border border-[#105B85]">
-      <h2 className="text-white text-2xl font-semibold mb-4">
+    <div className="p-6 dark:bg-[#011521] rounded-[20px] w-full  border-[#CBD5E1] dark:border-[#105B85] border-[1px]">
+      <h2 className=" text-2xl font-semibold mb-4"> 
+        {/* text-white */}
         Calidad del Agua
       </h2>
       <div className="grid grid-cols-1 gap-4">

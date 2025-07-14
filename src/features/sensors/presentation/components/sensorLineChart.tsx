@@ -47,7 +47,7 @@ export const SensorLineChart = ({
   unit = "",
 }: Props) => {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-md w-full border border-[#105B85]">
+    <div className="bg-white p-4 rounded-xl shadow-md w-full border-[#CBD5E1] dark:border-[#105B85] border-[1px]">
       <ResponsiveContainer width="100%" height={250}>
         <LineChart data={data}>
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
