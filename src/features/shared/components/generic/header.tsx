@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   subtitle2?: string;
   icon1?: string;
   icon2?: string;
@@ -35,7 +35,7 @@ const Header: React.FC<Props> = ({
             <p className="text-[21px] font-semibold">{date}</p>
             <p className="text-[19px] font-semibold">{time}</p>
           </div>
-          <img src={icon2} alt="Icon" className="w-[130px] h-[130px]" />
+          <img src={icon2} alt="" />
         </div>
       </div>
     </>
