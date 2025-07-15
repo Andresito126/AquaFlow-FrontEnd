@@ -6,6 +6,7 @@ import CreateUser from "../../features/users/Presentation/Pages/Createuser/Creat
 import { StadisticsPage } from "../../features/sensors/presentation/pages/Stadistics-page";
 import { FilterPage } from "../../features/filter/presentation/pages/Filter-page";
 import { AdminPage } from "../../features/admin/presentation/pages/Admin-page";
+import NotificationsPage from "../../features/notifications/presentation/pages/Notifications-page";
 
 export const navigationWrapper = createBrowserRouter([
 
@@ -53,6 +54,13 @@ export const navigationWrapper = createBrowserRouter([
     element : <MainContainerLayout/>,
     children: [
       {path: "filter", element: <FilterPage/>}
+    ]
+  },
+    {
+    path: "/",
+    element : <MainContainerLayout/>,
+    children: [
+      {path: "notifications", element: <NotificationsPage/>}
     ]
   }
 
