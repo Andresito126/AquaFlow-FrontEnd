@@ -3,6 +3,8 @@ import IconAquaFlowAdmin from "../../../../core/assets/icons/admin/aquaflow-logo
 import IconTotal from "../../../../core/assets/icons/admin/icon-total.svg";
 import IconActive from "../../../../core/assets/icons/admin/icon-active.svg";
 import IconInactive from "../../../../core/assets/icons/admin/icon-inactive.svg";
+import IconRefresh from "../../../../core/assets/icons/admin/icon-refresh.svg";
+import IconSearch from "../../../../core/assets/icons/admin/icon-search.svg";
 import { useTheme } from "../../../shared/hooks/useTheme";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -84,7 +86,7 @@ export const AdminPage = () => {
         role="Administrator"
         onLogout={() => {
           console.log("Cerrar sesión");
-          // lógica de logout aquí
+          // logic de logout aquí
         }}
       />
 
@@ -135,7 +137,7 @@ export const AdminPage = () => {
       <div className="p-5 shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] rounded-[20px]">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2 dark:bg-[#1a2b45] bg-[#112971cc] px-3 py-2 rounded-xl">
-            <span>🔍</span>
+            <span></span>
             <input
               type="text"
               placeholder="Search by UUID"
@@ -148,7 +150,7 @@ export const AdminPage = () => {
             onClick={() => setSearchTable("")}
             className="text-white hover:text-blue-400 transition"
           >
-            <span>🔄</span> Reset
+            <span></span> Refrescar
           </button>
         </div>
 
