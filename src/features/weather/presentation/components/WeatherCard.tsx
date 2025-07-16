@@ -10,7 +10,7 @@ const WeatherCard: React.FC<Props> = ({ weather }) => (
     <img
       src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`}
       alt={weather.description}
-      className="w-32 h-32 mx-auto"
+      className="w-32 h-32 mx-auto invert dark:invert-0"
     />
     <h2 className="text-2xl font-semibold capitalize">{weather.description}</h2>
     <p className="text-5xl font-bold">{Math.round(weather.temperature)}°C</p>
