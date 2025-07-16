@@ -1,13 +1,20 @@
 import './Crateuser.css';
-import ImgRegister from "../../../../..//core/assets/icons/login-register/image21.png"
+import ImgRegister from "../../../../../core/assets/icons/login-register/image21.png";
 import ImageLogoShort from "../../../../../core/assets/icons/login-register/hori.png";
+import { observer } from "mobx-react-lite";
+import { UserViewModel } from "../../ViewModels/UserViewModel";
+import { useUserFormLogic } from "../../ViewModels/useUserFormLogic";
 
-const CreateUser = () => {
+const viewModel = new UserViewModel();
+
+const CreateUser = observer(() => {
+  const { handleSubmit, showSuccessMessage } = useUserFormLogic(viewModel);
+
   return (
     <div className="auth-container">
       <div className="auth-left">
         <div className="auth-left-content">
-          <img src={ImgRegister} alt="AquaFlow" className='img'/>
+          <img src={ImgRegister} alt="AquaFlow" className="img" />
           <h2>OPTIMIZA EL USO DEL AGUA</h2>
           <p>Monitorea, analiza y reutiliza con inteligencia</p>
         </div>
@@ -19,28 +26,79 @@ const CreateUser = () => {
         </div>
 
         <div className="auth-box">
-          <h2>Create an account</h2>
 
-          <label htmlFor="firstname">First Name</label>
-          <input type="text" id="firstname" placeholder="" />
+          {/* Alerta integrada como franja superior */}
+          {(showSuccessMessage || viewModel.error) && (
+            <div className={`alert-bar ${showSuccessMessage ? 'success' : 'error'}`}>
+              {showSuccessMessage
+                ? "¡Usuario registrado exitosamente!"
+                : viewModel.error}
+            </div>
+          )}
 
-          <label htmlFor="lastname">Last Name</label>
-          <input type="text" id="lastname" placeholder="" />
+          <form onSubmit={handleSubmit}>
+            <h2>Crear una cuenta</h2>
 
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="" />
+            <label>Nombre</label>
+            <input
+              type="text"
+              value={viewModel.firstName}
+              onChange={(e) => viewModel.onChangeFirstName(e.target.value)}
+            />
 
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" placeholder="" />
+            <label>Apellido paterno</label>
+            <input
+              type="text"
+              value={viewModel.lastName1}
+              onChange={(e) => viewModel.onChangeLastName1(e.target.value)}
+            />
 
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input type="password" id="confirmPassword" placeholder="" />
+            <label>Apellido materno</label>
+            <input
+              type="text"
+              value={viewModel.lastName2}
+              onChange={(e) => viewModel.onChangeLastName2(e.target.value)}
+            />
 
-          <button>Create account</button>
+            <label>Email</label>
+            <input
+              type="email"
+              value={viewModel.email}
+              onChange={(e) => viewModel.onChangeEmail(e.target.value)}
+            />
+
+            <label>Contraseña</label>
+            <input
+              type="password"
+              value={viewModel.password}
+              onChange={(e) => viewModel.onChangePassword(e.target.value)}
+            />
+
+            <label>Confirmar contraseña</label>
+            <input
+              type="password"
+              value={viewModel.confirmPassword}
+              onChange={(e) => viewModel.onChangeConfirmPassword(e.target.value)}
+            />
+
+            <label>Tipo de usuario</label>
+            <select
+              className="select-role"
+              value={viewModel.userRole}
+              onChange={(e) => viewModel.onChangeUserRole(e.target.value)}
+            >
+              <option value="Regular user">Usuario regular</option>
+              <option value="Administrator">Administrador</option>
+            </select>
+
+            <button type="submit" disabled={viewModel.isSubmitting}>
+              {viewModel.isSubmitting ? "Registrando..." : "Crear cuenta"}
+            </button>
+          </form>
         </div>
       </div>
     </div>
-  )
-}
+  );
+});
 
 export default CreateUser;
