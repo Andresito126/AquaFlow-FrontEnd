@@ -46,6 +46,19 @@ export class FilterDTO {
   );
 }
 
+toDomainBasic(): Filter {
+  return new Filter(
+    this.id,
+    this.createBy || "",
+    this.model,
+    this.createdAt,
+    this.isActive,
+    [],
+    [] 
+  );
+}
+
+
   
   
 }

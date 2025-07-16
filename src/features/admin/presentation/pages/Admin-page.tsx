@@ -8,32 +8,38 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import AdminHeader from "../components/AdminHeader";
 import { useCreateFilter } from "../../../filter/presentation/hooks/useCreateFilter";
-import { exampleFilterLayers, exampleSensors } from "../../../filter/data/staticData/staticData";
+import {
+  exampleFilterLayers,
+  exampleSensors,
+} from "../../../filter/data/staticData/staticData";
 import { Sensor } from "../../../sensors/data/models/Sensor";
 import { FilterLayer } from "../../../filter/data/models/FilterLayer";
+import { useGetAllFilters } from "../../../filter/presentation/hooks/useGetAllFilter";
 export const AdminPage = () => {
-
   const { theme, toggleTheme } = useTheme();
   const [search, setSearch] = useState("");
   const { loading, error, createdFilterId, createFilter } = useCreateFilter();
+  const { filters } = useGetAllFilters();
 
- const handleClick = () => {
+  const handleClick = () => {
     if (!search) return;
 
     const sensorsWithIds = exampleSensors.map(
-      (sensor) => new Sensor(uuidv4(), sensor.name, sensor.model, sensor.unitMeasurement)
+      (sensor) =>
+        new Sensor(uuidv4(), sensor.name, sensor.model, sensor.unitMeasurement)
     );
 
     const filterLayersWithIds = exampleFilterLayers.map(
-      (layer) => new FilterLayer(uuidv4(), layer.name, layer.lifeTime, layer.efficiency)
+      (layer) =>
+        new FilterLayer(uuidv4(), layer.name, layer.lifeTime, layer.efficiency)
     );
 
     createFilter(
-      search, 
+      search,
       "f47ac10b-58cc-4372-a567-0e02b2c3d479",
       "Model X",
       new Date().toISOString(),
-      false,
+      true,
       sensorsWithIds,
       filterLayersWithIds
     );
@@ -56,39 +62,6 @@ export const AdminPage = () => {
       icon: <img src={IconInactive} alt="" />,
     },
   ];
-
-  const users = [
-    {
-      name: "Jane Cooper",
-      username: "@jane",
-      status: "Active",
-      email: "jessica.hanson@example.com",
-      date: "5/27/15",
-      initials: "JC",
-    },
-    {
-      name: "Wade Warren",
-      username: "@wade456",
-      status: "Active",
-      email: "willie.jennings@example.com",
-      date: "5/19/12",
-      initials: "WW",
-    },
-    {
-      name: "Esther Howard",
-      username: "@esther",
-      status: "Offline",
-      email: "d.chambers@example.com",
-      date: "3/4/16",
-      initials: "EH",
-    },
-  ];
-
-  const statusColor = {
-    Active: "bg-green-100 text-green-600",
-    Offline: "bg-gray-200 text-gray-600",
-    Wait: "bg-yellow-100 text-yellow-600",
-  };
 
   return (
     <div className="flex-1 p-5 space-y-6">
@@ -122,7 +95,11 @@ export const AdminPage = () => {
 
         {loading && <p>Cargando...</p>}
         {error && <p className="text-red-500">{error}</p>}
-        {createdFilterId && <p className="text-green-400 pl-2">Filtro creado: {createdFilterId}</p>}
+        {createdFilterId && (
+          <p className="text-green-400 pl-2">
+            Filtro creado: {createdFilterId}
+          </p>
+        )}
       </div>
 
       {/* stats */}
@@ -157,33 +134,34 @@ export const AdminPage = () => {
           </button>
         </div>
 
-        <table className="w-full text-sm ">
-          <thead className="text-left text-slate-400 border-b border-slate-600">
+        <table className="w-full text-sm text-center table-fixed">
+          <thead className="text-slate-400 border-b border-slate-600">
             <tr>
-              <th className="py-2">Filter UUID</th>
-              <th>Status</th>
-              <th>Date</th>
+              <th className="py-2 w-1/4">Filter UUID</th>
+              <th className="py-2 w-1/4">Model</th>
+              <th className="py-2 w-1/4">Status</th>
+              <th className="py-2 w-1/4">Date</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-700">
-            {users.map((user, index) => (
-              <tr key={index} className="transition">
-                <td className="py-3 flex items-center gap-3">
-                  <div>
-                    <p className="font-semibold">{user.name}</p>
-                    <p className="text-slate-400">{user.username}</p>
-                  </div>
-                </td>
-                <td>
+            {filters.map((filter) => (
+              <tr key={filter.getFilterId()} className="transition">
+                <td className="py-3 break-words">{filter.getFilterId()}</td>
+                <td className="py-3">{filter.getModel()}</td>
+                <td className="py-3">
                   <span
                     className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      statusColor[user.status as keyof typeof statusColor]
+                      filter.isActiveFilter()
+                        ? "bg-green-500/20 text-green-400"
+                        : "bg-red-500/20 text-red-400"
                     }`}
                   >
-                    {user.status}
+                    {filter.isActiveFilter() ? "Activo" : "Inactivo"}
                   </span>
                 </td>
-                <td>{user.date}</td>
+                <td className="py-3">
+                  {new Date(filter.getDateRecord()).toLocaleDateString()}
+                </td>
               </tr>
             ))}
           </tbody>
