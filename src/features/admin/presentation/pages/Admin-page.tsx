@@ -5,62 +5,76 @@ import IconActive from "../../../../core/assets/icons/admin/icon-active.svg";
 import IconInactive from "../../../../core/assets/icons/admin/icon-inactive.svg";
 import { useTheme } from "../../../shared/hooks/useTheme";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import AdminHeader from "../components/AdminHeader";
-
+import { useCreateFilter } from "../../../filter/presentation/hooks/useCreateFilter";
+import {
+  exampleFilterLayers,
+  exampleSensors,
+} from "../../../filter/data/staticData/staticData";
+import { Sensor } from "../../../sensors/data/models/Sensor";
+import { FilterLayer } from "../../../filter/data/models/FilterLayer";
+import { useGetAllFilters } from "../../../filter/presentation/hooks/useGetAllFilter";
 export const AdminPage = () => {
+  //hooks
   const { theme, toggleTheme } = useTheme();
   const [search, setSearch] = useState("");
+  const { loading, error, createdFilterId, createFilter } = useCreateFilter();
+  const { filters } = useGetAllFilters();
+  const [searchTable, setSearchTable] = useState("");
+
+
+  const handleClick = () => {
+    if (!search) return;
+
+    const sensorsWithIds = exampleSensors.map(
+      (sensor) =>
+        new Sensor(uuidv4(), sensor.name, sensor.model, sensor.unitMeasurement)
+    );
+
+    const filterLayersWithIds = exampleFilterLayers.map(
+      (layer) =>
+        new FilterLayer(uuidv4(), layer.name, layer.lifeTime, layer.efficiency)
+    );
+
+    createFilter(
+      search,
+      "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "Model X",
+      new Date().toISOString(),
+      true,
+      sensorsWithIds,
+      filterLayersWithIds
+    );
+  };
+
+
+   const totalFilters = filters.length;
+  const activeFilters = filters.filter(f => f.isActiveFilter()).length;
+  const inactiveFilters = totalFilters - activeFilters;
 
   const stats = [
     {
-      label: "Total customer",
-      value: 3000,
-      icon: <img src={IconTotal} alt="" /> ,
+      label: "Total Filters",
+      value: totalFilters,
+      icon: <img src={IconTotal} alt="" />,
     },
     {
-      label: "Active customers",
-      value: 2800,
-      icon: <img src={IconActive} alt="" /> 
+      label: "Active Filters",
+      value: activeFilters,
+      icon: <img src={IconActive} alt="" />,
     },
     {
-      label: "Inactive customer",
-      value: 200,
-      icon: <img src={IconInactive} alt="" /> 
+      label: "Inactive Filters",
+      value: inactiveFilters,
+      icon: <img src={IconInactive} alt="" />,
     },
   ];
 
-  const users = [
-    {
-      name: "Jane Cooper",
-      username: "@jane",
-      status: "Active",
-      email: "jessica.hanson@example.com",
-      date: "5/27/15",
-      initials: "JC",
-    },
-    {
-      name: "Wade Warren",
-      username: "@wade456",
-      status: "Active",
-      email: "willie.jennings@example.com",
-      date: "5/19/12",
-      initials: "WW",
-    },
-    {
-      name: "Esther Howard",
-      username: "@esther",
-      status: "Offline",
-      email: "d.chambers@example.com",
-      date: "3/4/16",
-      initials: "EH",
-    },
-  ];
+  const filteredFilters = filters.filter(f =>
+  f.getFilterId().toLowerCase().includes(searchTable.toLowerCase())
+);
 
-  const statusColor = {
-    Active: "bg-green-100 text-green-600",
-    Offline: "bg-gray-200 text-gray-600",
-    Wait: "bg-yellow-100 text-yellow-600",
-  };
 
   return (
     <div className="flex-1 p-5 space-y-6">
@@ -70,29 +84,43 @@ export const AdminPage = () => {
         role="Administrator"
         onLogout={() => {
           console.log("Cerrar sesión");
-          //    logica
+          // logic de logout aquí
         }}
       />
 
-      <div className="flex items-center gap-2 px-4 py-3 shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px]  rounded-[20px]">
-        <input
-          className="flex-1 bg-transparent  outline-none"
-          placeholder="Add the UUID"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button className="shadow-lg bg-[#1c709a] hover:bg-[#105B85] text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 transition">
+      <div>
+        {/* Input y botón */}
+        <div className="flex items-center gap-2 px-4 py-3 shadow-lg rounded-[20px] border-[#CBD5E1] dark:border-[#105B85] border-[1px] ">
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Add the UUID"
+            className="flex-1 bg-transparent outline-none"
+          />
+          <button
+            onClick={handleClick}
+            disabled={loading || !search}
+            className="shadow-lg bg-[#1c709a] hover:bg-[#105B85] text-white px-4 py-2 rounded-[20px]"
+          >
+            <span> + </span> Add new product
+          </button>
+        </div>
 
-          <span> + </span> Add new product
-        </button>
+        {loading && <p>Cargando...</p>}
+        {error && <p className="text-red-500">{error}</p>}
+        {createdFilterId && (
+          <p className="text-green-400 pl-2">
+            Filtro creado: {createdFilterId}
+          </p>
+        )}
       </div>
- 
+
       {/* stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-28 p-6 shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px]  rounded-[20px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-28 p-6 shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] rounded-[20px]">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="shadow-lg border-[#CBD5E1] dark:border-[#105B85] border-[1px]  ml-20 mr-20 rounded-[20px] dark:bg-[#0f1f33]  flex items-center justify-between p-6 "
+            className="shadow-lg border-[#CBD5E1] dark:border-[#105B85] border-[1px] ml-20 mr-20 rounded-[20px] dark:bg-[#0f1f33] flex items-center justify-between p-6"
           >
             <div>{stat.icon}</div>
             <div className="text-right">
@@ -104,54 +132,54 @@ export const AdminPage = () => {
       </div>
 
       {/* tabla */}
-      <div className="p-5 shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px]  rounded-[20px]">
+      <div className="p-5 shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] rounded-[20px]">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2 dark:bg-[#1a2b45] bg-[#112971cc] px-3 py-2 rounded-xl">
-            <span>🔍</span>
+            <span></span>
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search by UUID"
+              value={searchTable}
+              onChange={(e) => setSearchTable(e.target.value)}
               className="bg-transparent outline-none text-white text-sm"
             />
           </div>
-          <button className="text-white hover:text-blue-400 transition">
-            <span>🔄</span>
+          <button
+            onClick={() => setSearchTable("")}
+            className="text-white hover:text-blue-400 transition"
+          >
+            <span></span> Refrescar
           </button>
         </div>
 
-        <table className="w-full text-sm ">
-          <thead className="text-left text-slate-400 border-b border-slate-600">
+        <table className="w-full text-sm text-center table-fixed">
+          <thead className="text-slate-400 border-b border-slate-600">
             <tr>
-              <th className="py-2">Users</th>
-              <th>Status</th>
-              <th>Email</th>
-              <th>Date</th>
-          
+              <th className="py-2 w-1/4">Filter UUID</th>
+              <th className="py-2 w-1/4">Model</th>
+              <th className="py-2 w-1/4">Status</th>
+              <th className="py-2 w-1/4">Date</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-700">
-            {users.map((user, index) => (
-              <tr key={index} className=" transition">
-                <td className="py-3 flex items-center gap-3">
-                  <div className="w-9 h-9 bg-blue-900 rounded-full flex items-center justify-center text-xs font-bold text-blue-300">
-                    {user.initials}
-                  </div>
-                  <div>
-                    <p className="font-semibold">{user.name}</p>
-                    <p className="text-slate-400">{user.username}</p>
-                  </div>
-                </td>
-                <td>
+            {filteredFilters.map((filter) => (
+              <tr key={filter.getFilterId()} className="transition">
+                <td className="py-3 break-words">{filter.getFilterId()}</td>
+                <td className="py-3">{filter.getModel()}</td>
+                <td className="py-3">
                   <span
                     className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      statusColor[user.status as keyof typeof statusColor]
+                      filter.isActiveFilter()
+                        ? "bg-green-500/20 text-green-400"
+                        : "bg-red-500/20 text-red-400"
                     }`}
                   >
-                    {user.status}
+                    {filter.isActiveFilter() ? "Activo" : "Inactivo"}
                   </span>
                 </td>
-                <td>{user.email}</td>
-                <td>{user.date}</td>
+                <td className="py-3">
+                  {new Date(filter.getDateRecord()).toLocaleDateString()}
+                </td>
               </tr>
             ))}
           </tbody>
