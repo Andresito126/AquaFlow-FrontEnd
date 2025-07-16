@@ -39,7 +39,7 @@ export function useCreateFilter() {
       if (filter) setCreatedFilterId(filter.getFilterId());
       else setError("No se pudo crear el filtro");
     } catch (err: any) {
-      console.error("❌ Error al crear filtro:", err);
+      console.error("Error al crear filtro:", err);
       setError(err?.message || "Error desconocido");
     } finally {
       setLoading(false);

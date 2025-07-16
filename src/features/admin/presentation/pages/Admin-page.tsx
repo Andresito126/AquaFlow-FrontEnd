@@ -5,26 +5,37 @@ import IconActive from "../../../../core/assets/icons/admin/icon-active.svg";
 import IconInactive from "../../../../core/assets/icons/admin/icon-inactive.svg";
 import { useTheme } from "../../../shared/hooks/useTheme";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import AdminHeader from "../components/AdminHeader";
 import { useCreateFilter } from "../../../filter/presentation/hooks/useCreateFilter";
 import { exampleFilterLayers, exampleSensors } from "../../../filter/data/staticData/staticData";
+import { Sensor } from "../../../sensors/data/models/Sensor";
+import { FilterLayer } from "../../../filter/data/models/FilterLayer";
 export const AdminPage = () => {
 
   const { theme, toggleTheme } = useTheme();
   const [search, setSearch] = useState("");
   const { loading, error, createdFilterId, createFilter } = useCreateFilter();
 
-  const handleClick = () => {
+ const handleClick = () => {
     if (!search) return;
 
+    const sensorsWithIds = exampleSensors.map(
+      (sensor) => new Sensor(uuidv4(), sensor.name, sensor.model, sensor.unitMeasurement)
+    );
+
+    const filterLayersWithIds = exampleFilterLayers.map(
+      (layer) => new FilterLayer(uuidv4(), layer.name, layer.lifeTime, layer.efficiency)
+    );
+
     createFilter(
-      search, // id del filtro que 
-      "f47ac10b-58cc-4372-a567-0e02b2c3d479", // id del admin fijo
+      search, 
+      "f47ac10b-58cc-4372-a567-0e02b2c3d479",
       "Model X",
       new Date().toISOString(),
       false,
-      exampleSensors,
-      exampleFilterLayers
+      sensorsWithIds,
+      filterLayersWithIds
     );
   };
 
@@ -93,7 +104,7 @@ export const AdminPage = () => {
 
       <div>
         {/* Input y botón */}
-        <div className="flex items-center gap-2 px-4 py-3 shadow-lg rounded-[20px]">
+        <div className="flex items-center gap-2 px-4 py-3 shadow-lg rounded-[20px] border-[#CBD5E1] dark:border-[#105B85] border-[1px] ">
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -103,7 +114,7 @@ export const AdminPage = () => {
           <button
             onClick={handleClick}
             disabled={loading || !search}
-            className="shadow-lg bg-[#1c709a] hover:bg-[#105B85] text-white px-4 py-2 rounded"
+            className="shadow-lg bg-[#1c709a] hover:bg-[#105B85] text-white px-4 py-2 rounded-[20px]"
           >
             <span> + </span> Add new product
           </button>
@@ -111,7 +122,7 @@ export const AdminPage = () => {
 
         {loading && <p>Cargando...</p>}
         {error && <p className="text-red-500">{error}</p>}
-        {createdFilterId && <p className="text-green-400">Filtro creado: {createdFilterId}</p>}
+        {createdFilterId && <p className="text-green-400 pl-2">Filtro creado: {createdFilterId}</p>}
       </div>
 
       {/* stats */}
@@ -149,9 +160,8 @@ export const AdminPage = () => {
         <table className="w-full text-sm ">
           <thead className="text-left text-slate-400 border-b border-slate-600">
             <tr>
-              <th className="py-2">Users</th>
+              <th className="py-2">Filter UUID</th>
               <th>Status</th>
-              <th>Email</th>
               <th>Date</th>
             </tr>
           </thead>
@@ -159,9 +169,6 @@ export const AdminPage = () => {
             {users.map((user, index) => (
               <tr key={index} className="transition">
                 <td className="py-3 flex items-center gap-3">
-                  <div className="w-9 h-9 bg-blue-900 rounded-full flex items-center justify-center text-xs font-bold text-blue-300">
-                    {user.initials}
-                  </div>
                   <div>
                     <p className="font-semibold">{user.name}</p>
                     <p className="text-slate-400">{user.username}</p>
@@ -176,7 +183,6 @@ export const AdminPage = () => {
                     {user.status}
                   </span>
                 </td>
-                <td>{user.email}</td>
                 <td>{user.date}</td>
               </tr>
             ))}

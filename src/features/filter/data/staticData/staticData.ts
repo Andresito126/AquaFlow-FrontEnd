@@ -1,17 +1,14 @@
-import { FilterLayer } from "../models/FilterLayer";
-import { Sensor } from "../../../sensors/data/models/Sensor";
-
-export const exampleFilterLayers: FilterLayer[] = [
-  new FilterLayer("550e8400-e29b-41d4-a716-446655440011", "Natural zeolites", 90, 85.5),
-  new FilterLayer("550e8400-e29b-41d4-a716-446655440012", "Far Infrared Ball", 365, 99.97),
-  new FilterLayer("550e8400-e29b-41d4-a716-446655440013", "Silicon sand", 180, 92.3),
-  new FilterLayer("550e8400-e29b-41d4-a716-446655440015", "Mineral sand", 720, 99.9),
-  new FilterLayer("550e8400-e29b-41d4-a716-446655440016", "Activated carbon", 120, 95.8),
+export const exampleFilterLayers = [
+  { name: "Natural zeolites", lifeTime: 90, efficiency: 85.5 },
+  { name: "Far Infrared Ball", lifeTime: 365, efficiency: 99.97 },
+  { name: "Silicon sand", lifeTime: 180, efficiency: 92.3 },
+  { name: "Mineral sand", lifeTime: 720, efficiency: 99.9 },
+  { name: "Activated carbon", lifeTime: 120, efficiency: 95.8 },
 ];
 
-export const exampleSensors: Sensor[] = [
-  new Sensor("550e8400-e29b-41d4-a716-446655440006", "Temperature", "TempSens-Pro-2024", "°C"),
-  new Sensor("550e8400-e29b-41d4-a716-446655440007", "Ph", "HumSens-Max-2024", "PH"),
-  new Sensor("550e8400-e29b-41d4-a716-446655440003", "TDS", "PressSens-Elite-2024", "PPM"),
-  new Sensor("550e8400-e29b-41d4-a716-446655440006", "Turbidity", "AQSens-Premium-2024", "NTU"),
+export const exampleSensors = [
+  { name: "Temperature", model: "TempSens-Pro-2024", unitMeasurement: "°C" },
+  { name: "Ph", model: "HumSens-Max-2024", unitMeasurement: "PH" },
+  { name: "TDS", model: "PressSens-Elite-2024", unitMeasurement: "PPM" },
+  { name: "Turbidity", model: "AQSens-Premium-2024", unitMeasurement: "NTU" },
 ];

@@ -25,7 +25,7 @@ async create(filter: Filter): Promise<FilterDTO | null> {
       }))
     };
 
-    console.log("📦 Payload enviado desde frontend (DTO plano):", JSON.stringify(payload, null, 2));
+    console.log(" Payload enviado desde frontend (dto plano):", JSON.stringify(payload, null, 2));
 
     const response = await ApiClient.post("/filters", payload, {
       headers: {
@@ -57,7 +57,7 @@ async create(filter: Filter): Promise<FilterDTO | null> {
     );
 
   } catch (error) {
-    console.error("❌ Error creating filter:", error);
+    console.error("Error creating filter:", error);
     return null;
   }
 }
