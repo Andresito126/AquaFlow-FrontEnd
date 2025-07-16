@@ -48,20 +48,25 @@ export const AdminPage = () => {
     );
   };
 
+
+   const totalFilters = filters.length;
+  const activeFilters = filters.filter(f => f.isActiveFilter()).length;
+  const inactiveFilters = totalFilters - activeFilters;
+
   const stats = [
     {
-      label: "Total customer",
-      value: 3000,
+      label: "Total Filters",
+      value: totalFilters,
       icon: <img src={IconTotal} alt="" />,
     },
     {
-      label: "Active customers",
-      value: 2800,
+      label: "Active Filters",
+      value: activeFilters,
       icon: <img src={IconActive} alt="" />,
     },
     {
-      label: "Inactive customer",
-      value: 200,
+      label: "Inactive Filters",
+      value: inactiveFilters,
       icon: <img src={IconInactive} alt="" />,
     },
   ];
