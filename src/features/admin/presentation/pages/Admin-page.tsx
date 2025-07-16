@@ -16,10 +16,13 @@ import { Sensor } from "../../../sensors/data/models/Sensor";
 import { FilterLayer } from "../../../filter/data/models/FilterLayer";
 import { useGetAllFilters } from "../../../filter/presentation/hooks/useGetAllFilter";
 export const AdminPage = () => {
+  //hooks
   const { theme, toggleTheme } = useTheme();
   const [search, setSearch] = useState("");
   const { loading, error, createdFilterId, createFilter } = useCreateFilter();
   const { filters } = useGetAllFilters();
+  const [searchTable, setSearchTable] = useState("");
+
 
   const handleClick = () => {
     if (!search) return;
@@ -62,6 +65,11 @@ export const AdminPage = () => {
       icon: <img src={IconInactive} alt="" />,
     },
   ];
+
+  const filteredFilters = filters.filter(f =>
+  f.getFilterId().toLowerCase().includes(searchTable.toLowerCase())
+);
+
 
   return (
     <div className="flex-1 p-5 space-y-6">
@@ -125,12 +133,17 @@ export const AdminPage = () => {
             <span>🔍</span>
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search by UUID"
+              value={searchTable}
+              onChange={(e) => setSearchTable(e.target.value)}
               className="bg-transparent outline-none text-white text-sm"
             />
           </div>
-          <button className="text-white hover:text-blue-400 transition">
-            <span>🔄</span>
+          <button
+            onClick={() => setSearchTable("")}
+            className="text-white hover:text-blue-400 transition"
+          >
+            <span>🔄</span> Reset
           </button>
         </div>
 
@@ -144,7 +157,7 @@ export const AdminPage = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-700">
-            {filters.map((filter) => (
+            {filteredFilters.map((filter) => (
               <tr key={filter.getFilterId()} className="transition">
                 <td className="py-3 break-words">{filter.getFilterId()}</td>
                 <td className="py-3">{filter.getModel()}</td>
