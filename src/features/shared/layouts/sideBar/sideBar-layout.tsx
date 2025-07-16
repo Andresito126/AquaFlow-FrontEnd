@@ -11,10 +11,10 @@ export const SideBar = () => {
     <>
       <aside
         id="separator-sidebar"
-        className="w-[18.75rem]  bg-[#011423] overflow-y-auto mb-[20px] mt-[20px] ml-[10px] rounded-[20px]"
+        className="w-[18.75rem]  dark:bg-[#011423] dark:border-[#105B85] dark:border-1 overflow-y-auto dark:mb-[10px] dark:mt-[10px] dark:ml-[10px] dark:rounded-[20px] text-white"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 flex flex-col justify-between  bg-[#011423]">
+        <div className="h-full px-3 py-4 flex flex-col justify-between  dark:bg-[#011423] bg-black text-white">
           {/* top icons */}
           <div>
             <img src={logoAF} alt="Logo" className="mx-auto mb-[1.875rem]" />
@@ -30,14 +30,14 @@ export const SideBar = () => {
 
               <AsideIconReu
                 nameNav= "Estadísticas"
-                to="/stats"
+                to="/stadistics"
                 icon={IconStats}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
                 nameNav= "Estado del filtro"
-                to="/dispositioves"
+                to="/filter"
                 icon={IconDispositives}
                 alt="Dashboard Icon"
               ></AsideIconReu>
