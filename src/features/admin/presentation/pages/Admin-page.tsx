@@ -3,8 +3,6 @@ import IconAquaFlowAdmin from "../../../../core/assets/icons/admin/aquaflow-logo
 import IconTotal from "../../../../core/assets/icons/admin/icon-total.svg";
 import IconActive from "../../../../core/assets/icons/admin/icon-active.svg";
 import IconInactive from "../../../../core/assets/icons/admin/icon-inactive.svg";
-import IconRefresh from "../../../../core/assets/icons/admin/icon-refresh.svg";
-import IconSearch from "../../../../core/assets/icons/admin/icon-search.svg";
 import { useTheme } from "../../../shared/hooks/useTheme";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
