@@ -12,12 +12,17 @@
   "dependencies": {
     "@fontsource/poppins": "^5.2.6",
     "@tailwindcss/vite": "^4.1.10",
+    "axios": "^1.10.0",
+    "install": "^0.13.0",
+    "npm": "^11.4.2",
     "jwt-decode": "^4.0.0",
     "mobx": "^6.13.7",
     "mobx-react-lite": "^4.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3",
+    "recharts": "^3.1.0",
+    "socket.io-client": "^4.8.1",
     "tailwindcss": "^4.1.10",
     "uuid": "^11.1.0"
   },

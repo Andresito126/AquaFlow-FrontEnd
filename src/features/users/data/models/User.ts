@@ -1,28 +1,26 @@
-export class UserModel {
-    user_id: string;
-    first_name: string;
-    first_surname: string;
-    middle_surname: string;
-    email: string;
-    password_hashed: string;
-    role: string;
+import { v4 as uuidv4 } from "uuid";
 
-    constructor(
-        user_id: string,
-        first_name: string,
-        first_surname: string,
-        middle_surname: string,
-        email: string,
-        password_hashed: string,
-        role: string,
-    ){
-        this.user_id = user_id;
-        this.first_name = first_name;
-        this.first_surname= first_surname;
-        this.middle_surname = middle_surname;
-        this.email = email;
-        this.password_hashed = password_hashed;
-        this.role = role;
-    }
+export class User {
+  userId: string;
+  userRole: string; // O usa `UserRole` si tienes un enum definido
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+
+  constructor(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+    userRole: string = "Regular user",
+    userId?: string
+  ) {
+    this.userId = userId || uuidv4(); // Se genera si no se pasa
+    this.userRole = userRole;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+  }
 }
-
