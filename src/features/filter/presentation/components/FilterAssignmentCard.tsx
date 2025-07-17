@@ -4,6 +4,7 @@ import { Filter } from "../../data/models/Filter";
 
 interface Props {
   userId: string;
+  onAssigned?: (filterId: string) => void;
 }
 
 export function FilterAssignmentCard({ userId }: Props) {
@@ -20,17 +21,19 @@ export function FilterAssignmentCard({ userId }: Props) {
         const res = await axios.get(`${baseUrl}/filters/by-user`, {
           params: { userId },
         });
-        // Suponiendo que el backend te devuelve algo así:
-        // { data: [ { id, attributes: { ... } }, ... ] }
-        const filtersFromApi = res.data.data.map((f: any) => new Filter(
-          f.id,
-          f.attributes.createBy || "",
-          f.attributes.model || "",
-          f.attributes.installationDate || "",
-          f.attributes.isActive,
-          [], // sensors
-          []  // filterLayers
-        ));
+
+        const filtersFromApi = res.data.data.map(
+          (f: any) =>
+            new Filter(
+              f.id,
+              f.attributes.createBy || "",
+              f.attributes.model || "",
+              f.attributes.installationDate || "",
+              f.attributes.isActive,
+              [],
+              []
+            )
+        );
         setAssignedFilters(filtersFromApi);
       } catch (error) {
         console.error("Error fetching user filters:", error);
@@ -39,6 +42,14 @@ export function FilterAssignmentCard({ userId }: Props) {
 
     fetchAssignedFilters();
   }, [userId, baseUrl]);
+
+  // Cargar el filtro activo desde localStorage si existe
+  useEffect(() => {
+    const savedFilterId = localStorage.getItem("activeFilterId");
+    if (savedFilterId) {
+      setActiveFilterId(savedFilterId);
+    }
+  }, []);
 
   const handleAssign = async () => {
     try {
@@ -63,23 +74,36 @@ export function FilterAssignmentCard({ userId }: Props) {
     }
   };
 
+  const handleSetActive = () => {
+    if (!activeFilterId) return;
+    localStorage.setItem("activeFilterId", activeFilterId);
+    alert(`Filtro ${activeFilterId} seleccionado como activo.`);
+  };
+
   return (
     <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-4 w-full items-center justify-center text-center">
+        <p className="text-xl font-semibold text-gray-700 dark:text-gray-200">
+          AÑADIR Y ASOCIAR UN FILTRO
+        </p>
+      </div>
+
       <input
         type="text"
         placeholder="UUID del filtro"
         value={filterId}
         onChange={(e) => setFilterId(e.target.value)}
-        className="px-2 py-1 rounded-md text-black w-full"
+        className="px-2 py-1 rounded-md w-full"
       />
       <button
         onClick={handleAssign}
-        className="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600"
+        className="bg-[#01182B] hover:bg-[#01182be0] dark:bg-[#5a90bd] text-white px-3 py-1 rounded-lg "
       >
         Asociar
       </button>
+
       <select
-        className="text-black rounded-md px-2 py-1 w-full"
+        className="rounded-md px-2 py-1 w-full"
         value={activeFilterId}
         onChange={(e) => setActiveFilterId(e.target.value)}
       >
@@ -90,6 +114,13 @@ export function FilterAssignmentCard({ userId }: Props) {
           </option>
         ))}
       </select>
+
+      <button
+        onClick={handleSetActive}
+        className="bg-[#01182B] text-white px-3 py-1 rounded-lg hover:bg-[#01182be0] dark:bg-[#5a90bd]"
+      >
+        Usar este filtro
+      </button>
     </div>
   );
 }
