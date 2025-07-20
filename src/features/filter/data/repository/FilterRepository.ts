@@ -89,4 +89,11 @@ export class FilterRepository {
       return [];
     }
   }
+
+async assignFilterToUser(filterId: string, userId: string): Promise<Filter> {
+  const res = await ApiClient.patch(`/filters/${filterId}/assign-user`, {
+    userId,
+  });
+  return res.data.data;
+}
 }
