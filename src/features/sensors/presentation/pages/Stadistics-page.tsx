@@ -6,6 +6,7 @@ import { BoxSensorBarChart } from "../layouts/statistics/box-sensor-barchart";
 import ThemeToggleButton from "../../../shared/components/generic/ThemeToggleButton";
 import { useTheme } from "../../../shared/hooks/useTheme";
 import { BoxSensorsInfoCards } from "../layouts/statistics/box-sensor-info-cards";
+import { BoxWaterQualityTrendChart } from "../layouts/statistics/box-sensor-quality-trendchart";
 
 export const StadisticsPage = () => {
   const { date, time } = useDateTime();
@@ -27,7 +28,11 @@ export const StadisticsPage = () => {
         <BoxSensorBarChart />
 
         
+       <BoxWaterQualityTrendChart/>
+
         <BoxSensorsInfoCards/>
+
+        
         
       </div>
       <div>
