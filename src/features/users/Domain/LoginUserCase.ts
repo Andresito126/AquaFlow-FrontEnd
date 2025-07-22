@@ -1,31 +1,36 @@
-import type { UserCredentialsDTO } from "../Data/Models/serCredentialsDTO";
-import { UserDTO } from "../Data/Models/UserTo";
+import { jwtDecode } from "jwt-decode";
+import type { UserCredentialsDTO } from "../data/models/serCredentialsDTO";
+import { UserDTO } from "../data/models/UserTo";
+import { UserRepository } from "../Data/Repository/UserRepository";
+interface JwtPayload {
+  id: string;
+  role: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}
 
-export class UserRepository {
-  private readonly baseUrl: string;
+export class LoginUserUseCase {
+  private userRepository: UserRepository;
 
   constructor() {
-    this.baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+    this.userRepository = new UserRepository();
   }
 
-  async login(credentials: UserCredentialsDTO): Promise<UserDTO> {
-    const response = await fetch(
-      `${this.baseUrl}/auth/sign-in?email=${encodeURIComponent(credentials.email)}&password=${encodeURIComponent(credentials.password)}`
+  async execute(credentials: UserCredentialsDTO): Promise<{ user: UserDTO; token: string }> {
+    const { token } = await this.userRepository.login(credentials); // login devuelve { token }
+
+    const decoded = jwtDecode<JwtPayload>(token);
+
+    const user = new UserDTO(
+      decoded.id,
+      decoded.role,
+      decoded.firstName,
+      decoded.lastName,
+      decoded.email,
+      "*****" // no guardes contraseña
     );
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Credenciales inválidas");
-    }
-
-    return new UserDTO(
-      data.userId,
-      data.userRole,
-      data.firstName,
-      data.lastName,
-      data.email,
-      data.password
-    );
+    return { user, token };
   }
 }

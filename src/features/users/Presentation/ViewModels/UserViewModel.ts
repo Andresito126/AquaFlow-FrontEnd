@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 
-import { User } from "../../Data/Models/User";
+import { User } from "../../data/models/User1";
 import { CreateUserUseCase } from "../../Domain/CreateUser";
 
 

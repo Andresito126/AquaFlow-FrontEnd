@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 
 .auth-container {
   display: flex;
@@ -60,14 +60,12 @@
 .auth-box {
   width: 100%;
   max-width: 400px;
-  padding: 40px;
   border-radius: 8px;
-  margin-bottom: 40px;
 }
 
 .auth-box h2 {
   text-align: left;
-  margin-bottom: 24px;
+  margin-bottom: 0px;
   font-size: 24px;
   color: #333;
   font-family: 'Poppins', sans-serif;
@@ -99,6 +97,7 @@
   padding: 10px;
   border: none;
   border-radius: 13px;
+  margin-top: 10%;
   font-weight: bold;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
@@ -110,21 +109,21 @@
   background-color: #022646;
 }
 
-.auth-signup-text {
-  margin-top: 100px;
+.register-text {
+  margin-top: 12px;
   text-align: center;
   color: #666;
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Poppins', sans-serif;
 }
 
-.auth-signup-text a {
+.register-text a {
   color: #0c0d0d;
   text-decoration: none;
   font-weight: bold;
 }
 
-.auth-signup-text a:hover {
+.register-text a:hover {
   text-decoration: underline;
 }
 
@@ -153,7 +152,6 @@
 .select-role {
   width: 100%;
   padding: 6px;
-  margin-bottom: 16px;
   border: 1px solid #C8C8C8;
   border-radius: 12px;
   background-color: #f9f9f9;
@@ -201,3 +199,5 @@
     transform: translateY(0);
   }
 }
+
+

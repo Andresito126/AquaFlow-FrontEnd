@@ -1,8 +1,16 @@
-// src/Domain/LoginUserUseCase.ts
-
-import type { UserCredentialsDTO } from "../../Data/Models/serCredentialsDTO";
-import type { UserDTO } from "../../Data/Models/UserTo";
+import type { UserCredentialsDTO } from "../../data/models/serCredentialsDTO";
+import { UserDTO } from "../../data/models/UserTo";
 import { UserRepository } from "../../Data/Repository/UserRepository";
+import { jwtDecode } from "jwt-decode"; // Usar import nombrado según la exportación de la librería
+
+interface JwtPayload {
+  id: string;
+  role: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password?: string; // usualmente el password no está en el token, opcional
+}
 
 export class LoginUserUseCase {
   private userRepository: UserRepository;
@@ -11,12 +19,20 @@ export class LoginUserUseCase {
     this.userRepository = new UserRepository();
   }
 
-  // Cambiar Promise<UserDTO> a Promise<{ user: UserDTO; token: string }>
-  async execute(credentials: UserCredentialsDTO): Promise<{ user: UserDTO; token: string }> {
-    try {
-      return await this.userRepository.login(credentials);
-    } catch (error) {
-      throw new Error("Error al iniciar sesión: " + (error as Error).message);
-    }
-  }
+async execute(credentials: UserCredentialsDTO): Promise<{ user: UserDTO; token: string }> {
+  const { token } = await this.userRepository.login(credentials);
+
+  const decoded = jwtDecode<JwtPayload>(token);
+
+  const user = new UserDTO(
+    decoded.id,
+    decoded.role,
+    decoded.firstName,
+    decoded.lastName,
+    decoded.email,
+    "*****" // password no va aquí
+  );
+
+  return { user, token };
+}
 }

@@ -1,23 +1,46 @@
-// src/Presentation/Pages/Login.tsx
 import './Login.css';
 import ImgLogin from '../../../../../core/assets/icons/login-register/login.png';
 import { observer } from "mobx-react-lite";
 import { UserLoginViewModel } from "../../ViewModels/UserLoginViewModel";
 import { useUserLoginLogic } from "../../ViewModels/useUserLoginLogic";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const viewModel = new UserLoginViewModel();
 
 const Login = observer(() => {
   const { handleSubmit, showSuccess } = useUserLoginLogic(viewModel);
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if (showSuccess) {
+      const timeout = setTimeout(() => {
+        navigate("/dashboard"); 
+      }, 2000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [showSuccess, navigate]);
 
   return (
     <div className="login-container">
       <div className="login-left">
         <div className="login-box">
+
+                
+          {(showSuccess || viewModel.error) && (
+            <div
+              className={`alert-bar ${showSuccess ? "success" : "error"}`}
+            >
+              {showSuccess
+                ? "Inicio de sesión exitoso."
+                : viewModel.error}
+            </div>
+          )}
+
           <h2>Iniciar sesión</h2>
 
-          {showSuccess && <div className="success-alert">Inicio de sesión exitoso.</div>}
-          {viewModel.error && <div className="error-message">{viewModel.error}</div>}
 
           <form onSubmit={handleSubmit}>
             <label>Email</label>

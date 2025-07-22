@@ -1,5 +1,5 @@
-import { User } from "../Data/Models/User";
-import { UserDTO } from "../Data/Models/UserTo";
+import { User } from "../data/models/User1";
+import { UserDTO } from "../data/models/UserTo";
 
 import { UserRepository } from "../Data/Repository/UserRepository";
 

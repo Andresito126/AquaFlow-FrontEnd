@@ -1,14 +1,28 @@
-import './Crateuser.css';
+import "./Crateuser.css";
 import ImgRegister from "../../../../../core/assets/icons/login-register/image21.png";
 import ImageLogoShort from "../../../../../core/assets/icons/login-register/hori.png";
 import { observer } from "mobx-react-lite";
 import { UserViewModel } from "../../ViewModels/UserViewModel";
 import { useUserFormLogic } from "../../ViewModels/useUserFormLogic";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const viewModel = new UserViewModel();
 
 const CreateUser = observer(() => {
   const { handleSubmit, showSuccessMessage } = useUserFormLogic(viewModel);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (showSuccessMessage) {
+      const timeout = setTimeout(() => {
+        navigate("/");
+      }, 1000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [showSuccessMessage, navigate]);
 
   return (
     <div className="auth-container">
@@ -26,10 +40,12 @@ const CreateUser = observer(() => {
         </div>
 
         <div className="auth-box">
-
-          {/* Alerta integrada como franja superior */}
           {(showSuccessMessage || viewModel.error) && (
-            <div className={`alert-bar ${showSuccessMessage ? 'success' : 'error'}`}>
+            <div
+              className={`alert-bar ${
+                showSuccessMessage ? "success" : "error"
+              }`}
+            >
               {showSuccessMessage
                 ? "¡Usuario registrado exitosamente!"
                 : viewModel.error}
@@ -78,23 +94,19 @@ const CreateUser = observer(() => {
             <input
               type="password"
               value={viewModel.confirmPassword}
-              onChange={(e) => viewModel.onChangeConfirmPassword(e.target.value)}
+              onChange={(e) =>
+                viewModel.onChangeConfirmPassword(e.target.value)
+              }
             />
-
-            <label>Tipo de usuario</label>
-            <select
-              className="select-role"
-              value={viewModel.userRole}
-              onChange={(e) => viewModel.onChangeUserRole(e.target.value)}
-            >
-              <option value="Regular user">Usuario regular</option>
-              <option value="Administrator">Administrador</option>
-            </select>
 
             <button type="submit" disabled={viewModel.isSubmitting}>
               {viewModel.isSubmitting ? "Registrando..." : "Crear cuenta"}
             </button>
           </form>
+
+          <p className="register-text">
+            ¿Ya tienes cuenta? <a href="/">Inicia sesión</a>
+          </p>
         </div>
       </div>
     </div>
