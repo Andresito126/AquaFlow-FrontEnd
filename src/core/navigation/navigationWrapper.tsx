@@ -7,62 +7,71 @@ import { StadisticsPage } from "../../features/sensors/presentation/pages/Stadis
 import { FilterPage } from "../../features/filter/presentation/pages/Filter-page";
 import { AdminPage } from "../../features/admin/presentation/pages/Admin-page";
 import NotificationsPage from "../../features/notifications/presentation/pages/Notifications-page";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const navigationWrapper = createBrowserRouter([
+  /* THIS IS WITHOUT THE SIDE BAR */
+  //   {
+  //     path: "/login",
+  //     element: <Login />,
+  //   },
 
-    /* THIS IS WITHOUT THE SIDE BAR */
-//   {
-//     path: "/login",
-//     element: <Login />,
-//   },
-
- {
-    path: '/login',
+  // Auth
+  {
+    path: "/",
     element: <Login />,
   },
   {
-    path: '/createuser',
+    path: "/registro",
     element: <CreateUser></CreateUser>,
   },
 
-   {
-    path: '/admin',
-    element: <AdminPage/>,
+  {
+    path: "/admin",
+    element: <AdminPage />,
   },
 
 
-  /* WITH THE SIDEBAR */
   
+  // PROTECTED ROUTES
+  /* WITH THE SIDEBAR */
+
+    {
+    path: "/",
+    element: (
+      <ProtectedRoute allowedRoles={["Administrator", "Regular user"]} />
+    ),
+    children: [
+      {
+        path: "dashboard",
+        element: <MainContainerLayout />,
+        children: [{ path: "", element: <Dashboard /> }],
+      },
+    ],
+  },
+  
+  // {
+  //   path: "/",
+  //   element: <MainContainerLayout />,
+  //   children: [{ path: "dashboard", element: <Dashboard /> }],
+  // },
+
   {
     path: "/",
-    element: <MainContainerLayout/>,
+    element: <MainContainerLayout />,
     children: [
-      { path: "dashboard", element: <Dashboard /> },
+      { path: "stadistics", element: <StadisticsPage></StadisticsPage> },
     ],
   },
 
   {
     path: "/",
-    element : <MainContainerLayout/>,
-    children: [
-      {path: "stadistics", element: <StadisticsPage></StadisticsPage>}
-    ]
+    element: <MainContainerLayout />,
+    children: [{ path: "filter", element: <FilterPage /> }],
   },
-
-   {
+  {
     path: "/",
-    element : <MainContainerLayout/>,
-    children: [
-      {path: "filter", element: <FilterPage/>}
-    ]
+    element: <MainContainerLayout />,
+    children: [{ path: "notifications", element: <NotificationsPage /> }],
   },
-    {
-    path: "/",
-    element : <MainContainerLayout/>,
-    children: [
-      {path: "notifications", element: <NotificationsPage/>}
-    ]
-  }
-
-
 ]);
