@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 
 .auth-container {
   display: flex;
@@ -60,14 +60,12 @@
 .auth-box {
   width: 100%;
   max-width: 400px;
-  padding: 40px;
   border-radius: 8px;
-  margin-bottom: 40px;
 }
 
 .auth-box h2 {
   text-align: left;
-  margin-bottom: 24px;
+  margin-bottom: 0px;
   font-size: 24px;
   color: #333;
   font-family: 'Poppins', sans-serif;
@@ -99,6 +97,7 @@
   padding: 10px;
   border: none;
   border-radius: 13px;
+  margin-top: 10%;
   font-weight: bold;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
@@ -110,21 +109,21 @@
   background-color: #022646;
 }
 
-.auth-signup-text {
-  margin-top: 100px;
+.register-text {
+  margin-top: 12px;
   text-align: center;
   color: #666;
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Poppins', sans-serif;
 }
 
-.auth-signup-text a {
+.register-text a {
   color: #0c0d0d;
   text-decoration: none;
   font-weight: bold;
 }
 
-.auth-signup-text a:hover {
+.register-text a:hover {
   text-decoration: underline;
 }
 
@@ -148,4 +147,55 @@
   padding: 0 10px;
   color: #999;
   font-size: 14px;
+}
+
+.select-role {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #C8C8C8;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+/* Alerta */
+.alert-bar {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.alert-bar.success {
+  background: #d0f0e3;
+  color: #11643c;
+  border: 1px solid #99e0c1;
+}
+
+.alert-bar.error {
+  background: #fbe1e1;
+  color: #7c1f1f;
+  border: 1px solid #e5a8a8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
