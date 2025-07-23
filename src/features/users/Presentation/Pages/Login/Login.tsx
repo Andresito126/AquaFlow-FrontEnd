@@ -1,5 +1,6 @@
 import './Login.css';
 import ImgLogin from '../../../../../core/assets/icons/login-register/login.png';
+import ImageLogoShort from "../../../../../core/assets/icons/login-register/hori.png";
 import { observer } from "mobx-react-lite";
 import { UserLoginViewModel } from "../../ViewModels/UserLoginViewModel";
 import { useUserLoginLogic } from "../../ViewModels/useUserLoginLogic";
@@ -26,7 +27,11 @@ const Login = observer(() => {
   return (
     <div className="login-container">
       <div className="login-left">
+           <div className="auth-logo-wrapper-left">
+          <img src={ImageLogoShort} className="auth-logo-left" alt="AquaFlow Logo" />
+        </div>
         <div className="login-box">
+          
 
                 
           {(showSuccess || viewModel.error) && (
@@ -76,7 +81,7 @@ const Login = observer(() => {
 
       <div className="login-right">
         <div className="login-right-content">
-          <img src={ImgLogin} alt="AquaFlow Logo" className="login-logo" />
+          <img src={ImgLogin} alt="AquaFlow Logo" className="img" />
           <h2>BIENVENIDO DE NUEVO</h2>
           <p>SÉ PARTE DEL CAMBIO HACIA UN FUTURO MÁS RESPONSABLE CON EL AGUA</p>
         </div>
