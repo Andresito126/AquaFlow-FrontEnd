@@ -28,7 +28,7 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({
         onClick={onLogout}
         className="text-white bg-[#d90e0e] hover:bg-[#a10000] font-semibold text-[15px] px-4 py-2 rounded-full transition duration-300"
       >
-        Log out
+        Cerrar sesión
       </button>
     </header>
   );
