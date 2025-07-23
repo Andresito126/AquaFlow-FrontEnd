@@ -12,9 +12,9 @@ export function FilterAssignmentCard({ userId }: Props) {
   const [assignedFilters, setAssignedFilters] = useState<Filter[]>([]);
   const [activeFilterId, setActiveFilterId] = useState("");
 
-  const baseUrl = import.meta.env.VITE_API_AUTH || "http://localhost:4000";
+  const baseUrl = import.meta.env.VITE_API_AUTH;
 
-  // Cargar filtros asignados al usuario al montar componente
+  //carga los filtros asignados al usuario
   useEffect(() => {
     async function fetchAssignedFilters() {
       try {
@@ -43,7 +43,7 @@ export function FilterAssignmentCard({ userId }: Props) {
     fetchAssignedFilters();
   }, [userId, baseUrl]);
 
-  // Cargar el filtro activo desde localStorage si existe
+  // carga el filtro activo desde localStorage
   useEffect(() => {
     const savedFilterId = localStorage.getItem("activeFilterId");
     if (savedFilterId) {
@@ -107,9 +107,9 @@ export function FilterAssignmentCard({ userId }: Props) {
         value={activeFilterId}
         onChange={(e) => setActiveFilterId(e.target.value)}
       >
-        <option value="">Selecciona un filtro</option>
+        <option className="text-[black]" value="">Selecciona un filtro</option>
         {assignedFilters.map((filter) => (
-          <option key={filter.getFilterId()} value={filter.getFilterId()}>
+          <option className="text-[black]" key={filter.getFilterId()} value={filter.getFilterId()}>
             {filter.getFilterId()}
           </option>
         ))}

@@ -10,7 +10,6 @@ import { FilterAssignmentCard } from "../../filter/presentation/components/Filte
 import { Modal } from "../components/generic/Modal";
 import { useUserFilters } from "../../filter/presentation/hooks/useUserFilter";
 
-
 export const AsideContainerLayout = () => {
   const activeFilterId = localStorage.getItem("activeFilterId");
   const { date, time } = useDateTime();
@@ -18,6 +17,7 @@ export const AsideContainerLayout = () => {
   const { theme, toggleTheme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { filters, addFilter } = useUserFilters();
+  const userId = localStorage.getItem("userId");
 
   const showAsideInRoutes = ["/dashboard"];
   if (!showAsideInRoutes.includes(pathname)) return null;
@@ -47,10 +47,10 @@ export const AsideContainerLayout = () => {
           )}
 
           {activeFilterId && (
-  <div className="mt-2 px-2 py-1 rounded-md text-sm">
-    Filtro activo: <strong>{activeFilterId}</strong>
-  </div>
-)}
+            <div className="mt-2 px-2 py-1 rounded-md text-sm">
+              Filtro activo: <strong>{activeFilterId}</strong>
+            </div>
+          )}
         </div>
       </div>
 
@@ -68,10 +68,14 @@ export const AsideContainerLayout = () => {
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <FilterAssignmentCard
-          userId="a1010283-e74e-478d-87ad-56ada0238bf1"
+          userId={userId || ""}
           onAssigned={(filterId) => {
-            addFilter(filterId);
-            setIsModalOpen(false);
+            if (userId) {
+              addFilter(filterId);
+              setIsModalOpen(false);
+            } else {
+              console.error("No hay userId en localStorage");
+            }
           }}
         />
       </Modal>
