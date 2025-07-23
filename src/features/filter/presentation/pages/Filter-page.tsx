@@ -30,7 +30,19 @@ const dummyLayers = [
 ];
 
 export const FilterPage = () => {
+  const activeFilterId = localStorage.getItem("activeFilterId");
   const { theme, toggleTheme } = useTheme();
+
+   if (!activeFilterId) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[70vh] text-center px-4">
+        <h2 className="text-[25px] text-xl font-semibold mb-2">No has seleccionado un filtro</h2>
+        <p className="text-[18px]">
+          Por favor selecciona un filtro activo para poder visualizar las estadísticas de tu filtrador. Selecciónalo  en la pagina de inicio (DASHBOARD).
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-stretch gap-6 px-4">
