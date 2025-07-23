@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import logoAF from "../../../../core/assets/icons/sidebar/AF-logo-sidebar.svg";
 import IconDashboard from "../../../../core/assets/icons/sidebar/icon-dashboard.svg";
 import IconDispositives from "../../../../core/assets/icons/sidebar/icon-dispositives.svg";
@@ -7,6 +8,13 @@ import IconSettings from "../../../../core/assets/icons/sidebar/icon-settings.sv
 import IconStats from "../../../../core/assets/icons/sidebar/icon-stats.svg";
 import AsideIconReu from "../../components/navItems/aside-icon-reu";
 export const SideBar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
   return (
     <>
       <aside
@@ -20,30 +28,29 @@ export const SideBar = () => {
             <img src={logoAF} alt="Logo" className="mx-auto mb-[1.875rem]" />
 
             <ul className="flex flex-col gap-y-1 mt-6">
-
               <AsideIconReu
-                nameNav= "Dashboard"
+                nameNav="Dashboard"
                 to="/dashboard"
                 icon={IconDashboard}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
-                nameNav= "Estadísticas"
+                nameNav="Estadísticas"
                 to="/stadistics"
                 icon={IconStats}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
-                nameNav= "Estado del filtro"
+                nameNav="Estado del filtro"
                 to="/filter"
                 icon={IconDispositives}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
-                nameNav= "Notificaciones"
+                nameNav="Notificaciones"
                 to="/notifications"
                 icon={IconNotifications}
                 alt="Dashboard Icon"
@@ -54,20 +61,26 @@ export const SideBar = () => {
           {/* bottom icons */}
 
           <ul className="flex flex-col gap-y-1 mt-6">
- 
             <AsideIconReu
-              nameNav= "Configuración"
+              nameNav="Configuración"
               to="/settings"
               icon={IconSettings}
               alt="Dashboard Icon"
             ></AsideIconReu>
 
-            <AsideIconReu
-              nameNav= "Cerrar sesión"
-              to="/signOut"
-              icon={IconOut}
-              alt="Dashboard Icon"
-            ></AsideIconReu>
+            <li
+              onClick={handleLogout}
+              className="flex items-center p-3 rounded-lg mt-[1.563rem] cursor-pointer hover:bg-[#3F8DB4] transition-all"
+            >
+              <img
+                src={IconOut}
+                alt="Cerrar sesión"
+                className="transition duration-75"
+              />
+              <p className="text-[20px] pl-[1.875rem] font-regular text-white">
+                Cerrar sesión
+              </p>
+            </li>
           </ul>
         </div>
       </aside>
