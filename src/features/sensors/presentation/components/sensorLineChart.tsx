@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import {
   LineChart,
   Line,
@@ -7,7 +7,6 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
-  Label,
   Customized,
 } from "recharts";
 
@@ -17,10 +16,10 @@ interface SensorDataPoint {
 }
 
 interface Props {
-  title: string;   
+  title: string;
   data: SensorDataPoint[];
   strokeColor?: string;
-  unit?: string;   
+  unit?: string;
 }
 
 const CenteredTitle = ({ title }: { title: string }) => (
@@ -48,7 +47,7 @@ export const SensorLineChart = ({
   const yDomain = useMemo(() => {
     if (!data.length) return [0, 10];
 
-    const values = data.map(d => d.value);
+    const values = data.map((d) => d.value);
     const minVal = Math.min(...values);
     const maxVal = Math.max(...values);
     const margin = Math.max((maxVal - minVal) * 0.05, 1);
@@ -84,6 +83,11 @@ export const SensorLineChart = ({
           <Tooltip
             labelFormatter={(label) => `Hora: ${label}`}
             formatter={(value: number) => [`${value}`, unit]}
+            contentStyle={{
+              backgroundColor: "#ffffff",
+              border: "1px solid #e5e7eb",
+              color: "#000000",
+            }}
           />
 
           <Line

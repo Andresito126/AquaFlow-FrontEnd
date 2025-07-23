@@ -21,14 +21,14 @@ interface Props {
   data: WaterQualityTrendPoint[];
 }
 
-
-
 export const WaterQualityBarChart = ({ title, data }: Props) => {
   const formatDateSimple = (dateStr: string) => {
-    const parts = dateStr.split("-");
-    if (parts.length !== 3) return dateStr;
-    const [year, month, day] = parts;
-    return `${day}-${month}-${year}`;
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("es-MX", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
   };
 
   const getBarColor = (value: number) => {
@@ -38,15 +38,13 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
     if (value <= 90) return "#84cc16";
     return "#16a34a";
   };
-  
 
   return (
     <div className="bg-white p-4 rounded-xl shadow-md w-full border-[#CBD5E1] dark:border-[#105B85] border-[1px]">
-     <h2 className="text-lg font-semibold text-gray-800 mb-4 dark:text-white">
+      <h2 className="text-lg font-semibold text-gray-800 mb-4 dark:text-white">
         {title}
       </h2>
 
-    
       <div className="flex gap-20 mb-4 text-sm text-gray-600 ">
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-red-500 mr-2"></span>
@@ -81,8 +79,8 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
           <ReferenceArea y1={71} y2={90} fill="#84cc16" fillOpacity={0.2} />
           <ReferenceArea y1={91} y2={100} fill="#16a34a" fillOpacity={0.2} />
 
-           <XAxis
-                 dataKey="day"
+          <XAxis
+            dataKey="day"
             tickFormatter={formatDateSimple}
             interval={0}
             height={40}
@@ -103,11 +101,11 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
           <Tooltip
             labelFormatter={(label) => `Fecha: ${formatDateSimple(label)}`}
             formatter={(value: number) => [`${value}%`, "Calidad"]}
-                      contentStyle={{
-    backgroundColor: "#ffffff",
-    border: "1px solid #e5e7eb",
-    color: "#000000",
-  }}
+            contentStyle={{
+              backgroundColor: "#ffffff",
+              border: "1px solid #e5e7eb",
+              color: "#000000",
+            }}
           />
 
           <Bar dataKey="ica_value" radius={[4, 4, 0, 0]}>

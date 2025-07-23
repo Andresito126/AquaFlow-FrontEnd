@@ -21,12 +21,15 @@ interface Props {
 }
 
 export const WaterQualityTrendChart = ({ title, data }: Props) => {
-   const formatDateSimple = (dateStr: string) => {
-    const parts = dateStr.split("-");
-    if (parts.length !== 3) return dateStr;
-    const [year, month, day] = parts;
-    return `${day}-${month}-${year}`;
-  };
+const formatDateSimple = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("es-MX", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+};
+
 
   return (
     <div className="bg-white p-4 rounded-xl shadow-md w-full">
