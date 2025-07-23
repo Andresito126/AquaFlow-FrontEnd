@@ -1,5 +1,5 @@
-import './Login.css';
-import ImgLogin from '../../../../../core/assets/icons/login-register/login.png';
+import "./Login.css";
+import ImgLogin from "../../../../../core/assets/icons/login-register/login.png";
 import ImageLogoShort from "../../../../../core/assets/icons/login-register/hori.png";
 import { observer } from "mobx-react-lite";
 import { UserLoginViewModel } from "../../ViewModels/UserLoginViewModel";
@@ -13,13 +13,11 @@ const Login = observer(() => {
   const { handleSubmit, showSuccess } = useUserLoginLogic(viewModel);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     if (showSuccess) {
       const timeout = setTimeout(() => {
-        navigate("/dashboard"); 
+        navigate("/dashboard");
       }, 2000);
-
       return () => clearTimeout(timeout);
     }
   }, [showSuccess, navigate]);
@@ -27,25 +25,17 @@ const Login = observer(() => {
   return (
     <div className="login-container">
       <div className="login-left">
-           <div className="auth-logo-wrapper-left">
-          <img src={ImageLogoShort} className="auth-logo-left" alt="AquaFlow Logo" />
+        <div className="auth-logo-wrapper-left">
+          <img src={ImageLogoShort} className="auth-logo-left" alt="Logo" />
         </div>
         <div className="login-box">
-          
-
-                
           {(showSuccess || viewModel.error) && (
-            <div
-              className={`alert-bar ${showSuccess ? "success" : "error"}`}
-            >
-              {showSuccess
-                ? "Inicio de sesión exitoso."
-                : viewModel.error}
+            <div className={`alert-bar ${showSuccess ? "success" : "error"}`}>
+              {showSuccess ? "Inicio de sesión exitoso." : viewModel.error}
             </div>
           )}
 
           <h2>Iniciar sesión</h2>
-
 
           <form onSubmit={handleSubmit}>
             <label>Email</label>
@@ -54,6 +44,7 @@ const Login = observer(() => {
               value={viewModel.email}
               onChange={(e) => viewModel.onChangeEmail(e.target.value)}
               disabled={viewModel.isSubmitting}
+              placeholder="ejemplo@correo.com"
             />
 
             <label>Contraseña</label>
@@ -62,6 +53,7 @@ const Login = observer(() => {
               value={viewModel.password}
               onChange={(e) => viewModel.onChangePassword(e.target.value)}
               disabled={viewModel.isSubmitting}
+              placeholder="••••••••"
             />
 
             <button type="submit" disabled={viewModel.isSubmitting}>
@@ -81,7 +73,7 @@ const Login = observer(() => {
 
       <div className="login-right">
         <div className="login-right-content">
-          <img src={ImgLogin} alt="AquaFlow Logo" className="img" />
+          <img src={ImgLogin} alt="Login visual" className="img" />
           <h2>BIENVENIDO DE NUEVO</h2>
           <p>SÉ PARTE DEL CAMBIO HACIA UN FUTURO MÁS RESPONSABLE CON EL AGUA</p>
         </div>
