@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Filter } from "../../data/models/Filter";
+import { showSuccessAlert, showErrorAlert, showConfirmationAlert } from "../../../shared/utils/swal";
+
 
 interface Props {
   userId: string;
-  onAssigned?: (filterId: string) => void;
+  onAssigned?: (id: string) => void; 
+
 }
 
-export function FilterAssignmentCard({ userId }: Props) {
+export function FilterAssignmentCard({ userId, onAssigned }: Props) {
   const [filterId, setFilterId] = useState("");
   const [assignedFilters, setAssignedFilters] = useState<Filter[]>([]);
   const [activeFilterId, setActiveFilterId] = useState("");
@@ -74,10 +77,24 @@ export function FilterAssignmentCard({ userId }: Props) {
     }
   };
 
-  const handleSetActive = () => {
-    if (!activeFilterId) return;
+const handleSetActive = async () => {
+  if (!activeFilterId) return;
+
+  const confirmed = await showConfirmationAlert("¿Quieres usar este filtro como el activo?");
+  if (!confirmed) return;
+
+  try {
     localStorage.setItem("activeFilterId", activeFilterId);
-  };
+    showSuccessAlert("Filtro activado correctamente.");
+    if (onAssigned) {
+      onAssigned(activeFilterId);
+    }
+  } catch (err) {
+    showErrorAlert("No se pudo activar el filtro.");
+    console.error(err);
+  }
+};
+
 
   return (
     <div className="flex flex-col gap-4 w-full">

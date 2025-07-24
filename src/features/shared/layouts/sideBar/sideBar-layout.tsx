@@ -7,12 +7,20 @@ import IconOut from "../../../../core/assets/icons/sidebar/icon-out.svg";
 import IconSettings from "../../../../core/assets/icons/sidebar/icon-settings.svg";
 import IconStats from "../../../../core/assets/icons/sidebar/icon-stats.svg";
 import AsideIconReu from "../../components/navItems/aside-icon-reu";
+import { showConfirmationAlert } from "../../utils/swal";
+
 export const SideBar = () => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
+  const handleLogout = async () => {
+    const confirmed = await showConfirmationAlert(
+      "¿Deseas cerrar sesión?",
+      "Sí, cerrar sesión"
+    );
+    if (confirmed) {
+      localStorage.clear();
+      navigate("/");
+    }
   };
 
   return (

@@ -16,7 +16,7 @@ export const AsideContainerLayout = () => {
   const { pathname } = useLocation();
   const { theme, toggleTheme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { filters, addFilter } = useUserFilters();
+  const { addFilter } = useUserFilters();
   const userId = localStorage.getItem("userId");
 
   const showAsideInRoutes = ["/dashboard"];
@@ -35,7 +35,7 @@ export const AsideContainerLayout = () => {
             Asignar filtro
           </button>
 
-          {filters.length > 0 && (
+          {/* {filters.length > 0 && (
             <select className="text-black rounded-md px-2 py-1 w-full">
               <option value="">-- Filtros asignados --</option>
               {filters.map((filterId) => (
@@ -44,7 +44,7 @@ export const AsideContainerLayout = () => {
                 </option>
               ))}
             </select>
-          )}
+          )} */}
 
           {activeFilterId && (
             <div className="mt-2 px-2 py-1 rounded-md text-sm">
