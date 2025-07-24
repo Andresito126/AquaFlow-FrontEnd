@@ -77,7 +77,6 @@ export function FilterAssignmentCard({ userId }: Props) {
   const handleSetActive = () => {
     if (!activeFilterId) return;
     localStorage.setItem("activeFilterId", activeFilterId);
-    alert(`Filtro ${activeFilterId} seleccionado como activo.`);
   };
 
   return (

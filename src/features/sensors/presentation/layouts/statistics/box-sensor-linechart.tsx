@@ -2,7 +2,7 @@ import { SensorLineChart } from "../../components/sensorLineChart";
 import { useRealTimeSensorsData } from "../../hooks/useRealTimeSensorData";
 
 export const BoxSensorLineChart = () => {
-  const userId = "1"; 
+  const userId = "50ba2d27-d700-45d9-b209-e8ae76d9e77e"; 
   const { ph, tds, temperature, turbidity } = useRealTimeSensorsData(userId);
 
   return (

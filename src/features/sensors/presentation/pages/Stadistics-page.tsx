@@ -6,7 +6,6 @@ import { BoxSensorBarChart } from "../layouts/statistics/box-sensor-barchart";
 import ThemeToggleButton from "../../../shared/components/generic/ThemeToggleButton";
 import { useTheme } from "../../../shared/hooks/useTheme";
 import { BoxSensorsInfoCards } from "../layouts/statistics/box-sensor-info-cards";
-import { BoxWaterQualityTrendChart } from "../layouts/statistics/box-sensor-quality-trendchart";
 
 export const StadisticsPage = () => {
   const activeFilterId = localStorage.getItem("activeFilterId");
@@ -44,7 +43,7 @@ export const StadisticsPage = () => {
 
         <BoxSensorBarChart />
 
-        <BoxWaterQualityTrendChart />
+        {/* <BoxWaterQualityTrendChart /> */}
 
         <BoxSensorsInfoCards />
       </div>

@@ -41,7 +41,7 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
 
   return (
     <div className="bg-white p-4 rounded-xl shadow-md w-full border-[#CBD5E1] dark:border-[#105B85] border-[1px]">
-      <h2 className="text-lg font-semibold text-gray-800 mb-4 dark:text-white">
+      <h2 className="text-lg font-semibold text-gray-800 mb-4 dark:text-black">
         {title}
       </h2>
 

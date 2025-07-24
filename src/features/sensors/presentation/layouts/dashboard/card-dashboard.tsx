@@ -10,7 +10,7 @@ import BarTDS from "../../../../../core/assets/icons/sensors/bar-counter-tds.svg
 import { useSensorReadingsSocket } from "../../hooks/useSensorReadingsSocket";
 
 export const CardDashboardRealTime = () => {
-  const userId = "1"; // aca es del fornt y debe ser el mismo que el del socket rooms
+  const userId = "50ba2d27-d700-45d9-b209-e8ae76d9e77e"; // aca es del fornt y debe ser el mismo que el del socket rooms
   const data = useSensorReadingsSocket(userId);
 
   console.log(" valores actuales del socket:", data);
