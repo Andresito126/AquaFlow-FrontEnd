@@ -39,6 +39,8 @@ async doLogin() {
       localStorage.setItem("userRole", user.userRole);
       localStorage.setItem("userId", user.userId);  
       localStorage.setItem("userEmail", user.email);
+      localStorage.setItem("userName", user.firstName);
+      localStorage.setItem("userLastName", user.lastName);
 
     });
 

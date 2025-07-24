@@ -18,6 +18,7 @@ export const AsideContainerLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addFilter } = useUserFilters();
   const userId = localStorage.getItem("userId");
+  const userName = `${localStorage.getItem("userName") || "Usuario"} ${localStorage.getItem("userLastName") || ""}`.trim();
 
   const showAsideInRoutes = ["/dashboard"];
   if (!showAsideInRoutes.includes(pathname)) return null;
@@ -25,7 +26,7 @@ export const AsideContainerLayout = () => {
   return (
     <aside className="flex flex-col justify-between w-[300px] h-full mt-[10px] mb-[10px] min-h-screen lg:block mr-[20px]">
       <div className="flex flex-col rounded-lg">
-        <CardUser avatar={IconMale} name="John Doe" hour={time} date={date} />
+        <CardUser avatar={IconMale} name={userName} hour={time} date={date} IdUser={userId || ""} />
 
         <div className="px-[8px] py-[8px] shadow-lg mt-5 dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] flex border-1 rounded-[20px] flex-col gap-2">
           <button
@@ -48,7 +49,7 @@ export const AsideContainerLayout = () => {
 
           {activeFilterId && (
             <div className="mt-2 px-2 py-1 rounded-md text-sm">
-              Filtro activo: <strong>{activeFilterId}</strong>
+              Filtro activo: <strong>{activeFilterId}</strong> 
             </div>
           )}
         </div>
