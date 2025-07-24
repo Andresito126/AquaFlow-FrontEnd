@@ -47,8 +47,8 @@ export const FilterPage = () => {
   return (
     <div className="flex flex-col items-stretch gap-6 px-4">
       <Header
-        title="Meet your filter"
-        subtitle="Know the status and data of your filter layers"
+        title="Conoce a tu filtro"
+        subtitle="Conoce el estado y la información de las capas de tu filtro"
         icon2={IconFilterHeader}
       />
 
