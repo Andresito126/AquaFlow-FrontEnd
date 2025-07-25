@@ -8,13 +8,12 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import AdminHeader from "../components/AdminHeader";
 import { useCreateFilter } from "../../../filter/presentation/hooks/useCreateFilter";
-import {
-  exampleFilterLayers,
-  exampleSensors,
-} from "../../../filter/data/staticData/staticData";
+import { exampleFilterLayers, exampleSensors} from "../../../filter/data/staticData/staticData";
 import { Sensor } from "../../../sensors/data/models/Sensor";
 import { FilterLayer } from "../../../filter/data/models/FilterLayer";
 import { useGetAllFilters } from "../../../filter/presentation/hooks/useGetAllFilter";
+import { useNavigate } from "react-router-dom";
+
 export const AdminPage = () => {
   //hooks
   const { theme, toggleTheme } = useTheme();
@@ -22,7 +21,12 @@ export const AdminPage = () => {
   const { loading, error, createdFilterId, createFilter } = useCreateFilter();
   const { filters } = useGetAllFilters();
   const [searchTable, setSearchTable] = useState("");
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
 
   const handleClick = () => {
     if (!search) return;
@@ -48,44 +52,39 @@ export const AdminPage = () => {
     );
   };
 
-
-   const totalFilters = filters.length;
-  const activeFilters = filters.filter(f => f.isActiveFilter()).length;
+  const totalFilters = filters.length;
+  const activeFilters = filters.filter((f) => f.isActiveFilter()).length;
   const inactiveFilters = totalFilters - activeFilters;
 
   const stats = [
     {
-      label: "Total Filters",
+      label: "Filtros Totales",
       value: totalFilters,
       icon: <img src={IconTotal} alt="" />,
     },
     {
-      label: "Active Filters",
+      label: "Filtros Activos",
       value: activeFilters,
       icon: <img src={IconActive} alt="" />,
     },
     {
-      label: "Inactive Filters",
+      label: "Filtros Inactivos",
       value: inactiveFilters,
       icon: <img src={IconInactive} alt="" />,
     },
   ];
 
-  const filteredFilters = filters.filter(f =>
-  f.getFilterId().toLowerCase().includes(searchTable.toLowerCase())
-);
-
+  const filteredFilters = filters.filter((f) =>
+    f.getFilterId().toLowerCase().includes(searchTable.toLowerCase())
+  );
 
   return (
     <div className="flex-1 p-5 space-y-6">
       <AdminHeader
         logoSrc={IconAquaFlowAdmin}
         title="SOFTGENIX"
-        role="Administrator"
-        onLogout={() => {
-          console.log("Cerrar sesión");
-          // logic de logout aquí
-        }}
+        role="Administrador"
+        onLogout={handleLogout}
       />
 
       <div>
@@ -94,7 +93,7 @@ export const AdminPage = () => {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Add the UUID"
+            placeholder="Ingresa el código UUID"
             className="flex-1 bg-transparent outline-none"
           />
           <button
@@ -102,7 +101,7 @@ export const AdminPage = () => {
             disabled={loading || !search}
             className="shadow-lg bg-[#1c709a] hover:bg-[#105B85] text-white px-4 py-2 rounded-[20px]"
           >
-            <span> + </span> Add new product
+            <span> + </span> Añadir un filtro
           </button>
         </div>
 
@@ -124,8 +123,8 @@ export const AdminPage = () => {
           >
             <div>{stat.icon}</div>
             <div className="text-right">
-              <p className="text-xl font-bold">{stat.value}</p>
-              <p className="text-sm">{stat.label}</p>
+              <p className="text-[25px] font-bold">{stat.value}</p>
+              <p className="text-[19px]">{stat.label}</p>
             </div>
           </div>
         ))}
@@ -138,10 +137,10 @@ export const AdminPage = () => {
             <span></span>
             <input
               type="text"
-              placeholder="Search by UUID"
+              placeholder="Buscar por UUID"
               value={searchTable}
               onChange={(e) => setSearchTable(e.target.value)}
-              className="bg-transparent outline-none text-white text-sm"
+              className="bg-transparent outline-none text-white text-[14px] w-[19rem]"
             />
           </div>
           <button
@@ -152,23 +151,26 @@ export const AdminPage = () => {
           </button>
         </div>
 
-        <table className="w-full text-sm text-center table-fixed">
+        <table className="w-full text-center table-fixed">
           <thead className="text-slate-400 border-b border-slate-600">
-            <tr>
-              <th className="py-2 w-1/4">Filter UUID</th>
-              <th className="py-2 w-1/4">Model</th>
-              <th className="py-2 w-1/4">Status</th>
-              <th className="py-2 w-1/4">Date</th>
+            <tr className="text-[18px] ">
+              <th className="py-2 w-1/4">UUID del filtro</th>
+              <th className="py-2 w-1/4">Modelo</th>
+              <th className="py-2 w-1/4">Estatus</th>
+              <th className="py-2 w-1/4">Fecha de ingreso</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-700">
             {filteredFilters.map((filter) => (
-              <tr key={filter.getFilterId()} className="transition">
+              <tr
+                key={filter.getFilterId()}
+                className="transition text-[16px] "
+              >
                 <td className="py-3 break-words">{filter.getFilterId()}</td>
                 <td className="py-3">{filter.getModel()}</td>
                 <td className="py-3">
                   <span
-                    className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    className={`px-2 py-1 rounded-full text-[15px] font-medium ${
                       filter.isActiveFilter()
                         ? "bg-green-500/20 text-green-400"
                         : "bg-red-500/20 text-red-400"

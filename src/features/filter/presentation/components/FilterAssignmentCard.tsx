@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Filter } from "../../data/models/Filter";
+import { showSuccessAlert, showErrorAlert, showConfirmationAlert } from "../../../shared/utils/swal";
+
 
 interface Props {
   userId: string;
-  onAssigned?: (filterId: string) => void;
+  onAssigned?: (id: string) => void; 
+
 }
 
-export function FilterAssignmentCard({ userId }: Props) {
+export function FilterAssignmentCard({ userId, onAssigned }: Props) {
   const [filterId, setFilterId] = useState("");
   const [assignedFilters, setAssignedFilters] = useState<Filter[]>([]);
   const [activeFilterId, setActiveFilterId] = useState("");
 
-  const baseUrl = import.meta.env.VITE_API_AUTH || "http://localhost:4000";
+  const baseUrl = import.meta.env.VITE_API_AUTH;
 
-  // Cargar filtros asignados al usuario al montar componente
+  //carga los filtros asignados al usuario
   useEffect(() => {
     async function fetchAssignedFilters() {
       try {
@@ -43,7 +46,7 @@ export function FilterAssignmentCard({ userId }: Props) {
     fetchAssignedFilters();
   }, [userId, baseUrl]);
 
-  // Cargar el filtro activo desde localStorage si existe
+  // carga el filtro activo desde localStorage
   useEffect(() => {
     const savedFilterId = localStorage.getItem("activeFilterId");
     if (savedFilterId) {
@@ -74,11 +77,24 @@ export function FilterAssignmentCard({ userId }: Props) {
     }
   };
 
-  const handleSetActive = () => {
-    if (!activeFilterId) return;
+const handleSetActive = async () => {
+  if (!activeFilterId) return;
+
+  const confirmed = await showConfirmationAlert("¿Quieres usar este filtro como el activo?");
+  if (!confirmed) return;
+
+  try {
     localStorage.setItem("activeFilterId", activeFilterId);
-    alert(`Filtro ${activeFilterId} seleccionado como activo.`);
-  };
+    showSuccessAlert("Filtro activado correctamente.");
+    if (onAssigned) {
+      onAssigned(activeFilterId);
+    }
+  } catch (err) {
+    showErrorAlert("No se pudo activar el filtro.");
+    console.error(err);
+  }
+};
+
 
   return (
     <div className="flex flex-col gap-4 w-full">
@@ -107,9 +123,9 @@ export function FilterAssignmentCard({ userId }: Props) {
         value={activeFilterId}
         onChange={(e) => setActiveFilterId(e.target.value)}
       >
-        <option value="">Selecciona un filtro</option>
+        <option className="text-[black]" value="">Selecciona un filtro</option>
         {assignedFilters.map((filter) => (
-          <option key={filter.getFilterId()} value={filter.getFilterId()}>
+          <option className="text-[black]" key={filter.getFilterId()} value={filter.getFilterId()}>
             {filter.getFilterId()}
           </option>
         ))}

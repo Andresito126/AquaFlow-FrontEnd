@@ -35,7 +35,7 @@ export const Dashboard = () => {
         <AutoCarousel
           title="Cosas que debes saber de tu filtro"
           slides={slides}
-          interval={10000}
+          interval={20000}
         />
       </div>
     </>

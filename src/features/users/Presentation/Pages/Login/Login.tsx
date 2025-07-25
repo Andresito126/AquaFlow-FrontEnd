@@ -13,14 +13,21 @@ const Login = observer(() => {
   const { handleSubmit, showSuccess } = useUserLoginLogic(viewModel);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (showSuccess) {
-      const timeout = setTimeout(() => {
+ useEffect(() => {
+  if (showSuccess) {
+    const timeout = setTimeout(() => {
+      const userRole = localStorage.getItem("userRole");
+
+      if (userRole === "Administrator") {
+        navigate("/admin");
+      } else {
         navigate("/dashboard");
-      }, 2000);
-      return () => clearTimeout(timeout);
-    }
-  }, [showSuccess, navigate]);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }
+}, [showSuccess, navigate]);
 
   return (
     <div className="login-container">

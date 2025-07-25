@@ -10,13 +10,30 @@ import NotificationsPage from "../../features/notifications/presentation/pages/N
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export const navigationWrapper = createBrowserRouter([
+
   /* THIS IS WITHOUT THE SIDE BAR */
   //   {
   //     path: "/login",
   //     element: <Login />,
   //   },
 
-  // Auth
+
+  //ADMIN ROUTE
+
+  
+{
+  path: "/admin",
+  element: <ProtectedRoute allowedRoles={["Administrator"]} />,
+  children: [
+    {
+      path: "",
+      element: <AdminPage />,
+    },
+  ],
+},
+
+  //AUTHS ROUTES
+
   {
     path: "/",
     element: <Login />,
@@ -26,17 +43,12 @@ export const navigationWrapper = createBrowserRouter([
     element: <CreateUser></CreateUser>,
   },
 
-  {
-    path: "/admin",
-    element: <AdminPage />,
-  },
 
 
-  
   // PROTECTED ROUTES
   /* WITH THE SIDEBAR */
 
-    {
+  {
     path: "/",
     element: (
       <ProtectedRoute allowedRoles={["Administrator", "Regular user"]} />
@@ -49,29 +61,46 @@ export const navigationWrapper = createBrowserRouter([
       },
     ],
   },
-  
-  // {
-  //   path: "/",
-  //   element: <MainContainerLayout />,
-  //   children: [{ path: "dashboard", element: <Dashboard /> }],
-  // },
 
   {
     path: "/",
-    element: <MainContainerLayout />,
+    element: (
+      <ProtectedRoute allowedRoles={["Administrator", "Regular user"]} />
+    ),
     children: [
-      { path: "stadistics", element: <StadisticsPage></StadisticsPage> },
+      {
+        path: "stadistics",
+        element: <MainContainerLayout />,
+        children: [{ path: "", element: <StadisticsPage /> }],
+      },
     ],
   },
 
   {
     path: "/",
-    element: <MainContainerLayout />,
-    children: [{ path: "filter", element: <FilterPage /> }],
+    element: (
+      <ProtectedRoute allowedRoles={["Administrator", "Regular user"]} />
+    ),
+    children: [
+      {
+        path: "filter",
+        element: <MainContainerLayout />,
+        children: [{ path: "", element: <FilterPage /> }],
+      },
+    ],
   },
+
   {
     path: "/",
-    element: <MainContainerLayout />,
-    children: [{ path: "notifications", element: <NotificationsPage /> }],
+    element: (
+      <ProtectedRoute allowedRoles={["Administrator", "Regular user"]} />
+    ),
+    children: [
+      {
+        path: "notifications",
+        element: <MainContainerLayout />,
+        children: [{ path: "", element: <NotificationsPage /> }],
+      },
+    ],
   },
 ]);
