@@ -18,4 +18,14 @@
 
 }
 
+@keyframes float-rotate {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+.animate-float-rotate {
+  animation: float-rotate 3s ease-in-out infinite;
+}
+
+
+
 

@@ -73,7 +73,7 @@ export const CardDashboardRealTime = () => {
 
         <StatsRealTime
           icon={IconTurbidity}
-          data={`${data?.turbidity?.value ?? "--"} ppm`}
+          data={`${data?.turbidity?.value ?? "--"} NTU`}
           title="Turbidez"
           alt="Ícono de turbidez"
           graph={

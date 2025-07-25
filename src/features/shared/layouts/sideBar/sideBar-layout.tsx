@@ -57,24 +57,24 @@ export const SideBar = () => {
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
-              <AsideIconReu
+              {/* <AsideIconReu
                 nameNav="Notificaciones"
                 to="/notifications"
                 icon={IconNotifications}
                 alt="Dashboard Icon"
-              ></AsideIconReu>
+              ></AsideIconReu> */}
             </ul>
           </div>
 
           {/* bottom icons */}
 
           <ul className="flex flex-col gap-y-1 mt-6">
-            <AsideIconReu
+            {/* <AsideIconReu
               nameNav="Configuración"
               to="/settings"
               icon={IconSettings}
               alt="Dashboard Icon"
-            ></AsideIconReu>
+            ></AsideIconReu> */}
 
             <li
               onClick={handleLogout}
