@@ -18,11 +18,15 @@ const slides = [
 ];
 
 export const Dashboard = () => {
+    const userName = `${localStorage.getItem("userName") || "Usuario"} ${
+    localStorage.getItem("userLastName") || ""
+  }`.trim();
+
   return (
     <>
       <div className="flex flex-col items-stretch gap-4">
         <Header
-          title="Hello, Carlitos"
+          title={userName}
           subtitle="Ten un lindo día. El agua está en buenas manos hoy"
           icon1={IconPlant}
           icon2={IconEarth}

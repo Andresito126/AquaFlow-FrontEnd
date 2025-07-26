@@ -4,7 +4,7 @@ import "./FlipCard.css";
 type SideData = {
   name: string;
   value: number;
-  status: "Good" | "Medium" | "Bad";
+  status: "Bueno" | "Regular" | "Malo";
   date: string;
   backContent?: string; 
 
