@@ -115,7 +115,7 @@ export function FilterGeneralStatus({
         </div>
       </div>
 
-      {/* Texto narrativo extra */}
+      
       <div className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed">
         <p>
           El filtro aún no ha alcanzado el umbral crítico del{" "}

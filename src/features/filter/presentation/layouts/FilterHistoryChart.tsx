@@ -19,7 +19,7 @@ interface FilterHistoryChartProps {
 export function FilterHistoryChart({
   days,
   effectiveness,
-  title = "Histórico de efectividad (Regresión lineal)",
+  title = "Efectividad histórica del filtrador",
 }: FilterHistoryChartProps) {
   const data = useMemo(() => {
     return days.map((d, i) => {
