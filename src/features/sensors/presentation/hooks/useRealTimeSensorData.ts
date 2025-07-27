@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { io, type Socket } from "socket.io-client";
 import type { MeasurementsModel } from "../../data/models/Measurements";
 
-const SOCKET_URL = "http://localhost:8000";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
 
 interface SensorPoint {
   time: string;

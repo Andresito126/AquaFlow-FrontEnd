@@ -17,7 +17,6 @@ export function FilterAssignmentCard({ userId, onAssigned }: Props) {
 
   const baseUrl = import.meta.env.VITE_API_AUTH;
 
-  //carga los filtros asignados al usuario
   useEffect(() => {
     async function fetchAssignedFilters() {
       try {

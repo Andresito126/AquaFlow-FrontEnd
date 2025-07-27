@@ -11,7 +11,7 @@ const BarVisualizer: React.FC<BarVisualizerProps> = ({
   value,
   max,
   color,
-  segments = 12,
+  segments = 10,
 }) => {
   const filledCount = Math.round((value / max) * segments);
 

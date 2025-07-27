@@ -2,9 +2,7 @@ import { useNavigate } from "react-router-dom";
 import logoAF from "../../../../core/assets/icons/sidebar/AF-logo-sidebar.svg";
 import IconDashboard from "../../../../core/assets/icons/sidebar/icon-dashboard.svg";
 import IconDispositives from "../../../../core/assets/icons/sidebar/icon-dispositives.svg";
-import IconNotifications from "../../../../core/assets/icons/sidebar/icon-notifications.svg";
 import IconOut from "../../../../core/assets/icons/sidebar/icon-out.svg";
-import IconSettings from "../../../../core/assets/icons/sidebar/icon-settings.svg";
 import IconStats from "../../../../core/assets/icons/sidebar/icon-stats.svg";
 import AsideIconReu from "../../components/navItems/aside-icon-reu";
 import { showConfirmationAlert } from "../../utils/swal";
@@ -57,24 +55,14 @@ export const SideBar = () => {
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
-              {/* <AsideIconReu
-                nameNav="Notificaciones"
-                to="/notifications"
-                icon={IconNotifications}
-                alt="Dashboard Icon"
-              ></AsideIconReu> */}
+           
             </ul>
           </div>
 
           {/* bottom icons */}
 
           <ul className="flex flex-col gap-y-1 mt-6">
-            {/* <AsideIconReu
-              nameNav="Configuración"
-              to="/settings"
-              icon={IconSettings}
-              alt="Dashboard Icon"
-            ></AsideIconReu> */}
+       
 
             <li
               onClick={handleLogout}

@@ -1,48 +1,77 @@
+type StatusColor = keyof typeof borderColorMap;
+
 type Props = {
   title: string;
   normal: string;
   caution: string;
   unit: string;
+  imageUrl?: string;
+  statusColor?: StatusColor;
 };
 
-const SensorReferenceCard = ({ title, normal, caution, unit }: Props) => {
+const borderColorMap = {
+  temperature: "border-[#E69732]",
+  ph: "border-[#308451]",
+  tds: "border-[#2BC2E0]",
+  turbidity: "border-[#DDB723]",
+};
+
+const SensorReferenceCard = ({
+  title,
+  normal,
+  caution,
+  unit,
+  imageUrl,
+  statusColor = "temperature",
+}: Props) => {
+  const borderClass = borderColorMap[statusColor] || "border-slate-300";
+
   return (
-    <div className="w-full h-full rounded-2xl px-6 py-4 ] border-[#CBD5E1] dark:border-[#105B85] border-[1px] dark:bg-[#001C30] flex flex-col justify-between ">
+    <div
+      className={`w-full h-full rounded-2xl px-6 py-6 border-4 ${borderClass} bg-white dark:bg-[#001C30] shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between items-center relative`}
+    >
+      {/* Iconos en las esquinas */}
+      {imageUrl && (
+        <>
+          <img
+            src={imageUrl}
+            className="w-10 h-10 absolute top-4 left-4"
+            alt="icon"
+          />
+          <img
+            src={imageUrl}
+            className="w-10 h-10 absolute top-4 right-4"
+            alt="icon"
+          />
+        </>
+      )}
 
-      <div className="flex justify-center items-center gap-2 mb-1">
-        <div className="w-6 h-6">
-          {/* icon-left */}
-        </div>
-        <h2 className="text-xl font-bold text-center">{title}</h2>
-        <div className="w-6 h-6">
-          {/* icon-right */}
-        </div>
+      {/* Título centrado */}
+      <div className="text-center mb-6 mt-2">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+          {title}
+        </h2>
+        <p className="text-sm text-slate-500 dark:text-slate-300">
+          Datos de referencia
+        </p>
       </div>
-      <p className="text-sm text-center mb-4">Data reference</p>
 
-      <div className="flex justify-between items-center text-sm px-2 h-[5rem] pr-1">
-        <div className="text-center">
-          <p className="font-semibold">Normal data</p>
-          <p className="text-xs ">{unit}</p>
-          <p className="mt-1">{normal}</p>
+      {/* Datos */}
+      <div className="grid grid-cols-2 gap-4 text-center text-gray-700 dark:text-slate-100 w-full">
+        <div className="flex flex-col items-center">
+          <p className="text-sm font-semibold">Datos normales</p>
+          <p className="text-xs text-slate-400">{unit}</p>
+          <p className="text-base mt-1 font-medium">{normal}</p>
         </div>
-
-        <div className="text-center">
-          <p className="font-semibold">Caution data</p>
-          <p className="text-xs">{unit}</p>
-          <p className="mt-1">{caution}</p>
+        <div className="flex flex-col items-center">
+          <p className="text-sm font-semibold">Datos anormales</p>
+          <p className="text-xs text-slate-400">{unit}</p>
+          <p className="text-base mt-1 font-medium">{caution}</p>
         </div>
-      </div>
-
- 
-      <div className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer opacity-70 hover:opacity-100">
-     
-      </div>
-      <div className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer opacity-70 hover:opacity-100">
-
       </div>
     </div>
   );
 };
+
 
 export default SensorReferenceCard;

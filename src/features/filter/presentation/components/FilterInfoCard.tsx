@@ -3,14 +3,14 @@ import CircularProgressIcon from "../../../shared/components/generic/CircularPro
 type Props = {
   name: string;
   value: number;
-  status: "Good" | "Medium" | "Bad";
+  status: "Bueno" | "Regular" | "Malo";
   date: string;
 };
 
 const statusColors = {
-  Good: "bg-green-600",
-  Medium: "bg-yellow-400",
-  Bad: "bg-red-500",
+  Bueno: "bg-green-600",
+  Regular: "bg-yellow-400",
+  Malo: "bg-red-500",
 };
 
 export const FilterInfoCard = ({ name, value, status, date }: Props) => {
@@ -30,7 +30,7 @@ export const FilterInfoCard = ({ name, value, status, date }: Props) => {
           {status}
         </span>
       </div>
-      <p className="text-semibold mt-2">Suggested change date - {date}</p>
+      <p className="text-semibold mt-2">Cambio recomendado - {date}</p>
     </div>
   );
 };

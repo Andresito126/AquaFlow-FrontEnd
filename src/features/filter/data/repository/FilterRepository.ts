@@ -1,6 +1,8 @@
 import ApiClient from "../../../../core/api/API1";
+import ApiClientSensors from "../../../../core/api/API_sensor_readings";
 import type { Filter } from "../models/Filter";
 import { FilterDTO } from "../models/FilterDTO";
+import type { FilterStatusWithHistory } from "../models/FilterStatusWithHistory";
 
 export class FilterRepository {
   async create(filter: Filter): Promise<FilterDTO | null> {
@@ -96,4 +98,20 @@ async assignFilterToUser(filterId: string, userId: string): Promise<Filter> {
   });
   return res.data.data;
 }
+
+
+
+  async getStatusById(
+    filterId: string
+  ): Promise<FilterStatusWithHistory | null> {
+    try {
+      const { data } = await ApiClientSensors.get<FilterStatusWithHistory>(
+        `/filters/${filterId}/status`
+      );
+      return data;
+    } catch (error) {
+      console.error("Error fetching filter status:", error);
+      return null;
+    }
+  }
 }
