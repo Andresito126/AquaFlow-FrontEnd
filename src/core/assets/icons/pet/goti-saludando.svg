@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 160">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Degradado_sin_nombre_394);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-4, .cls-8 {
+        stroke: #0d1b2a;
+      }
+
+      .cls-12 {
+        fill: url(#Degradado_sin_nombre_242);
+      }
+
+      .cls-2 {
+        fill: url(#Cielo-2);
+      }
+
+      .cls-2, .cls-5, .cls-6, .cls-7, .cls-9, .cls-10, .cls-11 {
+        stroke: #7bc4e2;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #5a90c9;
+      }
+
+      .cls-13 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #1e3a5f;
+      }
+
+      .cls-5 {
+        fill: url(#Degradado_sin_nombre_38);
+      }
+
+      .cls-6 {
+        fill: url(#Cielo-3);
+      }
+
+      .cls-7 {
+        stroke-width: .5px;
+      }
+
+      .cls-7, .cls-10 {
+        fill: #d2ecfa;
+      }
+
+      .cls-8 {
+        fill: url(#Degradado_sin_nombre_390);
+      }
+
+      .cls-9 {
+        fill: url(#Cielo-4);
+      }
+
+      .cls-10 {
+        stroke-width: .75px;
+      }
+
+      .cls-11 {
+        fill: url(#Cielo);
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_38" data-name="Degradado sin nombre 38" x1="75.5" y1="121.71" x2="75.5" y2="16.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3a9bdc"/>
+      <stop offset=".92" stop-color="#aee1f9"/>
+    </linearGradient>
+    <linearGradient id="Cielo" x1="17.87" y1="67.58" x2="32" y2="67.58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#cce0f4"/>
+      <stop offset=".06" stop-color="#c2dcf2"/>
+      <stop offset=".17" stop-color="#a9d2ee"/>
+      <stop offset=".31" stop-color="#7fc2e7"/>
+      <stop offset=".46" stop-color="#46abdd"/>
+      <stop offset=".57" stop-color="#1e9cd7"/>
+      <stop offset=".87" stop-color="#0075be"/>
+      <stop offset=".99" stop-color="#005b97"/>
+    </linearGradient>
+    <linearGradient id="Cielo-2" data-name="Cielo" x1="140.23" y1="93.93" x2="117.87" y2="93.93" xlink:href="#Cielo"/>
+    <linearGradient id="Cielo-3" data-name="Cielo" x1="62.43" y1="129.35" x2="62.43" y2="117.46" xlink:href="#Cielo"/>
+    <linearGradient id="Cielo-4" data-name="Cielo" x1="97.38" y1="131.54" x2="97.38" y2="118.33" xlink:href="#Cielo"/>
+    <linearGradient id="Degradado_sin_nombre_394" data-name="Degradado sin nombre 394" x1="94.44" y1="88.44" x2="94.44" y2="64.18" gradientUnits="userSpaceOnUse">
+      <stop offset=".12" stop-color="#0f3460"/>
+      <stop offset="1" stop-color="#1a5fba"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_390" data-name="Degradado sin nombre 390" x1="48.3" y1="85.27" x2="48.3" y2="61.01" gradientUnits="userSpaceOnUse">
+      <stop offset=".12" stop-color="#0f3460"/>
+      <stop offset="1" stop-color="#1a5fba"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_242" data-name="Degradado sin nombre 242" x1="48.3" y1="68.08" x2="52.83" y2="68.08" gradientUnits="userSpaceOnUse">
+      <stop offset=".12" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".8"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-5" d="M73.57,22.06c-.21.2-.41.4-.6.62-2.78,3.27-19.55,18.91-20.46,19.68-7.38,6.2-13.53,12.84-14.54,14.59-.22.38-.44.76-.71,1.1-1.57,1.96-5.86,7.91-6.64,15.08-.96,8.81.7,19.85,5.04,26.49,4.34,6.64,14.43,18.83,33.51,21.06,9.54,1.12,8.66,1.16,12.1.89,1.95-.15,5.27-.62,6.84-.7-.37,0,5.39.06,15.06-2.13,0,0,1.37-.23,4.12-2.56,3.09-2.63,5.03-6.21,7.18-9.65,3.24-5.19,6.5-17.55,6.15-21.43,0,0-.22-3.88-.41-5.1-.57-3.65-2.71-10.13-5.9-14.09s-19.47-24.83-20.74-26.43-5.12-6.45-6.52-10.47c-1.27-3.63-3.08-7.03-3.72-9.86-.88-3.9-3.53-2.04-5.33-.93-.99.61-3.44,2.91-4.41,3.83Z"/>
+  <path class="cls-3" d="M50.91,89.79s-2.71,1.69-1.91,4.12c0,.02.02.05.02.07.91,2.66,3.89,3.99,6.57,3.13,1.11-.35,2.51-.91,4.26-1.77,3.76-1.85,5.43-3.09,6.31-3.51.54-.26,1.15-.61,1.66-.81.92-.35,2.28-.8,2.66-.63.7.32,2.59,3.67,5.11,6.16,2.34,2.31,6.07,6,10.22,5.09s9.04-5.98,8.81-6.94c0,0,.13-1.72-1.54-2.86"/>
+  <path class="cls-11" d="M32,66.89l-9.19-12.83s-.89-1.26-1.58-.62c0,0-2.54,3.68-2.93,7.11-.54,4.82-.58,4.63-.07,8.11.47,3.23,2.79,8.17,7.31,10.91.99.6,2.93,1.94,4.96,2.33l1.5-15.01Z"/>
+  <path class="cls-2" d="M120.48,83.06c5.66,3.18,13.48,7.72,15.07,9.39,2.56,2.68,6.39,8.62,3.83,11.06-2.2,2.09-5.07,1.55-6.76-1.02h0c-.91-.78-2.07-1.21-3.27-1.21h-4.92c-2.44,0-4.78-.93-6.56-2.59h0s2.61-15.63,2.61-15.63Z"/>
+  <path class="cls-6" d="M56.69,117.46l-.29,4.07c-.16,2.27-.23,5.32,1.21,7.07.74.9,2.23.75,3.23.74,1.05,0,2.28-.5,3.46-1.12,2.35-1.25,3.85-3.66,4.1-6.3.04-.43.08-.88.12-1.32l-11.84-3.13Z"/>
+  <path class="cls-9" d="M104.19,118.33h0c-.38,4.2-1.21,9.73-2.21,11.01-2.34,2.99-6,2.71-7.66.47-.99-1.34-3.09-6.1-3.75-9.06l13.62-2.42Z"/>
+  <path class="cls-1" d="M95.91,64.22c-3.47-.54-7.34,4.77-8.47,9.44-1.44,6,.99,13.73,5.23,14.68,2.3.52,4.44-1.12,5.15-1.66,4.76-3.64,4.64-11.15,3.02-15.93-.62-1.81-2.07-6.09-4.94-6.53Z"/>
+  <path class="cls-4" d="M96.23,61.01l-.17,3.24.17-3.24Z"/>
+  <path class="cls-4" d="M101.86,65.21l-2.92,1.31,2.92-1.31Z"/>
+  <ellipse class="cls-7" cx="28.83" cy="102.45" rx="2.3" ry="4.09" transform="translate(-20 7.88) rotate(-11.59)"/>
+  <circle class="cls-10" cx="102.43" cy="18.23" r="6.28"/>
+  <ellipse class="cls-10" cx="100.49" cy="35.36" rx="3.7" ry="5.3" transform="translate(-6.03 36.7) rotate(-20.11)"/>
+  <circle class="cls-10" cx="109.53" cy="27.37" r="2.85"/>
+  <ellipse class="cls-7" cx="32.82" cy="115.07" rx="3.4" ry="4.85" transform="translate(-66.37 48.14) rotate(-40.07)"/>
+  <ellipse class="cls-7" cx="44.16" cy="120" rx="2.54" ry="3.28" transform="translate(-57.9 42.97) rotate(-32.75)"/>
+  <path class="cls-8" d="M49.76,61.05c-3.47-.54-7.34,4.77-8.47,9.44-1.44,6,.99,13.73,5.23,14.68,2.3.52,4.44-1.12,5.15-1.66,4.76-3.64,4.64-11.15,3.02-15.93-.62-1.81-2.07-6.09-4.94-6.53Z"/>
+  <ellipse class="cls-12" cx="50.56" cy="68.08" rx="2.27" ry="2.87"/>
+  <ellipse class="cls-13" cx="93" cy="70.95" rx="2.27" ry="2.87"/>
+  <line class="cls-4" x1="43.62" y1="65.21" x2="41.72" y2="62.02"/>
+  <line class="cls-4" x1="47.01" y1="61.71" x2="45.23" y2="59.47"/>
+</svg>
