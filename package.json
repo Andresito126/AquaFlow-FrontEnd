@@ -16,6 +16,7 @@
     "framer-motion": "^12.23.9",
     "install": "^0.13.0",
     "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.526.0",
     "mobx": "^6.13.7",
     "mobx-react-lite": "^4.1.0",
     "npm": "^11.4.2",

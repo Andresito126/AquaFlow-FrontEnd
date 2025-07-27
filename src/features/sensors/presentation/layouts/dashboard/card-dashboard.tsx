@@ -1,21 +1,14 @@
 import StatsRealTime from "../../components/dashboard/stadistic-real-time";
 import IconTemperature from "../../../../../core/assets/icons/sensors/icon-temperature-dashboard.svg";
-// import BarTemperature from "../../../../../core/assets/icons/sensors/bar-counter-temperature.svg";
 import IconPH from "../../../../../core/assets/icons/sensors/icon-ph-dash.svg";
-// import BarPH from "../../../../../core/assets/icons/sensors/bar-counter-ph.svg";
 import IconTurbidity from "../../../../../core/assets/icons/sensors/icon-turbuidez-dash.svg";
-// import BarTurbuidez from "../../../../../core/assets/icons/sensors/bar-counter-turbuidez.svg";
 import IconTDS from "../../../../../core/assets/icons/sensors/icon-tds-dash.svg";
-// import BarTDS from "../../../../../core/assets/icons/sensors/bar-counter-tds.svg";
 import { useSensorReadingsSocket } from "../../hooks/useSensorReadingsSocket";
 import BarVisualizer from "../../../../shared/components/dashboard/BarVisualizer";
 
 export const CardDashboardRealTime = () => {
   const userId = localStorage.getItem("userId") ?? "";
   const data = useSensorReadingsSocket(userId);
-  // const userId = "50ba2d27-d700-45d9-b209-e8ae76d9e77e"; // aca es del fornt y debe ser el mismo que el del socket rooms
-  // const data = useSensorReadingsSocket(userId);
-
   console.log(" valores actuales del socket:", data);
   console.log("user del socket:", userId);
 
@@ -27,13 +20,6 @@ export const CardDashboardRealTime = () => {
         </h2>
       </div>
       <div className="flex flex-wrap items-center justify-between ml-[5%] mr-[5%]">
-        {/* <StatsRealTime
-          icon={IconTemperature}
-          data={`${data?.temperature?.value ?? "--"} °C`}
-          graph={BarTemperature}
-          title="Temperatura"
-          alt="Ícono de temperatura"
-        /> */}
 
         <StatsRealTime
           icon={IconTemperature}
@@ -63,14 +49,6 @@ export const CardDashboardRealTime = () => {
           }
         />
 
-        {/* <StatsRealTime
-          icon={IconTurbidity}
-          data={`${data?.turbidity?.value ?? "--"} ppm`}
-          graph={BarTurbuidez}
-          title="Turbidez"
-          alt="Ícono de turbidez"
-        /> */}
-
         <StatsRealTime
           icon={IconTurbidity}
           data={`${data?.turbidity?.value ?? "--"} NTU`}
@@ -84,14 +62,6 @@ export const CardDashboardRealTime = () => {
             />
           }
         />
-
-        {/* <StatsRealTime
-          icon={IconTDS}
-          data={`${data?.tds?.value ?? "--"} ppm`}
-          graph={BarTDS}
-          title="TDS"
-          alt="Ícono de TDS"
-        /> */}
         <StatsRealTime
           icon={IconTDS}
           data={`${data?.tds?.value ?? "--"} ppm`}
