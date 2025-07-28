@@ -31,7 +31,7 @@ export default function ActivityLayerSection() {
             <CircularProgressIcon
               key={idx}
               icon={activityIcons[activity.water_activity] || ""}
-              progress={activity.percentage}
+              progress={Number(activity.percentage.toFixed(2))} 
               size={64}
               label={activity.water_activity}
             />

@@ -37,7 +37,7 @@ export const CardDashboardRealTime = () => {
 
         <StatsRealTime
           icon={IconPH}
-          data={`${data?.ph?.value ?? "--"}`}
+  data={`${data?.ph?.value !== undefined ? data.ph.value.toFixed(2) : "--"} Ph`}
           title="pH"
           alt="Ícono de pH"
           graph={
@@ -51,7 +51,7 @@ export const CardDashboardRealTime = () => {
 
         <StatsRealTime
           icon={IconTurbidity}
-          data={`${data?.turbidity?.value ?? "--"} NTU`}
+  data={`${data?.turbidity?.value !== undefined ? data.turbidity.value.toFixed(2) : ""} Ntu`}
           title="Turbidez"
           alt="Ícono de turbidez"
           graph={
@@ -64,7 +64,7 @@ export const CardDashboardRealTime = () => {
         />
         <StatsRealTime
           icon={IconTDS}
-          data={`${data?.tds?.value ?? "--"} ppm`}
+  data={`${data?.tds?.value !== undefined ? data.tds.value.toFixed(2) : "--"} Ppm`}
           title="TDS"
           alt="Ícono de TDS"
           graph={

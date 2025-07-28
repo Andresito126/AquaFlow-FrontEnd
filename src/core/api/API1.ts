@@ -21,16 +21,16 @@ class APIClient {
 
   private setupInterceptors(): void {
     // Interceptor para peticiones
-    this.instance.interceptors.request.use(
-      (config) => {
-        // Aquí podemos agregar tokens de autenticación u otras cabeceras
-        // Ejemplo: config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
+    this.instance.interceptors.request.use((config) => {
+      const token = localStorage.getItem("token");
+
+      // Solo para rutas protegidas (que empiezan con /filters)
+      if (token && config.url?.startsWith("/filters")) {
+        config.headers?.set?.("Authorization", `Bearer ${token}`);
       }
-    );
+
+      return config;
+    });
 
     // Interceptor para respuestas
     this.instance.interceptors.response.use(
