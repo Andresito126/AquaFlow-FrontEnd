@@ -8,6 +8,7 @@ import { FilterPage } from "../../features/filter/presentation/pages/Filter-page
 import { AdminPage } from "../../features/admin/presentation/pages/Admin-page";
 import NotificationsPage from "../../features/notifications/presentation/pages/Notifications-page";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { NotFoundPage } from "../../features/shared/layouts/notFound-page";
 
 export const navigationWrapper = createBrowserRouter([
 
@@ -20,6 +21,11 @@ export const navigationWrapper = createBrowserRouter([
 
   //ADMIN ROUTE
 
+  // 404 route 
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  },
   
 {
   path: "/admin",
