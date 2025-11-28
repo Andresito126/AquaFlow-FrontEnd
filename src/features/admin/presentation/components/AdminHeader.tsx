@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 interface AdminHeaderProps {
   logoSrc: string;
   title: string;
@@ -5,12 +6,15 @@ interface AdminHeaderProps {
   onLogout?: () => void;
 }
 
+
 const AdminHeader: React.FC<AdminHeaderProps> = ({
   logoSrc,
   title,
   role,
   onLogout,
 }) => {
+  const { t } = useTranslation("common");
+
   return (
     <header className="flex justify-between items-center px-[20px] py-[5px] shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px]  rounded-[20px]">
       <div className="flex items-center gap-3">
@@ -28,7 +32,7 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({
         onClick={onLogout}
         className="text-white bg-[#d90e0e] hover:bg-[#a10000] font-semibold text-[15px] px-4 py-2 rounded-full transition duration-300"
       >
-        Cerrar sesión
+      {t("common.modulesAndButtons.logout")}
       </button>
     </header>
   );
