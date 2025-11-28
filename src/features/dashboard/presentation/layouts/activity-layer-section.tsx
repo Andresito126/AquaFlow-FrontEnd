@@ -7,6 +7,7 @@ import IconStreet from "../../../../core/assets/icons/dashboard/icon-street.svg"
 import LayerCard from "../components/layer-filter";
 import { useRecommendedActivities } from "../../../sensors/presentation/hooks/useWaterActivities";
 import CircularProgressIcon from "../../../shared/components/generic/CircularProgressIcon";
+import { useTranslation } from "react-i18next";
 
 
 const activityIcons: Record<string, string> = {
@@ -21,11 +22,14 @@ const activityIcons: Record<string, string> = {
 export default function ActivityLayerSection() {
   const userId = localStorage.getItem("userId") || "";
   const activities = useRecommendedActivities(userId);
+  const { t } = useTranslation("common");
+  
+
 
   return (
     <div className="flex gap-6 dark:bg-[#06172B] rounded-[20px]">
       <div className="shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] flex flex-col items-center p-6 rounded-[20px] w-2/3">
-        <h2 className="text-lg font-bold mb-4">Actividades recomendadas</h2>
+        <h2 className="text-lg font-bold mb-4">{t("common.pages.dashboard.activityTitle")}</h2>
         <div className="flex gap-7">
           {activities?.water_activities_list.map((activity, idx) => (
             <CircularProgressIcon
@@ -33,17 +37,17 @@ export default function ActivityLayerSection() {
               icon={activityIcons[activity.water_activity] || ""}
               progress={Number(activity.percentage.toFixed(2))} 
               size={64}
-              label={activity.water_activity}
+              label={t('common.pages.dashboard.activities.' + activity.water_activity)}
             />
           )) || (
             <>
               {/* fallback si aún no hay datos */}
-              <CircularProgressIcon icon={IconCarWash} progress={10} size={64} label="Lavado de auto" />
-              <CircularProgressIcon icon={IconWashHands} progress={90} size={64} label="Lavado de ropa" />
-              <CircularProgressIcon icon={IconGarden} progress={50} size={64} label="Riego de plantas" />
-              <CircularProgressIcon icon={IconBarrer} progress={40} size={64} label="Limpieza del hogar" />
-              <CircularProgressIcon icon={IconToilet} progress={29} size={64} label="Descarga de inodoros" />
-              <CircularProgressIcon icon={IconStreet} progress={29} size={64} label="Lavado de calles o banquetas" />
+              <CircularProgressIcon icon={IconCarWash} progress={10} size={64} label={t("common.pages.dashboard.activities.carWash")}/>
+              <CircularProgressIcon icon={IconWashHands} progress={90} size={64} label={t("common.pages.dashboard.activities.laundry")}/>
+              <CircularProgressIcon icon={IconGarden} progress={50} size={64} label={t("common.pages.dashboard.activities.watering")} />
+              <CircularProgressIcon icon={IconBarrer} progress={40} size={64} label={t("common.pages.dashboard.activities.homeCleaning")} />
+              <CircularProgressIcon icon={IconToilet} progress={29} size={64} label={t("common.pages.dashboard.activities.toiletFlush")}/>
+              <CircularProgressIcon icon={IconStreet} progress={29} size={64} label={t("common.pages.dashboard.activities.streetWash")}/>
             </>
           )}
         </div>

@@ -14,8 +14,9 @@ export const SideBar = () => {
   const { t } = useTranslation("common");
   const handleLogout = async () => {
     const confirmed = await showConfirmationAlert(
-      "¿Deseas cerrar sesión?",
-      "Sí, cerrar sesión"
+      t("common.alerts.logOutMessage"),
+      t("common.alerts.logOutQuestion"),
+      t("common.alerts.logOutConfirmation")
     );
     if (confirmed) {
       localStorage.clear();

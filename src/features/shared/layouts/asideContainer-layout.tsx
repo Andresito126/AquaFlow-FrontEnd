@@ -12,8 +12,11 @@ import { useUserFilters } from "../../filter/presentation/hooks/useUserFilter";
 import GotiSaludando from "../../../core//assets//icons/pet/goti-saludando.svg";
 import { LanguageToggleButton } from "../components/generic/LanguageToggleButton";
 import { useLanguage } from "../hooks/useLanguage";
+import { useTranslation } from "react-i18next";
+
 
 export const AsideContainerLayout = () => {
+  const { t } = useTranslation("common");
   const activeFilterId = localStorage.getItem("activeFilterId");
   const { date, time } = useDateTime();
   const { pathname } = useLocation();
@@ -45,7 +48,7 @@ export const AsideContainerLayout = () => {
             onClick={() => setIsModalOpen(true)}
             className="dark:bg-[#011521] py-1 px-3 rounded-lg dark:hover:bg-[#27333a] hover:bg-[#c9d6dd] text-sm border-[#CBD5E1] dark:border-[#105B85] border-[1px]"
           >
-            Asignar filtro
+            {t("common.pages.dashboard.aside.assignFilter")}
           </button>
 
           {/* {filters.length > 0 && (
@@ -61,7 +64,7 @@ export const AsideContainerLayout = () => {
 
           {activeFilterId && (
             <div className="mt-2 px-2 py-1 rounded-md text-sm">
-              Filtro activo: <strong>{activeFilterId}</strong>
+            {t("common.pages.dashboard.aside.activeFilterPrefix")}{" "}<strong>{activeFilterId}</strong>
             </div>
           )}
         </div>
@@ -70,12 +73,12 @@ export const AsideContainerLayout = () => {
       <div className="relative shadow-lg p-4 rounded-[20px] mt-[7%] min-h-[250px] dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-1 flex flex-col items-center justify-center">
   {/* Burbuja de texto */}
   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white dark:bg-[#105B85] text-black dark:text-white px-3 py-1 rounded-lg text-sm shadow-md after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-8 after:border-transparent after:border-t-white dark:after:border-t-[#105B85]">
-    ¡Hola, yo soy Goti!
+    {t("common.pet.greeting")}
   </div>
         
         <img
           src={GotiSaludando}
-          alt="Mascota reusadora"
+          alt={t("common.pet.petAlt")}
           className=" h-auto  animate-float-rotate drop-shadow-md"
         />
       </div>

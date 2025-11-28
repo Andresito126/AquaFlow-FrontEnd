@@ -5,18 +5,19 @@ import IconTurbidity from "../../../../../core/assets/icons/sensors/icon-turbuid
 import IconTDS from "../../../../../core/assets/icons/sensors/icon-tds-dash.svg";
 import { useSensorReadingsSocket } from "../../hooks/useSensorReadingsSocket";
 import BarVisualizer from "../../../../shared/components/dashboard/BarVisualizer";
+import { useTranslation } from "react-i18next";
 
 export const CardDashboardRealTime = () => {
   const userId = localStorage.getItem("userId") ?? "";
   const data = useSensorReadingsSocket(userId);
-  console.log(" valores actuales del socket:", data);
-  console.log("user del socket:", userId);
+
+  const { t } = useTranslation("common");
 
   return (
-    <div className="shadow-lg p-4 h-fit dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px]  rounded-[20px]">
+    <div className="shadow-lg p-4 h-fit dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] rounded-[20px]">
       <div className="mb-4">
         <h2 className="text-[25px] font-semibold">
-          Monitoreo sobre la calidad del agua
+          {t("common.pages.dashboard.realTimeCard.title")}
         </h2>
       </div>
       <div className="flex flex-wrap items-center justify-between ml-[5%] mr-[5%]">
@@ -24,8 +25,8 @@ export const CardDashboardRealTime = () => {
         <StatsRealTime
           icon={IconTemperature}
           data={`${data?.temperature?.value ?? "--"} °C`}
-          title="Temperatura"
-          alt="Ícono de temperatura"
+          title={t("common.pages.dashboard.realTimeCard.temperature")}
+          alt={t("common.pages.dashboard.realTimeCard.altTemperature")}
           graph={
             <BarVisualizer
               value={data?.temperature?.value ?? 0}
@@ -38,8 +39,8 @@ export const CardDashboardRealTime = () => {
         <StatsRealTime
           icon={IconPH}
   data={`${data?.ph?.value !== undefined ? data.ph.value.toFixed(2) : "--"} Ph`}
-          title="pH"
-          alt="Ícono de pH"
+          title={t("common.pages.dashboard.realTimeCard.ph")}
+          alt={t("common.pages.dashboard.realTimeCard.altPH")}
           graph={
             <BarVisualizer
               value={data?.ph?.value ?? 0}
@@ -52,8 +53,8 @@ export const CardDashboardRealTime = () => {
         <StatsRealTime
           icon={IconTurbidity}
   data={`${data?.turbidity?.value !== undefined ? data.turbidity.value.toFixed(2) : ""} Ntu`}
-          title="Turbidez"
-          alt="Ícono de turbidez"
+          title={t("common.pages.dashboard.realTimeCard.turbidity")}
+          alt={t("common.pages.dashboard.realTimeCard.altTurbidity")}
           graph={
             <BarVisualizer
               value={data?.turbidity?.value ?? 0}
@@ -65,8 +66,8 @@ export const CardDashboardRealTime = () => {
         <StatsRealTime
           icon={IconTDS}
   data={`${data?.tds?.value !== undefined ? data.tds.value.toFixed(2) : "--"} Ppm`}
-          title="TDS"
-          alt="Ícono de TDS"
+          title={t("common.pages.dashboard.realTimeCard.tds")}
+          alt={t("common.pages.dashboard.realTimeCard.altTDS")}
           graph={
             <BarVisualizer
               value={data?.tds?.value ?? 0}

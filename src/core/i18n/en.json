@@ -1,6 +1,7 @@
 {
     "common": {
-        "alerts":{
+        "alerts": {
+            "logOutQuestion": "Are you sure?",
             "logOutMessage": "Do you want to log out?",
             "logOutConfirmation": "Yes, log out"
         },
@@ -11,11 +12,85 @@
             "logout": "Logout",
             "login": "Login"
         },
+        "pet": {
+            "petAlt": "Reuser pet",
+            "greeting": "Hi, I'm Goti!"
+        },
         "pages": {
             "notFound": {
                 "title": "Page Not Found",
                 "description": "The page you are looking for does not exist.",
                 "goBackButton": "Go Back"
+            },
+            "dashboard": {
+                "headerSubtitle": "Have a nice day. The water is in good hands today",
+                
+                "carouselTitle": "Things you should know about your filter",
+                "slides": {
+                    "s1": "It is essential to replace the filter in your water reuse system every 6 months. This ensures that the water maintains its purity and quality, preventing the accumulation of contaminants and particles that may affect health and the proper functioning of the system.",
+                    "s2": "Monthly cleaning of the internal parts of the system is crucial to prevent the buildup of bacteria, algae, and other microorganisms that may develop over time.",
+                    "s3": "Always use clean and residue-free water to refill your reuse system. Introducing contaminated water or water with solid particles can damage the system and reduce the effectiveness of the reuse process.",
+                    "s4": "It's important to carry out periodic inspections to detect possible leaks, cracks, or damaged components. A well-maintained system prevents water loss and ensures that the reuse process is carried out efficiently.",
+                    "s5": "Place the reuse system in a cool, dry, and shaded area. Continuous exposure to high temperatures can deteriorate plastic materials and shorten the lifespan of the components.",
+                    "s6": "Every three months, it is recommended to carry out a deep cleaning of the system. This involves disassembling key components, thoroughly cleaning them with safe products, and disinfecting to remove any accumulated residues or microorganisms."
+                },
+
+
+                "realTimeCard": {
+                    "title": "Water quality monitoring",
+                    "temperature": "Temperature",
+                    "ph": "pH",
+                    "turbidity": "Turbidity",
+                    "tds": "TDS",
+                    "altTemperature": "Temperature icon",
+                    "altPH": "pH icon",
+                    "altTurbidity": "Turbidity icon",
+                    "altTDS": "TDS icon"
+                },
+
+
+                "activityTitle": "Recommended activities",
+                    "activities": {
+                        "carWash": "Car wash",
+                        "laundry": "Laundry",
+                        "watering": "Plant watering",
+                        "homeCleaning": "Home cleaning (floors and exteriors)",
+                        "toiletFlush": "Toilet flushing",
+                        "streetWash": "Street or sidewalk washing"
+                },
+
+
+                "layerFilterTitle": "Filter layers",
+                "aside": {
+                    "assignFilter": "Assign filter",
+                    "activeFilterPrefix": "Active filter:",
+                    "defaultUser": "User"
+                },
+
+
+                "weather": {
+                    "loading": "Loading weather...",
+                    "error": "Error loading weather",
+                    "altIcon": "Weather icon: {{desc}}",
+                    "humidity": "Humidity",
+                    "wind": "Wind",
+                    "descriptions": {}
+                },
+
+
+                "filters": {
+                    "title": "ADD AND ASSIGN A FILTER",
+                    "placeholderUUID": "Filter UUID",
+                    "assign": "Assign",
+                    "select": "Select a filter",
+                    "useThis": "Use this filter",
+                    "confirmSetActive": "Do you want to set this filter as active?",
+                    "successActive": "Filter activated successfully.",
+                    "errorActive": "Couldn't activate filter."
+                }
+
+                
+
             }
         }
     }
