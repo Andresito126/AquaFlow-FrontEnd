@@ -16,13 +16,14 @@
 
         "pet": {
             "petAlt": "Reuser pet",
-            "greeting": "Hi, I'm Goti!"
+            "greeting": "Hola, soy Goti!"
         },
         
         "pages": {
             "notFound": {
+                "code": "404!",
                 "title": "Página no encontrada",
-                "description": "La página que buscas no existe.",
+                "description": "Una disculpa, esta ruta de la web es inexistente. Prueba otra ruta volviendo atrás.",
                 "goBackButton": "Regresar al inicio"
             },
             "dashboard": {
