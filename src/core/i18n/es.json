@@ -121,7 +121,30 @@
                 "gretting": {
                     "welcome": "BIENVENIDO DE NUEVO",
                     "text": "SÉ PARTE DEL CAMBIO HACIA UN FUTURO MÁS RESPONSABLE CON EL AGUA"
-                }
+                },
+                "mailAndPassword" : "Por favor ingresa tu correo y contraseña."
+
+            },
+            "register":{
+                "gretting":{
+                    "welcome": "OPTIMIZA EL USO DEL AGUA",
+                    "text": "MONITOREA, ANALIZA Y REUTILIZA CON INTELIGENCIA"
+                },
+                "registerSucces" : "Usuario registrado exitosamente!",
+                "registerAccount": "Crear una cuenta",
+                "name": "Nombre",
+                "fatherLastName": "Apellido paterno",
+                "motherLastName": "Apellido materno",
+                "email": "Email",
+                "emailPlaceHolder": "ejemplo@correo.com",
+                "password": "Contraseña",
+                "confirmP": "Confirmar contraseña",
+                "registering": "Registrando...",
+                "createAccount": "Crear cuenta",
+                "alreadyAccount" : "¿Ya tienes una cuenta?",
+                "signin": "Iniciar sesión",
+                "allfields" : "Por favor completa todos los campos.",
+                "passwordMismatch" : "Las contraseñas no coinciden."
             }
         }
     }

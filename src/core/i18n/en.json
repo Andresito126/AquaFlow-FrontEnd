@@ -126,7 +126,31 @@
                 "gretting": {
                     "welcome": "WELCOME BACK",
                     "text": "BE PART OF THE CHANGE TOWARDS A MORE RESPONSIBLE FUTURE WITH WATER"
-                }
+                },
+                "mailAndPassword" : "Please enter your email and password."
+            },
+            "register":{
+                "gretting":{
+                    "welcome": "OPTIMIZES WATER USE",
+                    "text": "INTELLIGENTLY MONITORS, ANALYXES AND REUSES"
+                },
+                "registerSucces" : "Successfully registered user",
+                "registerAccount": "Create an account",
+                "name": "Name",
+                "fatherLastName": "Father's last name",
+                "motherLastName": "Mother's last name",
+                "email": "Email",
+                "emailPlaceHolder": "example@gmail.com",
+                "password": "Password",
+                "confirmP": "Confirm Password",
+                "registering": "Registering...",
+                "createAccount": "Create account",
+                "alreadyAccount" : "Do you already have an account?",
+                "signin": "Sign in",
+                "allfields" : "Please complete all fields.",
+                "passwordMismatch" : "Passwords do not match."
+
+
             }
         }
     }

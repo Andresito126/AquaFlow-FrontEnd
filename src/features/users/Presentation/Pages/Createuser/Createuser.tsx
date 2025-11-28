@@ -7,6 +7,10 @@ import { useUserFormLogic } from "../../ViewModels/useUserCreateFormLogic";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { LanguageToggleButton } from "../../../../shared/components/generic/LanguageToggleButton";
+import { useLanguage } from "../../../../shared/hooks/useLanguage";
+import { useTranslation } from "react-i18next";
+
 const viewModel = new UserViewModel();
 
 const CreateUser = observer(() => {
@@ -22,13 +26,15 @@ const CreateUser = observer(() => {
     }
   }, [showSuccessMessage, navigate]);
 
+    const { language, toggleLanguage } = useLanguage();
+    const { t } = useTranslation("common");
   return (
     <div className="auth-container">
       <div className="auth-left">
         <div className="auth-left-content">
           <img src={ImgRegister} alt="Registro visual" className="img" />
-          <h2>OPTIMIZA EL USO DEL AGUA</h2>
-          <p>Monitorea, analiza y reutiliza con inteligencia</p>
+          <h2>{t("common.pages.register.gretting.welcome")} </h2>
+          <p>{t("common.pages.register.gretting.text")} </p>
         </div>
       </div>
 
@@ -45,15 +51,15 @@ const CreateUser = observer(() => {
               }`}
             >
               {showSuccessMessage
-                ? "¡Usuario registrado exitosamente!"
+                ? t("common.pages.register.registerSucces")
                 : viewModel.error}
             </div>
           )}
 
           <form onSubmit={handleSubmit}>
-            <h2>Crear una cuenta</h2>
+            <h2> </h2>
 
-            <label>Nombre</label>
+            <label>{t("common.pages.register.name")}</label>
             <input
               type="text"
               value={viewModel.firstName}
@@ -61,7 +67,7 @@ const CreateUser = observer(() => {
               placeholder="Juan"
             />
 
-            <label>Apellido paterno</label>
+            <label>{t("common.pages.register.fatherLastName")} </label>
             <input
               type="text"
               value={viewModel.lastName1}
@@ -69,7 +75,7 @@ const CreateUser = observer(() => {
               placeholder="Pérez"
             />
 
-            <label>Apellido materno</label>
+            <label>{t("common.pages.register.motherLastName")} </label>
             <input
               type="text"
               value={viewModel.lastName2}
@@ -77,15 +83,15 @@ const CreateUser = observer(() => {
               placeholder="Gómez"
             />
 
-            <label>Email</label>
+            <label>{t("common.pages.register.email")}</label>
             <input
               type="email"
               value={viewModel.email}
               onChange={(e) => viewModel.onChangeEmail(e.target.value)}
-              placeholder="ejemplo@correo.com"
+              placeholder={t("common.pages.register.emailPlaceHolder")}
             />
 
-            <label>Contraseña</label>
+            <label>{t("common.pages.register.password")}</label>
             <input
               type="password"
               value={viewModel.password}
@@ -93,7 +99,7 @@ const CreateUser = observer(() => {
               placeholder="••••••••"
             />
 
-            <label>Confirmar contraseña</label>
+            <label>{t("common.pages.register.confirmP")}</label>
             <input
               type="password"
               value={viewModel.confirmPassword}
@@ -102,15 +108,16 @@ const CreateUser = observer(() => {
             />
 
             <button type="submit" disabled={viewModel.isSubmitting}>
-              {viewModel.isSubmitting ? "Registrando..." : "Crear cuenta"}
+              {viewModel.isSubmitting ? t("common.pages.register.") : t("common.pages.register.createAccount")}
             </button>
           </form>
 
           <p className="register-text">
-            ¿Ya tienes cuenta? <a href="/">Inicia sesión</a>
+            {t("common.pages.register.alreadyAccount")} <a href="/">{t("common.pages.register.signin")}</a>
           </p>
         </div>
       </div>
+        <LanguageToggleButton language={language} toggleLanguage={toggleLanguage} />
     </div>
   );
 });
