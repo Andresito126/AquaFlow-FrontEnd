@@ -1,0 +1,18 @@
+{
+    "common": {
+        "modulesAndButtons": {
+            "dashboard": "Tablero",
+            "stats": "Estadísticas",
+            "filterState": "Estado del filtro",
+            "logout": "Cerrar sesión",
+            "login": "Iniciar sesión"
+        },
+        "pages": {
+            "notFound": {
+                "title": "Página no encontrada",
+                "description": "La página que buscas no existe.",
+                "goBackButton": "Regresar al inicio"
+            }
+        }
+    }
+}

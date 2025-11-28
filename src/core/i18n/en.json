@@ -1,0 +1,18 @@
+{
+    "common": {
+        "modulesAndButtons": {
+            "dashboard": "Dashboard",
+            "stats": "Statistics",
+            "filterState": "Filter state",
+            "logout": "Logout",
+            "login": "Login"
+        },
+        "pages": {
+            "notFound": {
+                "title": "Page Not Found",
+                "description": "The page you are looking for does not exist.",
+                "goBackButton": "Go Back"
+            }
+        }
+    }
+}
