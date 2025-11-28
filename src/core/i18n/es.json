@@ -7,7 +7,8 @@
             "loading": "Cargando...",
             "error": {
                 "generic": "Ocurrió un error."
-            }
+            },
+            "logInAlert": "Inicio de sesión exitoso."
         },
         "modulesAndButtons": {
             "dashboard": "Dashboard",
@@ -106,6 +107,20 @@
                 "status": {
                     "active": "Activo",
                     "inactive": "Inactivo"
+                }
+            },
+            "login": {
+                "email": "Email",
+                "emailPlaceHolder": "ejemplo@correo.com",
+                "password": "Contraseña",
+                "entering": "Entrando...",
+                "logInButton": "Iniciar sesión",
+                "logginWith": "O inicia con",
+                "noAccount": "¿No tienes cuenta?",
+                "register": "Regístrate",
+                "gretting": {
+                    "welcome": "BIENVENIDO DE NUEVO",
+                    "text": "SÉ PARTE DEL CAMBIO HACIA UN FUTURO MÁS RESPONSABLE CON EL AGUA"
                 }
             }
         }

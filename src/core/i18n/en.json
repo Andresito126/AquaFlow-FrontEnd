@@ -3,14 +3,19 @@
         "alerts": {
             "logOutQuestion": "Are you sure?",
             "logOutMessage": "Do you want to log out?",
-            "logOutConfirmation": "Yes, log out"
+            "logOutConfirmation": "Yes, log out",
+            "loading": "Loading...",
+            "error": {
+                "generic": "There is an error."
+            },
+            "logInAlert": "Log in success."
         },
         "modulesAndButtons": {
             "dashboard": "Dashboard",
             "stats": "Statistics",
             "filterState": "Filter state",
-            "logout": "Logout",
-            "login": "Login",
+            "logout": "Log out",
+            "login": "Log in",
             "logOutConfirmation": "Yes, log out",
             "loading": "Loading...",
             "error": {
@@ -107,6 +112,20 @@
                 "status": {
                     "active": "Active",
                     "inactive": "Inactive"
+                }
+            },
+            "login": {
+                "email": "Email",
+                "emailPlaceHolder": "example@gmail.com",
+                "password": "Password",
+                "entering": "Entering..",
+                "logInButton": "Sign In",
+                "logginWith": "Or logginng in with",
+                "noAccount": "Do not you have an account?",
+                "register": "Sign Up",
+                "gretting": {
+                    "welcome": "WELCOME BACK",
+                    "text": "BE PART OF THE CHANGE TOWARDS A MORE RESPONSIBLE FUTURE WITH WATER"
                 }
             }
         }
