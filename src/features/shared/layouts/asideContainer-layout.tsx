@@ -10,12 +10,15 @@ import { FilterAssignmentCard } from "../../filter/presentation/components/Filte
 import { Modal } from "../components/generic/Modal";
 import { useUserFilters } from "../../filter/presentation/hooks/useUserFilter";
 import GotiSaludando from "../../../core//assets//icons/pet/goti-saludando.svg";
+import { LanguageToggleButton } from "../components/generic/LanguageToggleButton";
+import { useLanguage } from "../hooks/useLanguage";
 
 export const AsideContainerLayout = () => {
   const activeFilterId = localStorage.getItem("activeFilterId");
   const { date, time } = useDateTime();
   const { pathname } = useLocation();
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addFilter } = useUserFilters();
   const userId = localStorage.getItem("userId");
@@ -79,6 +82,10 @@ export const AsideContainerLayout = () => {
 
       <div className="shadow-lg p-2 rounded-[20px] mt-[7%] min-h-[380px] dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-1">
         <WeatherWidget city="Suchiapa,mx" />
+      </div>
+
+      <div>
+        <LanguageToggleButton language={language} toggleLanguage={toggleLanguage} />
       </div>
 
       <div>

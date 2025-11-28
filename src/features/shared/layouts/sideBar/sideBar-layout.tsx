@@ -6,10 +6,12 @@ import IconOut from "../../../../core/assets/icons/sidebar/icon-out.svg";
 import IconStats from "../../../../core/assets/icons/sidebar/icon-stats.svg";
 import AsideIconReu from "../../components/navItems/aside-icon-reu";
 import { showConfirmationAlert } from "../../utils/swal";
+import { useTranslation } from "react-i18next";
 
 export const SideBar = () => {
   const navigate = useNavigate();
 
+  const { t } = useTranslation("common");
   const handleLogout = async () => {
     const confirmed = await showConfirmationAlert(
       "¿Deseas cerrar sesión?",
@@ -35,21 +37,21 @@ export const SideBar = () => {
 
             <ul className="flex flex-col gap-y-1 mt-6">
               <AsideIconReu
-                nameNav="Dashboard"
+                nameNav={t("common.modulesAndButtons.dashboard")}
                 to="/dashboard"
                 icon={IconDashboard}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
-                nameNav="Estadísticas"
+                nameNav={t("common.modulesAndButtons.stats")}
                 to="/stadistics"
                 icon={IconStats}
                 alt="Dashboard Icon"
               ></AsideIconReu>
 
               <AsideIconReu
-                nameNav="Estado del filtro"
+                nameNav={t("common.modulesAndButtons.filterState")}
                 to="/filter"
                 icon={IconDispositives}
                 alt="Dashboard Icon"
@@ -74,7 +76,7 @@ export const SideBar = () => {
                 className="transition duration-75"
               />
               <p className="text-[20px] pl-[1.875rem] font-regular text-white">
-                Cerrar sesión
+                {t("common.modulesAndButtons.logout")}
               </p>
             </li>
           </ul>

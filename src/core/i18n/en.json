@@ -1,5 +1,9 @@
 {
     "common": {
+        "alerts":{
+            "logOutMessage": "Do you want to log out?",
+            "logOutConfirmation": "Yes, log out"
+        },
         "modulesAndButtons": {
             "dashboard": "Dashboard",
             "stats": "Statistics",

@@ -1,7 +1,12 @@
 {
     "common": {
+        "alerts":{
+            "logOutMessage": "¿Deseas cerrar sesión?",
+            "logOutConfirmation": "Si, salir sesión"
+
+        },
         "modulesAndButtons": {
-            "dashboard": "Tablero",
+            "dashboard": "Dashboard",
             "stats": "Estadísticas",
             "filterState": "Estado del filtro",
             "logout": "Cerrar sesión",
