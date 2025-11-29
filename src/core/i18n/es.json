@@ -122,15 +122,14 @@
                     "welcome": "BIENVENIDO DE NUEVO",
                     "text": "SÉ PARTE DEL CAMBIO HACIA UN FUTURO MÁS RESPONSABLE CON EL AGUA"
                 },
-                "mailAndPassword" : "Por favor ingresa tu correo y contraseña."
-
+                "mailAndPassword": "Por favor ingresa tu correo y contraseña."
             },
-            "register":{
-                "gretting":{
+            "register": {
+                "gretting": {
                     "welcome": "OPTIMIZA EL USO DEL AGUA",
                     "text": "MONITOREA, ANALIZA Y REUTILIZA CON INTELIGENCIA"
                 },
-                "registerSucces" : "Usuario registrado exitosamente!",
+                "registerSucces": "Usuario registrado exitosamente!",
                 "registerAccount": "Crear una cuenta",
                 "name": "Nombre",
                 "fatherLastName": "Apellido paterno",
@@ -141,10 +140,35 @@
                 "confirmP": "Confirmar contraseña",
                 "registering": "Registrando...",
                 "createAccount": "Crear cuenta",
-                "alreadyAccount" : "¿Ya tienes una cuenta?",
+                "alreadyAccount": "¿Ya tienes una cuenta?",
                 "signin": "Iniciar sesión",
-                "allfields" : "Por favor completa todos los campos.",
-                "passwordMismatch" : "Las contraseñas no coinciden."
+                "allfields": "Por favor completa todos los campos.",
+                "passwordMismatch": "Las contraseñas no coinciden."
+            },
+            "statistics": {
+                "header": {
+                    "title": "Estadísticas de tu filtrador",
+                    "subtitle": "Monitorea y visualiza el historial de tus mediciones",
+                    "subtitle2": " IOT + Software para el cuidado del agua"
+                },
+                "chartsTitle": "Gráficas de cada sensor",
+                "temperature": "Temperatura",
+                "ph": "pH",
+                "tds": "TDS",
+                "turbidity": "Turbidez",
+                "time": "Hora",
+                "barChart": {
+                    "sectionTitle": "Calidad del Agua",
+                    "chartTitle": "Calidad del Agua (últimos 10 días)",
+                    "25": "Pésima",
+                    "50": "Mala",
+                    "70": "Regular",
+                    "90": "Buena",
+                    "100": "Excelente",
+                    "date": "Fecha",
+                    "%cality" : "% Calidad",
+                    "cality" : "Calidad"
+                }
             }
         }
     }

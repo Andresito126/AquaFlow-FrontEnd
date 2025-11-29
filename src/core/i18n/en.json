@@ -127,14 +127,14 @@
                     "welcome": "WELCOME BACK",
                     "text": "BE PART OF THE CHANGE TOWARDS A MORE RESPONSIBLE FUTURE WITH WATER"
                 },
-                "mailAndPassword" : "Please enter your email and password."
+                "mailAndPassword": "Please enter your email and password."
             },
-            "register":{
-                "gretting":{
+            "register": {
+                "gretting": {
                     "welcome": "OPTIMIZES WATER USE",
                     "text": "INTELLIGENTLY MONITORS, ANALYXES AND REUSES"
                 },
-                "registerSucces" : "Successfully registered user",
+                "registerSucces": "Successfully registered user",
                 "registerAccount": "Create an account",
                 "name": "Name",
                 "fatherLastName": "Father's last name",
@@ -145,12 +145,35 @@
                 "confirmP": "Confirm Password",
                 "registering": "Registering...",
                 "createAccount": "Create account",
-                "alreadyAccount" : "Do you already have an account?",
+                "alreadyAccount": "Do you already have an account?",
                 "signin": "Sign in",
-                "allfields" : "Please complete all fields.",
-                "passwordMismatch" : "Passwords do not match."
-
-
+                "allfields": "Please complete all fields.",
+                "passwordMismatch": "Passwords do not match."
+            },
+            "statistics": {
+                "header": {
+                    "title": "Statistics of your filter",
+                    "subtitle": "Monitor and view your measurement history",
+                    "subtitle2": "IoT + Water Care Software"
+                },
+                "chartsTitle": "Sensor charts",
+                "temperature": "Temperature",
+                "ph": "pH",
+                "tds": "TDS",
+                "turbidity": "Turbidity",
+                "time": "Time",
+                "barChart": {
+                    "sectionTitle": "Water Quality",
+                    "chartTitle": "Water Quality (last 10 days)",
+                    "25": "Terribe",
+                    "50": "Bad",
+                    "70": "Regular",
+                    "90": "Good",
+                    "100": "Excellent",
+                    "date": "date",
+                    "%cality" : "% Quality",
+                    "cality" : "Quality"
+                }
             }
         }
     }

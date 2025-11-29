@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   Customized,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 interface SensorDataPoint {
   time: string;
@@ -54,6 +55,8 @@ export const SensorLineChart = ({
     return [minVal - margin, maxVal + margin];
   }, [data]);
 
+  const { t } = useTranslation("common");
+
   return (
     <div className="bg-white p-4 rounded-xl shadow-md w-full border-[#CBD5E1] dark:border-[#105B85] border-[1px]">
       <ResponsiveContainer width="100%" height={250}>
@@ -65,7 +68,7 @@ export const SensorLineChart = ({
             tick={{ fontSize: 12 }}
             minTickGap={20}
             tickFormatter={(timeStr) => timeStr?.slice(0, 8) || ""}
-            label={{ value: "Hora", position: "insideBottom", offset: -5 }}
+            label={{ value: t("common.pages.statistics.time"), position: "insideBottom", offset: -5 }}
           />
 
           <YAxis
@@ -79,9 +82,9 @@ export const SensorLineChart = ({
             }}
             domain={yDomain}
           />
-
+        
           <Tooltip
-            labelFormatter={(label) => `Hora: ${label}`}
+            labelFormatter={(label) => ` ${t("common.pages.statistics.time")} ${label}`}
             formatter={(value: number) => [`${value}`, unit]}
             contentStyle={{
               backgroundColor: "#ffffff",
