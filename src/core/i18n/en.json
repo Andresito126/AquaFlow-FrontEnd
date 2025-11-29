@@ -20,7 +20,8 @@
             "loading": "Loading...",
             "error": {
                 "generic": "An error occurred."
-            }
+            },
+            "goBack": "Go Back"
         },
         "pet": {
             "petAlt": "Reuser pet",
@@ -45,7 +46,7 @@
                     "s6": "Every three months, it is recommended to carry out a deep cleaning of the system. This involves disassembling key components, thoroughly cleaning them with safe products, and disinfecting to remove any accumulated residues or microorganisms."
                 },
                 "realTimeCard": {
-                    "title": "Water quality monitoring",
+                    "title": "Monitoring",
                     "temperature": "Temperature",
                     "ph": "pH",
                     "turbidity": "Turbidity",

@@ -3,7 +3,7 @@ import { SideBar } from "./sideBar/sideBar-layout";
 import { Outlet } from "react-router-dom";
 export const MainContainerLayout = () => {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex w-full min-h-screen overflow-x-hidden">
       <SideBar />
 
       {/* principal content */}

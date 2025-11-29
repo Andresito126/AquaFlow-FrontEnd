@@ -9,6 +9,7 @@ import { CardDashboardRealTime } from "../../../sensors/presentation/layouts/das
 import ActivityLayerSection from "../layouts/activity-layer-section";
 import AutoCarousel from "../layouts/carousel";
 import { useTranslation } from "react-i18next";
+import { useSidebar } from "../../../shared/layouts/sideBar/SidebarContext";
 
 
 export const Dashboard = () => {
@@ -16,6 +17,7 @@ export const Dashboard = () => {
     localStorage.getItem("userLastName") || ""
   }`.trim();
   const { t } = useTranslation("common");
+  const { toggleSidebar } = useSidebar();
 
   const slides = [
     { image: IconKid1, text: t("common.pages.dashboard.slides.s1") },
@@ -34,6 +36,7 @@ export const Dashboard = () => {
           subtitle={t("common.pages.dashboard.headerSubtitle")}
           icon1={IconPlant}
           icon2={IconEarth}
+          onMenuToggle={toggleSidebar}
         />
 
         <CardDashboardRealTime></CardDashboardRealTime>

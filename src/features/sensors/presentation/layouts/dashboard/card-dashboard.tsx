@@ -16,7 +16,7 @@ export const CardDashboardRealTime = () => {
   return (
     <div className="shadow-lg p-4 h-fit dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] rounded-[20px]">
       <div className="mb-4">
-        <h2 className="text-[25px] font-semibold">
+        <h2 className="text-xl sm:text-2xl lg:text-[25px] font-semibold">
           {t("common.pages.dashboard.realTimeCard.title")}
         </h2>
       </div>

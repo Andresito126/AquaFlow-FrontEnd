@@ -9,7 +9,6 @@ import { useRecommendedActivities } from "../../../sensors/presentation/hooks/us
 import CircularProgressIcon from "../../../shared/components/generic/CircularProgressIcon";
 import { useTranslation } from "react-i18next";
 
-
 const activityIcons: Record<string, string> = {
   "Lavar auto": IconCarWash,
   "Lavado de ropa": IconWashHands,
@@ -23,37 +22,76 @@ export default function ActivityLayerSection() {
   const userId = localStorage.getItem("userId") || "";
   const activities = useRecommendedActivities(userId);
   const { t } = useTranslation("common");
-  
-
 
   return (
-    <div className="flex gap-6 dark:bg-[#06172B] rounded-[20px]">
-      <div className="shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] flex flex-col items-center p-6 rounded-[20px] w-2/3">
-        <h2 className="text-lg font-bold mb-4">{t("common.pages.dashboard.activityTitle")}</h2>
-        <div className="flex gap-7">
+    <div className="flex flex-col lg:flex-row gap-6 dark:bg-[#06172B] rounded-[20px]">
+      <div
+        className="
+                w-full 
+                lg:w-2/3
+                shadow-lg dark:bg-[#011521] border-[#CBD5E1] dark:border-[#105B85] border-[1px] flex flex-col items-center p-6 rounded-[20px]"
+      >
+        <h2 className="text-lg font-bold mb-4">
+          {t("common.pages.dashboard.activityTitle")}
+        </h2>
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-7">
           {activities?.water_activities_list.map((activity, idx) => (
             <CircularProgressIcon
               key={idx}
               icon={activityIcons[activity.water_activity] || ""}
-              progress={Number(activity.percentage.toFixed(2))} 
+              progress={Number(activity.percentage.toFixed(2))}
               size={64}
-              label={t('common.pages.dashboard.activities.' + activity.water_activity)}
+              label={t(
+                "common.pages.dashboard.activities." + activity.water_activity
+              )}
             />
           )) || (
             <>
               {/* fallback si aún no hay datos */}
-              <CircularProgressIcon icon={IconCarWash} progress={10} size={64} label={t("common.pages.dashboard.activities.carWash")}/>
-              <CircularProgressIcon icon={IconWashHands} progress={90} size={64} label={t("common.pages.dashboard.activities.laundry")}/>
-              <CircularProgressIcon icon={IconGarden} progress={50} size={64} label={t("common.pages.dashboard.activities.watering")} />
-              <CircularProgressIcon icon={IconBarrer} progress={40} size={64} label={t("common.pages.dashboard.activities.homeCleaning")} />
-              <CircularProgressIcon icon={IconToilet} progress={29} size={64} label={t("common.pages.dashboard.activities.toiletFlush")}/>
-              <CircularProgressIcon icon={IconStreet} progress={29} size={64} label={t("common.pages.dashboard.activities.streetWash")}/>
+              <CircularProgressIcon
+                icon={IconCarWash}
+                progress={10}
+                size={64}
+                label={t("common.pages.dashboard.activities.carWash")}
+              />
+              <CircularProgressIcon
+                icon={IconWashHands}
+                progress={90}
+                size={64}
+                label={t("common.pages.dashboard.activities.laundry")}
+              />
+              <CircularProgressIcon
+                icon={IconGarden}
+                progress={50}
+                size={64}
+                label={t("common.pages.dashboard.activities.watering")}
+              />
+              <CircularProgressIcon
+                icon={IconBarrer}
+                progress={40}
+                size={64}
+                label={t("common.pages.dashboard.activities.homeCleaning")}
+              />
+              <CircularProgressIcon
+                icon={IconToilet}
+                progress={29}
+                size={64}
+                label={t("common.pages.dashboard.activities.toiletFlush")}
+              />
+              <CircularProgressIcon
+                icon={IconStreet}
+                progress={29}
+                size={64}
+                label={t("common.pages.dashboard.activities.streetWash")}
+              />
             </>
           )}
         </div>
       </div>
 
-      <LayerCard />
+      <div className="w-full lg:w-1/3">
+        <LayerCard />
+      </div>
     </div>
   );
 }
