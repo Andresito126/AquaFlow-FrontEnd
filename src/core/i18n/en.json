@@ -171,8 +171,60 @@
                     "90": "Good",
                     "100": "Excellent",
                     "date": "date",
-                    "%cality" : "% Quality",
-                    "cality" : "Quality"
+                    "%cality": "% Quality",
+                    "cality": "Quality"
+                },
+                "noFilterTitle": "No filter selected",
+                "noFilterMessage": "Please select an active filter to view your measurement statistics. Select it on the home page (DASHBOARD)."
+            },
+            "filter": {
+                "header": {
+                    "title": "Get to know your filter",
+                    "subtitle": "See the status and details of your filter layers"
+                },
+                "loading": "Loading status...",
+                "noActive": {
+                    "title": "No active filter",
+                    "description": "Please select an active filter to view the filter information."
+                },
+                "status": {
+                    "good": "Good",
+                    "regular": "Regular",
+                    "bad": "Bad"
+                },
+                "generalStatus": {
+                    "status": "Status",
+                    "daysLeft": "You have {{days}} days of useful life left.",
+                    "probabilityChange": "Probability of change: {{value}}%",
+                    "recommendedChange": "Recommended change: {{date}}",
+                    "info1": "The filter has not yet reached the critical threshold of 30%, but its current effectiveness is {{status}}%, which represents a {{prob}}% probability of requiring replacement.",
+                    "info2": "It is estimated to fall below 30% on {{date}}, if the current trend continues."
+                },
+                "changeRecomended": "Recommended change",
+                "layers": {
+                    "sand": "Sand",
+                    "sandInfo": "Sand traps fine particles during the filtration process.",
+                    "activatedCarbon": "Activated Carbon",
+                    "activatedCarbonInfo": "Activated carbon filters use carbon granules to block contaminants through adsorption, where liquids and gases adhere to solid surfaces.",
+                    "mineralSand": "Mineral Sand",
+                    "mineralSandInfo": "Mineral sand physically filters impurities and sediments thanks to its porous structure.",
+                    "land": "Land",
+                    "landInfo": "Land acts as a natural layer that traps sediments and improves water purification.",
+                    "water": "Water",
+                    "waterInfo": "Water passes through the filter layers, allowing impurities to be trapped by other layers.",
+                    "silicaSand": "Silica Sand",
+                    "silicaSandInfo": "Silica sand retains fine particles and improves water clarity due to its hardness and chemical stability.",
+                    "zeolite": "Natural Zeolite",
+                    "zeoliteInfo": "Natural zeolites absorb heavy metals and toxins due to their high ion exchange capacity.",
+                    "mineralBalls": "Mineral Balls",
+                    "mineralBallsInfo": "Mineral balls balance pH, remove odors, and help maintain healthier water.",
+                    "mineralBallsInfo2": "Mineral balls improve the taste and quality of water by acting as a complementary filtering medium."
+                },
+                "historyChart": {
+                    "title": "Filter historical effectiveness",
+                    "xAxis": "Date",
+                    "yAxis": "Percentage (%)",
+                    "tooltip": "Effectiveness"
                 }
             }
         }

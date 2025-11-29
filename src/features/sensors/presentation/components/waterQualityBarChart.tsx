@@ -59,7 +59,7 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
         </div>
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-2"></span>
-          51-70%: {t("common.pages.statistics.barChart.75")}
+          51-70%: {t("common.pages.statistics.barChart.70")}
         </div>
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-green-400 mr-2"></span>

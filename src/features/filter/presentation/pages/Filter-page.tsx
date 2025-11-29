@@ -6,22 +6,27 @@ import { FilterLayerRow } from "../components/FilterLayerRow";
 import { FilterGeneralStatus } from "../layouts/FilterGeneralStatus";
 import { useFilterStatus } from "../hooks/useFilterStatus";
 import { FilterHistoryChart } from "../layouts/FilterHistoryChart";
-import { dummyLayers } from "../hooks/dummyLayers";
+import { getDummyLayers } from "../hooks/dummyLayers";
+import { LanguageToggleButton } from "../../../shared/components/generic/LanguageToggleButton";
+import { useLanguage } from "../../../shared/hooks/useLanguage";
+import { useTranslation } from "react-i18next";
 
 export const FilterPage = () => {
   const activeFilterId = localStorage.getItem("activeFilterId");
   const { theme, toggleTheme } = useTheme();
   const { data, loading, error } = useFilterStatus(activeFilterId ?? "");
 
+  const { language, toggleLanguage } = useLanguage();
+  const { t } = useTranslation("common");
+
   if (!activeFilterId) {
     return (
       <div className="flex flex-col items-center justify-center h-[70vh] text-center px-4">
         <h2 className="text-[25px] font-semibold mb-2">
-          No has seleccionado un filtro
+          {t("common.pages.filter.noActive.title")}
         </h2>
         <p className="text-[18px]">
-          Por favor selecciona un filtro activo para poder visualizar las
-          estadísticas de tu filtrador.
+          {t("common.pages.filter.noActive.description")}
         </p>
       </div>
     );
@@ -31,24 +36,42 @@ export const FilterPage = () => {
   const d = data?.filter_status.estimated_day
     ? new Date(data.filter_status.estimated_day).toLocaleDateString()
     : "-";
-  const s: "Bueno" | "Regular" | "Malo" =
-    v > 70 ? "Bueno" : v > 40 ? "Regular" : "Malo";
+  const statusKey: "good" | "regular" | "bad" = v > 70 ? "good" : v > 40 ? "regular" : "bad";
 
-  const layers = dummyLayers.map((layer) => ({
-    left: { ...layer.left, value: v, status: s, date: d },
-    right: { ...layer.right, value: v, status: s, date: d },
-  }));
+const statusMap = {
+  good: t("common.pages.filter.status.good"),
+  regular: t("common.pages.filter.status.regular"),
+  bad: t("common.pages.filter.status.bad"),
+};  const dummyLayers = getDummyLayers(t);
+
+
+const layers = dummyLayers.map((layer) => ({
+  left: {
+    ...layer.left,
+    value: v,
+    status: statusMap[statusKey],
+    statusKey,
+    date: d,
+  },
+  right: {
+    ...layer.right,
+    value: v,
+    status: statusMap[statusKey],
+    statusKey,
+    date: d,
+  },
+}));
 
   return (
     <div className="flex flex-col items-stretch gap-6 px-4">
       <Header
-        title="Conoce a tu filtro"
-        subtitle="Conoce el estado y la información de las capas de tu filtro"
+        title={t("common.pages.filter.header.title")}
+        subtitle={t("common.pages.filter.header.subtitle")}
         icon2={IconFilterHeader}
       />
 
       <div className="space-y-8">
-        {loading && <p className="text-slate-400">Cargando estado...</p>}
+        {loading && <p className="text-slate-400">{t("common.pages.filter.loading")}</p>}
         {error && <p className="text-red-400">{error}</p>}
 
         {data && (
@@ -73,6 +96,7 @@ export const FilterPage = () => {
       ))}
 
       <div className="fixed top-4 right-4 z-10">
+        <LanguageToggleButton language={language} toggleLanguage={toggleLanguage} />  
         <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
       </div>
 

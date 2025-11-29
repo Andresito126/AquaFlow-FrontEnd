@@ -1,4 +1,5 @@
 import  { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import {
   ResponsiveContainer,
   LineChart,
@@ -31,13 +32,16 @@ export function FilterHistoryChart({
     });
   }, [days, effectiveness]);
 
+    const { t } = useTranslation("common");
+
+
   return (
     <div className="relative z-0 w-full h-72 md:h-96 rounded-2xl p-4 md:p-6  dark:bg-[#0B1727]/70 border border-slate-200 dark:border-[#105B85]/30 shadow-lg backdrop-blur-xl overflow-hidden">
       {/* Glow de fondo */}
       <div className="pointer-events-none absolute -inset-40 bg-gradient-to-tr  z-0" />
 
       <h3 className="relative z-10 text-lg md:text-xl font-bold mb-4 text-slate-800 dark:text-slate-100">
-        {title}
+        {title ?? t("pages.filter.historyChart.title")}
       </h3>
 
       <ResponsiveContainer width="100%" height="80%">
@@ -57,7 +61,7 @@ export function FilterHistoryChart({
             tick={{ fontSize: 12 }}
             height={36}
           >
-            <Label value="Fecha" offset={-5} position="insideBottom" fill="#94a3b8" />
+            <Label value={t("pages.filter.historyChart.xAxis")} offset={-5} position="insideBottom" fill="#94a3b8" />
           </XAxis>
 
           <YAxis
@@ -67,7 +71,7 @@ export function FilterHistoryChart({
             ticks={[0, 20, 40, 60, 80, 100]}
           >
             <Label
-              value="Porcentaje (%)"
+              value={t("pages.filter.historyChart.xAxis")}
               angle={-90}
               position="middle"
               offset={-10}
@@ -83,7 +87,7 @@ export function FilterHistoryChart({
               color: "#e2e8f0",
             }}
             labelStyle={{ color: "#cbd5e1" }}
-            formatter={(value: any) => [`${value}%`, "Efectividad"]}
+            formatter={(value: any) => [`${value}%`, t("pages.filter.historyChart.tooltip")]}
           />
 
           {/* Línea ÚNICA con gradiente */}
