@@ -55,8 +55,7 @@ export default tseslint.config({
 # AquaFlow-FrontEnd
 
 
-Este proyecto está construido sobre una pila moderna y eficiente:TecnologíaDescripciónFrontendReact.js con TypeScript (TSX)EstilosTailwind CSS para un diseño ágil y responsivoEstadoMobX para la gestión reactiva y escalable del estado de la aplicaciónRoutingReact Router DOMOtrosi18next para la internacionalización (i18n)📦 InstalaciónSigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.1. Clonar el RepositorioBashgit clone <URL_DE_TU_REPOSITORIO>
-cd <nombre-del-repositorio>
+Este proyecto está construido sobre una pila moderna y eficiente:TecnologíaDescripciónFrontendReact.js con TypeScript (TSX)EstilosTailwind CSS para un diseño ágil y responsivoEstadoMobX para la gestión reactiva y escalable del estado de la aplicaciónRoutingReact Router DOMOtrosi18next para la internacionalización (i18n)📦 InstalaciónSigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.1. Clonar el Repositorio
 2. Instalar DependenciasUsa npm para instalar todas las dependencias del proyecto:Bashnpm install
 3. Configuración del Entorno (.env)El proyecto requiere variables de entorno específicas para conectarse a los servicios de backend y a APIs externas.Crea un archivo llamado .env en la raíz del proyecto y añade las siguientes variables, reemplazando los valores por tus credenciales y URLs de servicio:Fragmento de código# URL base para la conexión de WebSockets (Sensores en tiempo real)
 VITE_SOCKET_URL=ws://<tu_url_de_websocket>
