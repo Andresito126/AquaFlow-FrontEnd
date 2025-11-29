@@ -1,5 +1,5 @@
 import type { IWeatherRepository } from "../data/repository/WeatherRepository";
-import type { Weather } from "../data/models/weather";
+import type { Weather } from "../data/models/Weather";
 
 export class GetWeatherUseCase {
   private weatherRepo: IWeatherRepository;

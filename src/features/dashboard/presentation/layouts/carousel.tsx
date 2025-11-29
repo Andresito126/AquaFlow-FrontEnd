@@ -19,7 +19,7 @@ const AutoCarousel: React.FC<Props> = ({ slides, title, interval = 10000 }) => {
   const current = slides[index];
 
   return (
-    <div className="dark:bg-[#011521] border border-slate-300 dark:border-[#105B85] rounded-2xl p-6 w-full h-[290px] mx-auto shadow-xl space-y-6">
+    <div className="hidden lg:block dark:bg-[#011521] border border-slate-300 dark:border-[#105B85] rounded-2xl p-6 w-full h-[290px] mx-auto shadow-xl space-y-6">
       <h2 className="text-center text-[20px] font-bold text-slate-800 dark:text-white">
         {title}
       </h2>

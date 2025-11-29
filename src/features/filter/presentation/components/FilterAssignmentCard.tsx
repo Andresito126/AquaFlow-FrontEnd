@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Filter } from "../../data/models/Filter";
 import { showSuccessAlert, showErrorAlert, showConfirmationAlert } from "../../../shared/utils/swal";
+import { useTranslation } from "react-i18next";
 
 
 interface Props {
@@ -14,6 +15,8 @@ export function FilterAssignmentCard({ userId, onAssigned }: Props) {
   const [filterId, setFilterId] = useState("");
   const [assignedFilters, setAssignedFilters] = useState<Filter[]>([]);
   const [activeFilterId, setActiveFilterId] = useState("");
+  const { t } = useTranslation("common");
+
 
   const baseUrl = import.meta.env.VITE_API_AUTH;
 
@@ -79,17 +82,17 @@ export function FilterAssignmentCard({ userId, onAssigned }: Props) {
 const handleSetActive = async () => {
   if (!activeFilterId) return;
 
-  const confirmed = await showConfirmationAlert("¿Quieres usar este filtro como el activo?");
+  const confirmed = await showConfirmationAlert(t("common.pages.dashboard.filters.confirmSetActive"));
   if (!confirmed) return;
 
   try {
     localStorage.setItem("activeFilterId", activeFilterId);
-    showSuccessAlert("Filtro activado correctamente.");
+    showSuccessAlert(t("common.pages.dashboard.filters.successActive"));
     if (onAssigned) {
       onAssigned(activeFilterId);
     }
   } catch (err) {
-    showErrorAlert("No se pudo activar el filtro.");
+    showErrorAlert(t("common.pages.dashboard.filters.errorActive"));
     console.error(err);
   }
 };
@@ -99,13 +102,13 @@ const handleSetActive = async () => {
     <div className="flex flex-col gap-4 w-full">
       <div className="flex flex-col gap-4 w-full items-center justify-center text-center">
         <p className="text-xl font-semibold text-gray-700 dark:text-gray-200">
-          AÑADIR Y ASOCIAR UN FILTRO
+          {t("common.pages.dashboard.filters.title")}
         </p>
       </div>
 
       <input
         type="text"
-        placeholder="UUID del filtro"
+        placeholder={t("common.pages.dashboard.filters.placeholderUUID")}
         value={filterId}
         onChange={(e) => setFilterId(e.target.value)}
         className="px-2 py-1 rounded-md w-full"
@@ -114,7 +117,7 @@ const handleSetActive = async () => {
         onClick={handleAssign}
         className="bg-[#01182B] hover:bg-[#01182be0] dark:bg-[#5a90bd] text-white px-3 py-1 rounded-lg "
       >
-        Asociar
+      {t("common.pages.dashboard.filters.assign")}
       </button>
 
       <select
@@ -122,7 +125,7 @@ const handleSetActive = async () => {
         value={activeFilterId}
         onChange={(e) => setActiveFilterId(e.target.value)}
       >
-        <option className="text-[black]" value="">Selecciona un filtro</option>
+        <option className="text-[black]" value="">{t("common.pages.dashboard.filters.select")}</option>
         {assignedFilters.map((filter) => (
           <option className="text-[black]" key={filter.getFilterId()} value={filter.getFilterId()}>
             {filter.getFilterId()}
@@ -134,7 +137,7 @@ const handleSetActive = async () => {
         onClick={handleSetActive}
         className="bg-[#01182B] text-white px-3 py-1 rounded-lg hover:bg-[#01182be0] dark:bg-[#5a90bd]"
       >
-        Usar este filtro
+      {t("common.pages.dashboard.filters.useThis")}
       </button>
     </div>
   );
