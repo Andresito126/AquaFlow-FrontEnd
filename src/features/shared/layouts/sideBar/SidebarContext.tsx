@@ -1,4 +1,3 @@
-// src/context/SidebarContext.tsx
 import React, { createContext, useState, useContext, type ReactNode } from 'react';
 
 type SidebarContextType = {
