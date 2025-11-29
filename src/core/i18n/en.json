@@ -86,6 +86,8 @@
                     "select": "Select a filter",
                     "useThis": "Use this filter",
                     "confirmSetActive": "Do you want to set this filter as active?",
+                    "areusure": "Are you sure?",
+                    "yesContinue": "Yes, continue",
                     "successActive": "Filter activated successfully.",
                     "errorActive": "Couldn't activate filter."
                 }

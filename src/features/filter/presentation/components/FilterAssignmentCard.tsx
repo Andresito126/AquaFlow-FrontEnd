@@ -82,7 +82,11 @@ export function FilterAssignmentCard({ userId, onAssigned }: Props) {
 const handleSetActive = async () => {
   if (!activeFilterId) return;
 
-  const confirmed = await showConfirmationAlert(t("common.pages.dashboard.filters.confirmSetActive"));
+  const confirmed = await showConfirmationAlert(
+    t("common.pages.dashboard.filters.confirmSetActive"),
+    t("common.pages.dashboard.filters.areusure"),
+    t("common.pages.dashboard.filters.yesContinue")
+  );
   if (!confirmed) return;
 
   try {

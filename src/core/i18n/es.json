@@ -81,6 +81,8 @@
                     "select": "Selecciona un filtro",
                     "useThis": "Usar este filtro",
                     "confirmSetActive": "¿Quieres usar este filtro como el activo?",
+                    "areusure": "¿Estás seguro?",
+                    "yesContinue": "Sí, continuar",
                     "successActive": "Filtro activado correctamente.",
                     "errorActive": "No se pudo activar el filtro."
                 }
