@@ -1,3 +1,44 @@
+
+# AquaFlow-FrontEnd
+
+
+Este proyecto está construido sobre una pila moderna y eficiente:TecnologíaDescripciónFrontendReact.js con TypeScript (TSX)EstilosTailwind CSS para un diseño ágil y responsivo para la gestión reactiva y escalable del estado de la aplicaciónRoutingReact Router DOMOtrosi18next para la internacionalización (i18n) 
+  *InstalaciónSigue estos pasos para configurar y ejecutar el proyecto en tu entornolocal.
+1. Clonar el Repositorio
+2. Instalar DependenciasUsa npm para instalar todas las dependencias del proyecto: npm install
+3. Configuración del Entorno (.env)
+4. El proyecto requiere variables de entorno específicas para conectarse a los servicios de backend y a APIs externas.
+4.1. Crea un archivo llamado .env en la raíz del proyecto y añade las siguientes variables, reemplazando los valores por tus credenciales y URLs de servicio:
+   Fragmento de código
+   # URL base para la conexión de WebSockets (Sensores en tiempo real)
+  VITE_SOCKET_URL=ws://<tu_url_de_websocket>
+   # URL base para la API de los sensores
+  VITE_APISENSORS_URL=http://<tu_url_api_sensores>/api
+  # Key de una API de clima (OpenWeatherMap)
+  VITE_WEATHER_API_KEY=<tu_clave_de_api_externa>
+  # URL base para la API principal de autenticación 
+  VITE_API_URL=http://<tu_url_api_principal>/api
+  # URL de autenticación específica
+  VITE_API_AUTH=http://<tu_url_api_auth>/auth
+
+  
+  # Ejecución del Proyecto
+Una vez configurado el archivo .env, puedes iniciar la aplicación en modo desarrollo:
+npm run dev
+
+La aplicación se ejecutará en tu navegador. 
+
+# Estructura del Proyecto 
+El proyecto sigue una arquitectura clean front end y queriendo imitar una arquitectura hexagonal, donde los componentes de presentación y la lógica de estado (MobX ViewModels) están separados:src/
+├── core/            
+├── features/        
+│   ├── modules/
+│   │   └── Presentation/ 
+│   │   └── ViewModels/
+├── shared/          
+└── App.tsx         
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -52,4 +93,3 @@ export default tseslint.config({
   },
 })
 ```
-# AquaFlow-FrontEnd
