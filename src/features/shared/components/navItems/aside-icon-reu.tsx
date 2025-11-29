@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
+import { useSidebar } from "../../layouts/sideBar/SidebarContext";
 
 // props para podr hacer el componente reutilizable
 type Props = {
@@ -11,10 +12,16 @@ type Props = {
 };
 
 const NavItem: React.FC<Props> = ({ to, icon, alt, label, nameNav }) => {
+  const { setIsSidebarOpen } = useSidebar();
+  
+  const handleClick = () => {
+    setIsSidebarOpen(false); 
+  };
   return (
     <li>
       <NavLink /* needed to link (redirect to other page)  */
         to={to}
+        onClick={handleClick}
         className={({ isActive }) =>
           `flex items-center p-3 rounded-lg mt-[1.563rem] transition-all ${
             isActive

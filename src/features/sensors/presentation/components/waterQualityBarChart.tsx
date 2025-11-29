@@ -11,6 +11,8 @@ import {
   ReferenceArea,
 } from "recharts";
 
+import { useTranslation } from "react-i18next";
+
 interface WaterQualityTrendPoint {
   day: string;
   ica_value: number;
@@ -30,6 +32,7 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
       year: "numeric",
     });
   };
+  const { t } = useTranslation("common");
 
   const getBarColor = (value: number) => {
     if (value <= 25) return "#ef4444";
@@ -48,23 +51,23 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
       <div className="flex gap-20 mb-4 text-sm text-gray-600 ">
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-red-500 mr-2"></span>
-          0-25%: Pésima
+          0-25%: {t("common.pages.statistics.barChart.25")}
         </div>
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-orange-500 mr-2"></span>
-          26-50%: Mala
+          26-50%: {t("common.pages.statistics.barChart.50")}
         </div>
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-2"></span>
-          51-70%: Regular
+          51-70%: {t("common.pages.statistics.barChart.70")}
         </div>
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-green-400 mr-2"></span>
-          71-90%: Buena
+          71-90%: {t("common.pages.statistics.barChart.90")}
         </div>
         <div>
           <span className="inline-block w-3 h-3 rounded-full bg-emerald-600 mr-2"></span>
-          91-100%: Excelente
+          91-100%: {t("common.pages.statistics.barChart.100")}
         </div>
       </div>
 
@@ -85,12 +88,12 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
             interval={0}
             height={40}
           >
-            <Label value="Fecha" offset={-5} position="insideBottom" />
+            <Label value={t("common.pages.statistics.barChart.date")} offset={-5} position="insideBottom" />
           </XAxis>
 
           <YAxis ticks={[0, 20, 40, 60, 80, 100]}>
             <Label
-              value="% Calidad"
+              value={t("common.pages.statistics.barChart.%cality")} 
               angle={-90}
               position="insideLeft"
               offset={10}
@@ -99,7 +102,7 @@ export const WaterQualityBarChart = ({ title, data }: Props) => {
           </YAxis>
 
           <Tooltip
-            labelFormatter={(label) => `Fecha: ${formatDateSimple(label)}`}
+            labelFormatter={(label) => `${t("common.pages.statistics.barChart.cality")}: ${formatDateSimple(label)}`}
             formatter={(value: number) => [`${value}%`, "Calidad"]}
             contentStyle={{
               backgroundColor: "#ffffff",

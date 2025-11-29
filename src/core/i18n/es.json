@@ -1,0 +1,228 @@
+{
+    "common": {
+        "alerts": {
+            "logOutQuestion": "¿Estás seguro?",
+            "logOutMessage": "¿Deseas cerrar sesión?",
+            "logOutConfirmation": "Si, salir sesión",
+            "loading": "Cargando...",
+            "error": {
+                "generic": "Ocurrió un error."
+            },
+            "logInAlert": "Inicio de sesión exitoso."
+        },
+        "modulesAndButtons": {
+            "dashboard": "Dashboard",
+            "stats": "Estadísticas",
+            "filterState": "Estado del filtro",
+            "logout": "Cerrar sesión",
+            "login": "Iniciar sesión",
+            "goBack": "Regresar"
+        },
+        "pet": {
+            "petAlt": "Reuser pet",
+            "greeting": "Hola, soy Goti!"
+        },
+        "pages": {
+            "notFound": {
+                "code": "404!",
+                "title": "Página no encontrada",
+                "description": "Una disculpa, esta ruta de la web es inexistente. Prueba otra ruta volviendo atrás.",
+                "goBackButton": "Regresar al inicio"
+            },
+            "dashboard": {
+                "headerSubtitle": "Ten un lindo día. El agua está en buenas manos hoy",
+                "carouselTitle": "Cosas que debes saber de tu filtro",
+                "slides": {
+                    "s1": "Es fundamental cambiar el filtro de tu sistema de reuso de agua cada 6 meses. Esto asegura que el agua mantenga su pureza y calidad, evitando la acumulación de contaminantes y partículas que puedan afectar la salud y el correcto funcionamiento del sistema.",
+                    "s2": "La limpieza mensual de las piezas internas del sistema es esencial para prevenir la acumulación de bacterias, algas y otros microorganismos que puedan desarrollarse con el paso del tiempo.",
+                    "s3": "Siempre utiliza agua limpia y libre de residuos para la recarga de tu sistema de reuso. El ingreso de agua contaminada o con partículas sólidas puede dañar el sistema y reducir la eficacia del proceso de reutilización.",
+                    "s4": "Es importante realizar inspecciones periódicas para detectar posibles fugas, grietas o piezas dañadas. Un sistema en buen estado evita pérdidas de agua y garantiza que el proceso de reuso se lleve a cabo de manera eficiente.",
+                    "s5": "Coloca el sistema de reuso en un lugar fresco, seco y protegido del sol directo, ya que la exposición continua a altas temperaturas puede deteriorar los materiales plásticos y reducir la vida útil de los componentes.",
+                    "s6": "Cada tres meses es recomendable realizar una limpieza profunda del sistema. Esto implica desmontar componentes claves, limpiar a fondo con productos seguros y desinfectar para eliminar cualquier residuo o microorganismos que puedan haberse acumulado."
+                },
+                "realTimeCard": {
+                    "title": "Monitoreo",
+                    "temperature": "Temperatura",
+                    "ph": "pH",
+                    "turbidity": "Turbidez",
+                    "tds": "TDS",
+                    "altTemperature": "Ícono de temperatura",
+                    "altPH": "Ícono de pH",
+                    "altTurbidity": "Ícono de turbidez",
+                    "altTDS": "Ícono de TDS"
+                },
+                "activityTitle": "Actividades recomendadas",
+                "activities": {
+                    "carWash": "Lavado de auto",
+                    "laundry": "Lavado de ropa",
+                    "watering": "Riego de plantas",
+                    "homeCleaning": "Limpieza del hogar (pisos y exteriores)",
+                    "toiletFlush": "Descarga de inodoros",
+                    "streetWash": "Lavado de calles o banquetas"
+                },
+                "layerFilterTitle": "Capas del filtrador",
+                "aside": {
+                    "assignFilter": "Asignar filtro",
+                    "activeFilterPrefix": "Filtro activo:",
+                    "defaultUser": "Usuario"
+                },
+                "weather": {
+                    "loading": "Cargando clima...",
+                    "error": "Error: Cargando clima",
+                    "altIcon": "Icono climático: {{desc}}",
+                    "humidity": "Humedad",
+                    "wind": "Viento",
+                    "descriptions": {}
+                },
+                "filters": {
+                    "title": "AÑADIR Y ASOCIAR UN FILTRO",
+                    "placeholderUUID": "UUID del filtro",
+                    "assign": "Asociar",
+                    "select": "Selecciona un filtro",
+                    "useThis": "Usar este filtro",
+                    "confirmSetActive": "¿Quieres usar este filtro como el activo?",
+                    "successActive": "Filtro activado correctamente.",
+                    "errorActive": "No se pudo activar el filtro."
+                }
+            },
+            "admin": {
+                "role": "Administrador",
+                "enterUUID": "Ingresa el código UUID",
+                "addFilter": "Añadir un filtro",
+                "filterCreated": "Filtro creado:",
+                "totalFilters": "Filtros Totales",
+                "activeFilters": "Filtros Activos",
+                "inactiveFilters": "Filtros Inactivos",
+                "altTotal": "Icono filtros totales",
+                "altActive": "Icono filtros activos",
+                "altInactive": "Icono filtros inactivos",
+                "altLogo": "Logo Admin",
+                "searchUUID": "Buscar por UUID",
+                "refresh": "Refrescar",
+                "table": {
+                    "uuid": "UUID del filtro",
+                    "model": "Modelo",
+                    "status": "Estatus",
+                    "date": "Fecha de ingreso"
+                },
+                "status": {
+                    "active": "Activo",
+                    "inactive": "Inactivo"
+                }
+            },
+            "login": {
+                "email": "Email",
+                "emailPlaceHolder": "ejemplo@correo.com",
+                "password": "Contraseña",
+                "entering": "Entrando...",
+                "logInButton": "Iniciar sesión",
+                "logginWith": "O inicia con",
+                "noAccount": "¿No tienes cuenta?",
+                "register": "Regístrate",
+                "gretting": {
+                    "welcome": "BIENVENIDO DE NUEVO",
+                    "text": "SÉ PARTE DEL CAMBIO HACIA UN FUTURO MÁS RESPONSABLE CON EL AGUA"
+                },
+                "mailAndPassword": "Por favor ingresa tu correo y contraseña."
+            },
+            "register": {
+                "gretting": {
+                    "welcome": "OPTIMIZA EL USO DEL AGUA",
+                    "text": "MONITOREA, ANALIZA Y REUTILIZA CON INTELIGENCIA"
+                },
+                "registerSucces": "Usuario registrado exitosamente!",
+                "registerAccount": "Crear una cuenta",
+                "name": "Nombre",
+                "fatherLastName": "Apellido paterno",
+                "motherLastName": "Apellido materno",
+                "email": "Email",
+                "emailPlaceHolder": "ejemplo@correo.com",
+                "password": "Contraseña",
+                "confirmP": "Confirmar contraseña",
+                "registering": "Registrando...",
+                "createAccount": "Crear cuenta",
+                "alreadyAccount": "¿Ya tienes una cuenta?",
+                "signin": "Iniciar sesión",
+                "allfields": "Por favor completa todos los campos.",
+                "passwordMismatch": "Las contraseñas no coinciden."
+            },
+            "statistics": {
+                "header": {
+                    "title": "Estadísticas de tu filtrador",
+                    "subtitle": "Monitorea y visualiza el historial de tus mediciones",
+                    "subtitle2": " IOT + Software para el cuidado del agua"
+                },
+                "chartsTitle": "Gráficas de cada sensor",
+                "temperature": "Temperatura",
+                "ph": "pH",
+                "tds": "TDS",
+                "turbidity": "Turbidez",
+                "time": "Hora",
+                "barChart": {
+                    "sectionTitle": "Calidad del Agua",
+                    "chartTitle": "Calidad del Agua (últimos 10 días)",
+                    "25": "Pésima",
+                    "50": "Mala",
+                    "70": "Regular",
+                    "90": "Buena",
+                    "100": "Excelente",
+                    "date": "Fecha",
+                    "%cality": "% Calidad",
+                    "cality": "Calidad"
+                },
+                "noFilterTitle": "No has seleccionado un filtro",
+                "noFilterMessage": "Por favor selecciona un filtro activo para poder visualizar las estadísticas de tus mediciones. Selecciónalo en la página de inicio (DASHBOARD)."
+            },
+            "filter": {
+                "header": {
+                    "title": "Conoce a tu filtro",
+                    "subtitle": "Conoce el estado y la información de las capas de tu filtro"
+                },
+                "loading": "Cargando estado...",
+                "noActive": {
+                    "title": "No hay filtro activo",
+                    "description": "Por favor selecciona un filtro activo para poder visualizar la información del filtrador."
+                },
+                "status": {
+                    "good": "Bueno",
+                    "regular": "Regular",
+                    "bad": "Malo"
+                },
+                "generalStatus": {
+                    "status": "Estado",
+                    "daysLeft": "Te quedan {{days}} días de vida útil.",
+                    "probabilityChange": "Probabilidad de cambio: {{value}}%",
+                    "recommendedChange": "Cambio recomendado: {{date}}",
+                    "info1": "El filtro aún no ha alcanzado el umbral crítico del 30%, pero su efectividad actual es del {{status}}%, lo cual representa un {{prob}}% de probabilidad de requerir cambio.",
+                    "info2": "Se estima que caerá por debajo del 30% el {{date}}, si la tendencia actual continúa."
+                },
+                "changeRecomended": "Cambio recomendado",
+                "layers": {
+                    "sand": "Arena",
+                    "sandInfo": "La arena atrapa partículas finas durante el proceso de filtración.",
+                    "activatedCarbon": "Carbón activado",
+                    "activatedCarbonInfo": "Un filtro de carbón emplea gránulos de carbón para bloquear contaminantes atrapándolos mediante la “adsorción”. Este último es un proceso mediante el cual los líquidos y gases son atraídos por otros líquidos o sólidos.",
+                    "mineralSand": "Arena mineral",
+                    "mineralSandInfo": "La arena mineral está compuesta por partículas naturales que filtran físicamente las impurezas y sedimentos. Su estructura porosa permite retener partículas sólidas, mejorando la claridad del agua.",
+                    "land": "Tierra",
+                    "landInfo": "La tierra actúa como una capa natural que atrapa sedimentos y mejora la purificación del agua.",
+                    "water": "Agua",
+                    "waterInfo": "El agua atraviesa las capas del filtro permitiendo que los residuos queden atrapados por otras capas.",
+                    "silicaSand": "Arena de silicio",
+                    "silicaSandInfo": "La arena de silicio es un filtro eficiente que retiene contaminantes mediante un lecho granular. Gracias a su alta dureza y estabilidad química, es ideal para filtrar partículas finas y mejorar la calidad del agua.",
+                    "zeolite": "Zeolitas naturales",
+                    "zeoliteInfo": "Las zeolitas son minerales microporosos que absorben metales pesados y sustancias tóxicas del agua. Su alta capacidad de intercambio iónico las convierte en filtros naturales muy efectivos y duraderos.",
+                    "mineralBalls": "Bolas minerales",
+                    "mineralBallsInfo": "Las bolas minerales contienen elementos que equilibran el pH y eliminan olores desagradables. Su acción ayuda a mantener el agua limpia y saludable, actuando como un filtro complementario para mejorar su sabor y calidad.",
+                    "mineralBallsInfo2": "Las bolas minerales contienen elementos que equilibran el pH y eliminan olores desagradables. Su acción ayuda a mantener el agua limpia y saludable, actuando como un filtro complementario para mejorar su sabor y calidad."
+                },
+                "historyChart": {
+                    "title": "Efectividad histórica del filtro",
+                    "xAxis": "Fecha",
+                    "yAxis": "Porcentaje (%)",
+                    "tooltip": "Efectividad"
+                }
+            }
+        }
+    }
+}

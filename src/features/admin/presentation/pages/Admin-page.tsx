@@ -13,6 +13,9 @@ import { Sensor } from "../../../sensors/data/models/Sensor";
 import { FilterLayer } from "../../../filter/data/models/FilterLayer";
 import { useGetAllFilters } from "../../../filter/presentation/hooks/useGetAllFilter";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../../shared/hooks/useLanguage";
+import {LanguageToggleButton} from "../../../shared/components/generic/LanguageToggleButton";
 
 export const AdminPage = () => {
   //hooks
@@ -22,11 +25,16 @@ export const AdminPage = () => {
   const { filters } = useGetAllFilters();
   const [searchTable, setSearchTable] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation("common");
+
 
   const handleLogout = () => {
     localStorage.clear();
     navigate("/");
   };
+
+  const { language, toggleLanguage } = useLanguage();
+
 
   const handleClick = () => {
     if (!search) return;
@@ -58,19 +66,19 @@ export const AdminPage = () => {
 
   const stats = [
     {
-      label: "Filtros Totales",
+      label: t("common.pages.admin.totalFilters"),
       value: totalFilters,
-      icon: <img src={IconTotal} alt="" />,
+      icon: <img src={IconTotal} alt={t("common.pages.admin.altTotal")} />,
     },
     {
-      label: "Filtros Activos",
+      label: t("common.pages.admin.activeFilters"),
       value: activeFilters,
-      icon: <img src={IconActive} alt="" />,
+      icon: <img src={IconActive} alt={t("common.pages.admin.altActive")} />,
     },
     {
-      label: "Filtros Inactivos",
+      label: t("common.pages.admin.inactiveFilters"),
       value: inactiveFilters,
-      icon: <img src={IconInactive} alt="" />,
+      icon: <img src={IconInactive} alt={t("common.pages.admin.altInactive")} />,
     },
   ];
 
@@ -83,7 +91,7 @@ export const AdminPage = () => {
       <AdminHeader
         logoSrc={IconAquaFlowAdmin}
         title="SOFTGENIX"
-        role="Administrador"
+        role={t("common.pages.admin.role")}
         onLogout={handleLogout}
       />
 
@@ -93,7 +101,7 @@ export const AdminPage = () => {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Ingresa el código UUID"
+            placeholder={t("common.pages.admin.enterUUID")}
             className="flex-1 bg-transparent outline-none"
           />
           <button
@@ -101,15 +109,15 @@ export const AdminPage = () => {
             disabled={loading || !search}
             className="shadow-lg bg-[#1c709a] hover:bg-[#105B85] text-white px-4 py-2 rounded-[20px]"
           >
-            <span> + </span> Añadir un filtro
+            + {t("common.pages.admin.addFilter")}
           </button>
         </div>
 
-        {loading && <p>Cargando...</p>}
-        {error && <p className="text-red-500">{error}</p>}
+        {loading && <p>{t("common.alerts.loading")}</p>}
+        {error && <p className="text-red-500">{t("common.alerts.error.generic")}</p>}
         {createdFilterId && (
           <p className="text-green-400 pl-2">
-            Filtro creado: {createdFilterId}
+            {t("common.pages.admin.filterCreated")} {createdFilterId}
           </p>
         )}
       </div>
@@ -137,7 +145,7 @@ export const AdminPage = () => {
             <span></span>
             <input
               type="text"
-              placeholder="Buscar por UUID"
+              placeholder={t("common.pages.admin.searchUUID")}
               value={searchTable}
               onChange={(e) => setSearchTable(e.target.value)}
               className="bg-transparent outline-none text-white text-[14px] w-[19rem]"
@@ -147,17 +155,17 @@ export const AdminPage = () => {
             onClick={() => setSearchTable("")}
             className="text-white hover:text-blue-400 transition"
           >
-            <span></span> Refrescar
+            {t("common.pages.admin.refresh")}
           </button>
         </div>
 
         <table className="w-full text-center table-fixed">
           <thead className="text-slate-400 border-b border-slate-600">
             <tr className="text-[18px] ">
-              <th className="py-2 w-1/4">UUID del filtro</th>
-              <th className="py-2 w-1/4">Modelo</th>
-              <th className="py-2 w-1/4">Estatus</th>
-              <th className="py-2 w-1/4">Fecha de ingreso</th>
+             <th className="py-2 w-1/4">{t("common.pages.admin.table.uuid")}</th>
+              <th className="py-2 w-1/4">{t("common.pages.admin.table.model")}</th>
+              <th className="py-2 w-1/4">{t("common.pages.admin.table.status")}</th>
+              <th className="py-2 w-1/4">{t("common.pages.admin.table.date")}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-700">
@@ -176,7 +184,9 @@ export const AdminPage = () => {
                         : "bg-red-500/20 text-red-400"
                     }`}
                   >
-                    {filter.isActiveFilter() ? "Activo" : "Inactivo"}
+                    {filter.isActiveFilter()
+                      ? t("common.pages.admin.status.active")
+                      : t("common.pages.admin.status.inactive")}
                   </span>
                 </td>
                 <td className="py-3">
@@ -189,6 +199,7 @@ export const AdminPage = () => {
       </div>
 
       {/* Botón flotante */}
+      <LanguageToggleButton language={language} toggleLanguage={toggleLanguage} />
       <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
     </div>
   );

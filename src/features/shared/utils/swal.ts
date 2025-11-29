@@ -21,10 +21,11 @@ export const showErrorAlert = (message: string) =>
 
 export const showConfirmationAlert = async (
   message: string,
+  confirmTextLanguage: string,
   confirmText = "Sí, continuar"
 ): Promise<boolean> => {
   const result = await SweetAlert.fire({
-    title: "¿Estás seguro?",
+    title: confirmTextLanguage,
     text: message,
     icon: "question",
     showCancelButton: true,

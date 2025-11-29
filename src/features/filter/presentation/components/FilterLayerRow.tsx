@@ -4,7 +4,8 @@ import "./FlipCard.css";
 type SideData = {
   name: string;
   value: number;
-  status: "Bueno" | "Regular" | "Malo";
+  status: string;
+  statusKey?: "good" | "regular" | "bad";
   date: string;
   backContent?: string; 
 
@@ -18,19 +19,19 @@ type Props = {
 
 export const FilterLayerRow = ({ left, right, direction }: Props) => {
 const renderCard = (side: SideData) => {
-  return (
-    <div className="flip-card">
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
-          <FilterInfoCard {...side} />
-        </div>
-        <div className="flip-card-back">
-          {side.backContent || " No extra info"}
+    return (
+      <div className="flip-card">
+        <div className="flip-card-inner">
+          <div className="flip-card-front">
+            <FilterInfoCard {...side} />
+          </div>
+          <div className="flip-card-back">
+            {side.backContent || " No extra info"}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
 
   return (
