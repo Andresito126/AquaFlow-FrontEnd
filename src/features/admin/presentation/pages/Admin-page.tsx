@@ -51,7 +51,7 @@ export const AdminPage = () => {
 
     createFilter(
       search,
-      "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "223e4567-e89b-12d3-a456-426614174001",
       "Model X",
       new Date().toISOString(),
       false,

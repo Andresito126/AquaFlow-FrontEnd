@@ -23,8 +23,12 @@ export function FilterAssignmentCard({ userId, onAssigned }: Props) {
   useEffect(() => {
     async function fetchAssignedFilters() {
       try {
+        const token = localStorage.getItem("token");
         const res = await axios.get(`${baseUrl}/filters/by-user`, {
           params: { userId },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         const filtersFromApi = res.data.data.map(
@@ -58,10 +62,16 @@ export function FilterAssignmentCard({ userId, onAssigned }: Props) {
 
   const handleAssign = async () => {
     try {
+      const token = localStorage.getItem("token");
       const res = await axios.patch(
         `${baseUrl}/filters/${filterId}/assign-user`,
-        { userId }
-      );
+        { userId },
+        {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
       const newFilterData = res.data.data;
       const newFilter = new Filter(
         newFilterData.id,
