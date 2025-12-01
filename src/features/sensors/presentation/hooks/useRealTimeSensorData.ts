@@ -31,7 +31,7 @@ export const useRealTimeSensorsData = (userId: string) => {
     socketRef.current = socket;
 
     socket.on("connect", () => {
-      console.log("[RealTime] ✅ Socket conectado:", socket.id);
+      console.log("Socket conectado:", socket.id);
       socket.emit("join_room", userId); // te unes a la room
     });
 

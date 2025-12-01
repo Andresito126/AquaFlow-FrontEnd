@@ -109,33 +109,33 @@ export function FilterGeneralStatus({
 
         <div className="flex flex-col gap-1">
           <h2 className={`text-2xl font-bold ${color}`}>
-            {t("pages.filter.generalStatus.status")}: {label}
+            {t("common.pages.filter.generalStatus.status")}: {label}
           </h2>
 
           <p className="text-slate-700 dark:text-slate-300">
-            {t("pages.filter.generalStatus.daysLeft", { days: estimated_days })}
+            {t("common.pages.filter.generalStatus.daysLeft", { days: estimated_days })}
           </p>
 
           <p className="text-slate-700 dark:text-slate-300">
-            {t("pages.filter.generalStatus.probabilityChange", { value: probability_change })}
+            {t("common.pages.filter.generalStatus.probabilityChange", { value: probability_change })}
           </p>
 
           <p className="text-slate-700 dark:text-slate-300">
-            {t("pages.filter.generalStatus.recommendedChange", { date })}
+            {t("common.pages.filter.generalStatus.recommendedChange", { date })}
           </p>
         </div>
       </div>
 
       <div className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed">
         <p>
-          {t("pages.filter.generalStatus.info1", {
+          {t("common.pages.filter.generalStatus.info1", {
             status: status.toFixed(2),
             prob: probability_change
           })}
         </p>
 
         <p>
-          {t("pages.filter.generalStatus.info2", { date })}
+          {t("common.pages.filter.generalStatus.info2", { date })}
         </p>
       </div>
     </motion.div>

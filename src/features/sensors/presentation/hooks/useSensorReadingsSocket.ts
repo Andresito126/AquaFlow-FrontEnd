@@ -9,18 +9,18 @@ export const useSensorReadingsSocket = (userId: string) => {
   const socketRef = useRef<Socket | null>(null);
 
   useEffect(() => {
-    console.log("🔌 Conectando al socket...");
+    console.log(" Conectando al socket...");
 
     const socket = io(SOCKET_URL, { transports: ["websocket"] });
     socketRef.current = socket;
 
     socket.on("connect", () => {
-      console.log("✅ Socket conectado con ID:", socket.id);
+      console.log(" Socket conectado con ID:", socket.id);
       socket.emit("join_room", userId); // room del usuario
     });
 
     socket.on("send_sensor_readings", (payload: MeasurementsModel) => {
-      console.log("📡 Evento 'send_sensor_readings':", payload);
+      console.log(" Evento 'send_sensor_readings':", payload);
       setData(payload); // directo, sin verificación de user_id
     });
 
