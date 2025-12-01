@@ -1,8 +1,8 @@
-import ApiClient from "../../../../core/api/API1";
-import ApiClientSensors from "../../../../core/api/API_sensor_readings";
 import type { Filter } from "../models/Filter";
 import { FilterDTO } from "../models/FilterDTO";
 import type { FilterStatusWithHistory } from "../models/FilterStatusWithHistory";
+
+const BASE_URL = "http://44.217.95.165";
 
 export class FilterRepository {
   async create(filter: Filter): Promise<FilterDTO | null> {
@@ -27,18 +27,16 @@ export class FilterRepository {
         })),
       };
 
-      console.log(
-        " Payload enviado desde frontend (dto plano):",
-        JSON.stringify(payload, null, 2)
-      );
+      console.log("Payload enviado desde frontend:", JSON.stringify(payload, null, 2));
 
-      const response = await ApiClient.post("/filters", payload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const response = await fetch(`${BASE_URL}/filters`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      const responseData = response.data;
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const responseData = await response.json();
 
       return new FilterDTO(
         responseData.data.id,
@@ -72,9 +70,11 @@ export class FilterRepository {
 
   async getAll(): Promise<FilterDTO[]> {
     try {
-      const response = await ApiClient.get("/filters");
+      const response = await fetch(`${BASE_URL}/filters`);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
 
-      return response.data.data.map((filter: any) => {
+      return data.data.map((filter: any) => {
         return new FilterDTO(
           filter.id,
           filter.attributes.model,
@@ -92,22 +92,22 @@ export class FilterRepository {
     }
   }
 
-async assignFilterToUser(filterId: string, userId: string): Promise<Filter> {
-  const res = await ApiClient.patch(`/filters/${filterId}/assign-user`, {
-    userId,
-  });
-  return res.data.data;
-}
+  async assignFilterToUser(filterId: string, userId: string): Promise<Filter> {
+    const response = await fetch(`${BASE_URL}/filters/${filterId}/assign-user`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId }),
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const resData = await response.json();
+    return resData.data;
+  }
 
-
-
-  async getStatusById(
-    filterId: string
-  ): Promise<FilterStatusWithHistory | null> {
+  async getStatusById(filterId: string): Promise<FilterStatusWithHistory | null> {
     try {
-      const { data } = await ApiClientSensors.get<FilterStatusWithHistory>(
-        `/filters/${filterId}/status`
-      );
+      const response = await fetch(`${BASE_URL}/filters/${filterId}/status`);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
       return data;
     } catch (error) {
       console.error("Error fetching filter status:", error);
