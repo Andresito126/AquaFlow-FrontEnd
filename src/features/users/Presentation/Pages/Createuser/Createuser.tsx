@@ -108,7 +108,7 @@ const CreateUser = observer(() => {
             />
 
             <button type="submit" disabled={viewModel.isSubmitting}>
-              {viewModel.isSubmitting ? t("common.pages.register.") : t("common.pages.register.createAccount")}
+              {viewModel.isSubmitting ? t("common.pages.register.registering") : t("common.pages.register.createAccount")}
             </button>
           </form>
 
